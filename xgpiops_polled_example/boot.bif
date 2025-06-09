@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]E:\FPGAproject\Zynq7010Oscilloscope\platform\export\platform\sw\boot\fsbl.elf
+	E:\FPGAproject\Zynq7010Oscilloscope\xgpiops_polled_example\_ide\bitstream\design_1_wrapper.bit
+	E:\FPGAproject\Zynq7010Oscilloscope\xgpiops_polled_example\build\xgpiops_polled_example.elf
+}
