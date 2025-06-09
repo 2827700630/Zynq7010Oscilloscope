@@ -1,3 +1,17 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/bin/arm-none-eabi-gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/bin/arm-none-eabi-g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- The ASM compiler identification is GNU
+-- Found assembler: E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/bin/arm-none-eabi-gcc.exe
 -- Configuring done
 -- Generating done
 -- Build files have been written to: E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp
@@ -13,6 +27,9 @@ CMAKE_SIZE:FILEPATH=arm-none-eabi-size
 
 // Specs file path for using CMAKE toolchain files
 CMAKE_SPECS_FILE:STRING=E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/Xilinx.spec
+
+// The CMake toolchain file
+CMAKE_TOOLCHAIN_FILE:FILEPATH=E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/cortexa9_toolchain.cmake
 
 // Device Id
 DEVICE_ID:STRING=7z010

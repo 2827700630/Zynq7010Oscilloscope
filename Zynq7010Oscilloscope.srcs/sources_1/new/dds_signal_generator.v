@@ -62,72 +62,74 @@ module dds_signal_generator (
     reg [23:0] phase_accumulator;    // 相位累加器
     reg [8:0] rom_address;           // ROM地址
     
-    // 控制信号分频和边沿检测
-    reg [15:0] control_divider;      // 控制信号分频计数器 (50MHz->1.5KHz)
-    reg control_clk_enable;          // 控制时钟使能信号
-    reg freq_change_pulse_sync1, freq_change_pulse_sync2; // 频率切换脉冲同步
-    reg wave_change_pulse_sync1, wave_change_pulse_sync2; // 波形切换脉冲同步
-    reg freq_change_pulse_prev, wave_change_pulse_prev;   // 前一时刻的脉冲状态
+    // 移除控制信号分频和同步相关的寄存器
+    // reg [15:0] control_divider;      // 控制信号分频计数器 (50MHz->1.5KHz)
+    // reg control_clk_enable;          // 控制时钟使能信号
+    // reg freq_change_pulse_sync1, freq_change_pulse_sync2; // 频率切换脉冲同步
+    // reg wave_change_pulse_sync1, wave_change_pulse_sync2; // 波形切换脉冲同步
+
+    // 用于直接检测输入脉冲边沿的寄存器
+    reg freq_change_pulse_prev_input;   // 前一时刻的频率切换脉冲状态 (直接来自输入)
+    reg wave_change_pulse_prev_input;   // 前一时刻的波形切换脉冲状态 (直接来自输入)
     
     // 波形选择输出
     reg [7:0] selected_wave_data;    // 选择的波形数据    //===========================================================================
-    // 控制信号同步和分频逻辑
+    // 控制信号同步和分频逻辑 (已移除)
     // 将外部控制信号同步到DAC时钟域，并产生控制时钟使能
     //===========================================================================
-    always @(posedge dac_clk_50mhz) begin
-        // 控制信号分频：50MHz / 32768 ≈ 1.5KHz，降低控制逻辑的工作频率
-        control_divider <= control_divider + 16'd1;
-        if (control_divider == 16'd32767) begin
-            control_clk_enable <= 1'b1;
-            control_divider <= 16'd0;
-        end else begin
-            control_clk_enable <= 1'b0;
-        end
-        
-        // 将控制脉冲同步到DAC时钟域（两级同步防止亚稳态）
-        freq_change_pulse_sync1 <= freq_change_pulse;
-        freq_change_pulse_sync2 <= freq_change_pulse_sync1;
-        wave_change_pulse_sync1 <= wave_change_pulse;
-        wave_change_pulse_sync2 <= wave_change_pulse_sync1;
-    end
+    // always @(posedge dac_clk_50mhz) begin
+    //     // 控制信号分频：50MHz / 32768 ≈ 1.5KHz，降低控制逻辑的工作频率
+    //     control_divider <= control_divider + 16'd1;
+    //     if (control_divider == 16'd32767) begin
+    //         control_clk_enable <= 1'b1;
+    //         control_divider <= 16'd0;
+    //     end else begin
+    //         control_clk_enable <= 1'b0;
+    //     end
+    //     
+    //     // 将控制脉冲同步到DAC时钟域（两级同步防止亚稳态）
+    //     freq_change_pulse_sync1 <= freq_change_pulse;
+    //     freq_change_pulse_sync2 <= freq_change_pulse_sync1;
+    //     wave_change_pulse_sync1 <= wave_change_pulse;
+    //     wave_change_pulse_sync2 <= wave_change_pulse_sync1;
+    // end
 
     //===========================================================================
-    // 频率控制逻辑 - 8种频率循环切换
+    // 频率控制逻辑 - 8种频率循环切换 (直接使用输入脉冲)
     //===========================================================================
     always @(posedge dac_clk_50mhz) begin
-        freq_change_pulse_prev <= freq_change_pulse_sync2;
+        freq_change_pulse_prev_input <= freq_change_pulse; // 保存当前周期的输入脉冲状态
         
-        // 检测频率切换脉冲的上升沿
-        if (control_clk_enable && freq_change_pulse_sync2 && !freq_change_pulse_prev) begin
+        // 检测频率切换脉冲的上升沿 (当前为高，上一周期为低)
+        if (freq_change_pulse && !freq_change_pulse_prev_input) begin
             freq_index_counter <= freq_index_counter + 3'b1;
         end
     end
 
     // 频率步进值选择
     always @(posedge dac_clk_50mhz) begin
-        if (control_clk_enable) begin
-            case (freq_index_counter)
-                3'd0: frequency_step <= FREQ_STEP_100HZ;   // 100 Hz
-                3'd1: frequency_step <= FREQ_STEP_1KHZ;    // 1 kHz
-                3'd2: frequency_step <= FREQ_STEP_2K5HZ;   // 2.5 kHz
-                3'd3: frequency_step <= FREQ_STEP_10KHZ;   // 10 kHz
-                3'd4: frequency_step <= FREQ_STEP_20KHZ;   // 20 kHz
-                3'd5: frequency_step <= FREQ_STEP_100KHZ;  // 100 kHz
-                3'd6: frequency_step <= FREQ_STEP_1MHZ;    // 1 MHz
-                3'd7: frequency_step <= FREQ_STEP_2M5HZ;   // 2.5 MHz
-                default: frequency_step <= FREQ_STEP_1KHZ; // 默认1kHz
-            endcase
-        end
+        // 移除了 control_clk_enable 条件
+        case (freq_index_counter)
+            3'd0: frequency_step <= FREQ_STEP_100HZ;   // 100 Hz
+            3'd1: frequency_step <= FREQ_STEP_1KHZ;    // 1 kHz
+            3'd2: frequency_step <= FREQ_STEP_2K5HZ;   // 2.5 kHz
+            3'd3: frequency_step <= FREQ_STEP_10KHZ;   // 10 kHz
+            3'd4: frequency_step <= FREQ_STEP_20KHZ;   // 20 kHz
+            3'd5: frequency_step <= FREQ_STEP_100KHZ;  // 100 kHz
+            3'd6: frequency_step <= FREQ_STEP_1MHZ;    // 1 MHz
+            3'd7: frequency_step <= FREQ_STEP_2M5HZ;   // 2.5 MHz
+            default: frequency_step <= FREQ_STEP_1KHZ; // 默认1kHz
+        endcase
     end
 
     //===========================================================================
-    // 波形类型控制逻辑 - 3种波形循环切换
+    // 波形类型控制逻辑 - 3种波形循环切换 (直接使用输入脉冲)
     //===========================================================================
     always @(posedge dac_clk_50mhz) begin
-        wave_change_pulse_prev <= wave_change_pulse_sync2;
+        wave_change_pulse_prev_input <= wave_change_pulse; // 保存当前周期的输入脉冲状态
         
-        // 检测波形切换脉冲的上升沿
-        if (control_clk_enable && wave_change_pulse_sync2 && !wave_change_pulse_prev) begin
+        // 检测波形切换脉冲的上升沿 (当前为高，上一周期为低)
+        if (wave_change_pulse && !wave_change_pulse_prev_input) begin
             wave_type_counter <= wave_type_counter + 2'b1;
         end
     end

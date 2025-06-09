@@ -1,4 +1,0 @@
-ERROR: Exception caught trying to open file E:\FPGAproject\Zynq7010Oscilloscope\Zynq7010Oscilloscope.runs\impl_1/runme.log
-	Exception name: Error
-	Exception error code: 70
-	Exception message: 没有权限

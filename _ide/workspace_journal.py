@@ -34,3 +34,10 @@ comp.build()
 
 client.delete_component(name="zynq_fsbl")
 
+status = platform.update_hw(hw_design = "$COMPONENT_LOCATION/../design_1_wrapper.xsa")
+
+status = platform.build()
+
+comp = client.get_component(name="xgpiops_polled_example")
+comp.build()
+

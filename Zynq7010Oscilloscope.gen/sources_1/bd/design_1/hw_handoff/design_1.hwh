@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jun  9 20:35:32 2025" VIVADOVERSION="2025.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jun  9 22:55:40 2025" VIVADOVERSION="2025.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -147,27 +147,27 @@
     </PORT>
     <PORT DIR="I" NAME="key_extract_sel_0" SIGIS="undef" SIGNAME="External_Ports_key_extract_sel_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="key_debounce_0" PORT="key_extract_sel"/>
         <CONNECTION INSTANCE="ila_0" PORT="probe5"/>
+        <CONNECTION INSTANCE="key_debounce_0" PORT="key_extract_sel"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="key_freq_sel_0" SIGIS="undef" SIGNAME="External_Ports_key_freq_sel_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="key_debounce_0" PORT="key_freq_sel"/>
         <CONNECTION INSTANCE="ila_0" PORT="probe3"/>
         <CONNECTION INSTANCE="External_Ports" PORT="LED2"/>
+        <CONNECTION INSTANCE="key_debounce_0" PORT="key_freq_sel"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="key_reset_0" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_key_reset_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="key_debounce_0" PORT="key_reset"/>
         <CONNECTION INSTANCE="ila_0" PORT="probe6"/>
+        <CONNECTION INSTANCE="key_debounce_0" PORT="key_reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="key_wave_sel_0" SIGIS="undef" SIGNAME="External_Ports_key_wave_sel_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="key_debounce_0" PORT="key_wave_sel"/>
         <CONNECTION INSTANCE="ila_0" PORT="probe4"/>
+        <CONNECTION INSTANCE="key_debounce_0" PORT="key_wave_sel"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -307,7 +307,7 @@
         <PARAMETER NAME="C_CLKOUT2_USED" VALUE="1"/>
         <PARAMETER NAME="C_CLKOUT3_1" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT3_2" VALUE="0000"/>
-        <PARAMETER NAME="C_CLKOUT3_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT3_ACTUAL_FREQ" VALUE="25.00000"/>
         <PARAMETER NAME="C_CLKOUT3_DRIVES" VALUE="BUFG"/>
         <PARAMETER NAME="C_CLKOUT3_DUTY_CYCLE" VALUE="50.0"/>
         <PARAMETER NAME="C_CLKOUT3_MATCHED_ROUTING" VALUE="false"/>
@@ -322,15 +322,15 @@
         <PARAMETER NAME="C_CLKOUT4_2" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT4_ACTUAL_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT4_DRIVES" VALUE="BUFG"/>
-        <PARAMETER NAME="C_CLKOUT4_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT4_DUTY_CYCLE" VALUE="50.0"/>
         <PARAMETER NAME="C_CLKOUT4_MATCHED_ROUTING" VALUE="false"/>
-        <PARAMETER NAME="C_CLKOUT4_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT4_OUT_FREQ" VALUE="25.00000"/>
         <PARAMETER NAME="C_CLKOUT4_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_CLKOUT4_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
-        <PARAMETER NAME="C_CLKOUT4_REQUESTED_OUT_FREQ" VALUE="50"/>
+        <PARAMETER NAME="C_CLKOUT4_REQUESTED_OUT_FREQ" VALUE="25"/>
         <PARAMETER NAME="C_CLKOUT4_REQUESTED_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_CLKOUT4_SEQUENCE_NUMBER" VALUE="1"/>
-        <PARAMETER NAME="C_CLKOUT4_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT4_USED" VALUE="1"/>
         <PARAMETER NAME="C_CLKOUT5_1" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT5_2" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT5_ACTUAL_FREQ" VALUE="100.000"/>
@@ -372,7 +372,7 @@
         <PARAMETER NAME="C_CLK_OUT1_PORT" VALUE="dac_clk50"/>
         <PARAMETER NAME="C_CLK_OUT2_PORT" VALUE="adc_clk25"/>
         <PARAMETER NAME="C_CLK_OUT3_PORT" VALUE="ila"/>
-        <PARAMETER NAME="C_CLK_OUT4_PORT" VALUE="dac_clk"/>
+        <PARAMETER NAME="C_CLK_OUT4_PORT" VALUE="key"/>
         <PARAMETER NAME="C_CLK_OUT5_PORT" VALUE="clk_out5"/>
         <PARAMETER NAME="C_CLK_OUT6_PORT" VALUE="clk_out6"/>
         <PARAMETER NAME="C_CLK_OUT7_PORT" VALUE="clk_out7"/>
@@ -386,7 +386,7 @@
         <PARAMETER NAME="C_DIVIDE1_AUTO" VALUE="1"/>
         <PARAMETER NAME="C_DIVIDE2_AUTO" VALUE="2.0"/>
         <PARAMETER NAME="C_DIVIDE3_AUTO" VALUE="10.0"/>
-        <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="0.08"/>
+        <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="2.0"/>
         <PARAMETER NAME="C_DIVIDE5_AUTO" VALUE="0.08"/>
         <PARAMETER NAME="C_DIVIDE6_AUTO" VALUE="0.08"/>
         <PARAMETER NAME="C_DIVIDE7_AUTO" VALUE="0.08"/>
@@ -444,7 +444,7 @@
         <PARAMETER NAME="C_MMCM_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="C_MMCM_CLKOUT2_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_MMCM_CLKOUT2_USE_FINE_PS" VALUE="FALSE"/>
-        <PARAMETER NAME="C_MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_DIVIDE" VALUE="25"/>
         <PARAMETER NAME="C_MMCM_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="C_MMCM_CLKOUT3_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_MMCM_CLKOUT3_USE_FINE_PS" VALUE="FALSE"/>
@@ -470,14 +470,14 @@
         <PARAMETER NAME="C_MMCM_STARTUP_WAIT" VALUE="FALSE"/>
         <PARAMETER NAME="C_M_MAX" VALUE="64.000"/>
         <PARAMETER NAME="C_M_MIN" VALUE="2.000"/>
-        <PARAMETER NAME="C_NUM_OUT_CLKS" VALUE="3"/>
+        <PARAMETER NAME="C_NUM_OUT_CLKS" VALUE="4"/>
         <PARAMETER NAME="C_OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="0"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0A" VALUE="Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0B" VALUE="Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="dac_clk50__50.00000______0.000______50.0______241.980____150.329"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="adc_clk25__25.00000______0.000______50.0______279.698____150.329"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW3" VALUE="_____ila___5.00000______0.000______50.0______384.410____150.329"/>
-        <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="no_CLK_OUT4_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="_____key__25.00000______0.000______50.0______279.698____150.329"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW6" VALUE="no_CLK_OUT6_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW7" VALUE="no_CLK_OUT7_output"/>
@@ -623,14 +623,14 @@
         <PARAMETER NAME="CLKOUT3_SEQUENCE_NUMBER" VALUE="1"/>
         <PARAMETER NAME="CLKOUT3_USED" VALUE="true"/>
         <PARAMETER NAME="CLKOUT4_DRIVES" VALUE="BUFG"/>
-        <PARAMETER NAME="CLKOUT4_JITTER" VALUE="226.402"/>
+        <PARAMETER NAME="CLKOUT4_JITTER" VALUE="279.698"/>
         <PARAMETER NAME="CLKOUT4_MATCHED_ROUTING" VALUE="false"/>
-        <PARAMETER NAME="CLKOUT4_PHASE_ERROR" VALUE="228.227"/>
+        <PARAMETER NAME="CLKOUT4_PHASE_ERROR" VALUE="150.329"/>
         <PARAMETER NAME="CLKOUT4_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
-        <PARAMETER NAME="CLKOUT4_REQUESTED_OUT_FREQ" VALUE="50"/>
+        <PARAMETER NAME="CLKOUT4_REQUESTED_OUT_FREQ" VALUE="25"/>
         <PARAMETER NAME="CLKOUT4_REQUESTED_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="CLKOUT4_SEQUENCE_NUMBER" VALUE="1"/>
-        <PARAMETER NAME="CLKOUT4_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT4_USED" VALUE="true"/>
         <PARAMETER NAME="CLKOUT5_DRIVES" VALUE="BUFG"/>
         <PARAMETER NAME="CLKOUT5_JITTER" VALUE="0.0"/>
         <PARAMETER NAME="CLKOUT5_MATCHED_ROUTING" VALUE="false"/>
@@ -668,7 +668,7 @@
         <PARAMETER NAME="CLK_OUT2_USE_FINE_PS_GUI" VALUE="false"/>
         <PARAMETER NAME="CLK_OUT3_PORT" VALUE="ila"/>
         <PARAMETER NAME="CLK_OUT3_USE_FINE_PS_GUI" VALUE="false"/>
-        <PARAMETER NAME="CLK_OUT4_PORT" VALUE="dac_clk"/>
+        <PARAMETER NAME="CLK_OUT4_PORT" VALUE="key"/>
         <PARAMETER NAME="CLK_OUT4_USE_FINE_PS_GUI" VALUE="false"/>
         <PARAMETER NAME="CLK_OUT5_PORT" VALUE="clk_out5"/>
         <PARAMETER NAME="CLK_OUT5_USE_FINE_PS_GUI" VALUE="false"/>
@@ -724,7 +724,7 @@
         <PARAMETER NAME="MMCM_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="MMCM_CLKOUT2_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="MMCM_CLKOUT2_USE_FINE_PS" VALUE="false"/>
-        <PARAMETER NAME="MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_DIVIDE" VALUE="25"/>
         <PARAMETER NAME="MMCM_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="MMCM_CLKOUT3_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="MMCM_CLKOUT3_USE_FINE_PS" VALUE="false"/>
@@ -748,7 +748,7 @@
         <PARAMETER NAME="MMCM_REF_JITTER1" VALUE="0.010"/>
         <PARAMETER NAME="MMCM_REF_JITTER2" VALUE="0.010"/>
         <PARAMETER NAME="MMCM_STARTUP_WAIT" VALUE="false"/>
-        <PARAMETER NAME="NUM_OUT_CLKS" VALUE="3"/>
+        <PARAMETER NAME="NUM_OUT_CLKS" VALUE="4"/>
         <PARAMETER NAME="OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="false"/>
         <PARAMETER NAME="OVERRIDE_MMCM" VALUE="false"/>
         <PARAMETER NAME="OVERRIDE_PLL" VALUE="false"/>
@@ -840,7 +840,6 @@
         <PORT CLKFREQUENCY="25000000" DIR="O" NAME="adc_clk25" SIGIS="clk" SIGNAME="clk_wiz_0_adc_clk25">
           <CONNECTIONS>
             <CONNECTION INSTANCE="trigger_controller_0" PORT="adc_clk_25mhz"/>
-            <CONNECTION INSTANCE="key_debounce_0" PORT="clk_25mhz"/>
             <CONNECTION INSTANCE="data_extract_0" PORT="adc_clk_25mhz"/>
             <CONNECTION INSTANCE="digital_trigger_dete_0" PORT="adc_clk_25mhz"/>
             <CONNECTION INSTANCE="adc_data_acquisition_0" PORT="adc_clk_25mhz"/>
@@ -856,15 +855,18 @@
         <PORT CLKFREQUENCY="50000000" DIR="O" NAME="dac_clk50" SIGIS="clk" SIGNAME="clk_wiz_0_dac_clk50">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="dac_clk_0"/>
-            <CONNECTION INSTANCE="dds_signal_generator_0" PORT="dac_clk_50mhz"/>
             <CONNECTION INSTANCE="sine" PORT="clka"/>
             <CONNECTION INSTANCE="square" PORT="clka"/>
             <CONNECTION INSTANCE="triangle" PORT="clka"/>
+            <CONNECTION INSTANCE="ila_0" PORT="clk"/>
+            <CONNECTION INSTANCE="dds_signal_generator_0" PORT="dac_clk_50mhz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="5000000" DIR="O" NAME="ila" SIGIS="clk" SIGNAME="clk_wiz_0_ila">
+        <PORT CLKFREQUENCY="5000000" DIR="O" NAME="ila" SIGIS="clk"/>
+        <PORT CLKFREQUENCY="25000000" DIR="O" NAME="key" SIGIS="clk" SIGNAME="clk_wiz_0_key">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_0" PORT="clk"/>
+            <CONNECTION INSTANCE="key_debounce_0" PORT="clk_25mhz"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe9"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -992,14 +994,14 @@
             <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="trigger_hysteresis" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_2_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconstant_2" PORT="dout"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="7" NAME="trigger_level" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+        <PORT DIR="I" LEFT="2" NAME="trigger_hysteresis" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="trigger_level" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_3_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_3" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1468,7 +1470,7 @@
         <PARAMETER NAME="C_MU_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="9"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="10"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_TYPE" VALUE="0"/>
@@ -4576,9 +4578,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="5000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_0_ila">
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_0_dac_clk50">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="ila"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="dac_clk50"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="7" NAME="probe0" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_adc_data_input_0">
@@ -4626,6 +4628,11 @@
             <CONNECTION INSTANCE="key_debounce_0" PORT="wave_change_pulse"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe9" RIGHT="0" SIGIS="undef" SIGNAME="clk_wiz_0_key">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="key"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -4636,9 +4643,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="clk_25mhz" SIGIS="undef" SIGNAME="clk_wiz_0_adc_clk25">
+        <PORT DIR="I" NAME="clk_25mhz" SIGIS="undef" SIGNAME="clk_wiz_0_key">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="adc_clk25"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="key"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="extract_change_pulse" SIGIS="undef" SIGNAME="key_debounce_0_extract_change_pulse">
@@ -4648,9 +4655,9 @@
         </PORT>
         <PORT DIR="O" NAME="freq_change_pulse" SIGIS="undef" SIGNAME="key_debounce_0_freq_change_pulse">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="dds_signal_generator_0" PORT="freq_change_pulse"/>
             <CONNECTION INSTANCE="ila_0" PORT="probe7"/>
             <CONNECTION INSTANCE="External_Ports" PORT="LED1"/>
+            <CONNECTION INSTANCE="dds_signal_generator_0" PORT="freq_change_pulse"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="key_extract_sel" SIGIS="undef" SIGNAME="External_Ports_key_extract_sel_0">
@@ -4680,8 +4687,8 @@
         </PORT>
         <PORT DIR="O" NAME="wave_change_pulse" SIGIS="undef" SIGNAME="key_debounce_0_wave_change_pulse">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="dds_signal_generator_0" PORT="wave_change_pulse"/>
             <CONNECTION INSTANCE="ila_0" PORT="probe8"/>
+            <CONNECTION INSTANCE="dds_signal_generator_0" PORT="wave_change_pulse"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6562,7 +6569,7 @@
       <PARAMETERS>
         <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
         <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -6577,32 +6584,32 @@
     <MODULE COREREVISION="10" FULLNAME="/xlconstant_1" HWVERSION="1.1" INSTANCE="xlconstant_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x78"/>
-        <PARAMETER NAME="CONST_WIDTH" VALUE="8"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_1_0"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x3"/>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="3"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_1_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+        <PORT DIR="O" LEFT="2" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="digital_trigger_dete_0" PORT="trigger_level"/>
+            <CONNECTION INSTANCE="digital_trigger_dete_0" PORT="trigger_hysteresis"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="10" FULLNAME="/xlconstant_2" HWVERSION="1.1" INSTANCE="xlconstant_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+    <MODULE COREREVISION="10" FULLNAME="/xlconstant_3" HWVERSION="1.1" INSTANCE="xlconstant_3" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x3"/>
-        <PARAMETER NAME="CONST_WIDTH" VALUE="3"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_2_0"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x78"/>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_3_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="2" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_2_dout">
+        <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_3_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="digital_trigger_dete_0" PORT="trigger_hysteresis"/>
+            <CONNECTION INSTANCE="digital_trigger_dete_0" PORT="trigger_level"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

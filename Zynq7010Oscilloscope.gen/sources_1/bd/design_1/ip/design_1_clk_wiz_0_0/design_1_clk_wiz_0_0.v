@@ -56,6 +56,7 @@
 // dac_clk50__50.00000______0.000______50.0______241.980____150.329
 // adc_clk25__25.00000______0.000______50.0______279.698____150.329
 // _____ila___5.00000______0.000______50.0______384.410____150.329
+// _____key__25.00000______0.000______50.0______279.698____150.329
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -64,7 +65,7 @@
 
 `timescale 1ps/1ps
 
-(* CORE_GENERATION_INFO = "design_1_clk_wiz_0_0,clk_wiz_v6_0_16_0_0,{component_name=design_1_clk_wiz_0_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=3,clkin1_period=20.000,clkin2_period=10.0,use_power_down=false,use_reset=false,use_locked=false,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
+(* CORE_GENERATION_INFO = "design_1_clk_wiz_0_0,clk_wiz_v6_0_16_0_0,{component_name=design_1_clk_wiz_0_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=4,clkin1_period=20.000,clkin2_period=10.0,use_power_down=false,use_reset=false,use_locked=false,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
 
 module design_1_clk_wiz_0_0 
  (
@@ -72,6 +73,7 @@ module design_1_clk_wiz_0_0
   output        dac_clk50,
   output        adc_clk25,
   output        ila,
+  output        key,
  // Clock in ports
   input         clk_in1
  );
@@ -82,6 +84,7 @@ module design_1_clk_wiz_0_0
   .dac_clk50(dac_clk50),
   .adc_clk25(adc_clk25),
   .ila(ila),
+  .key(key),
  // Clock in ports
   .clk_in1(clk_in1)
   );

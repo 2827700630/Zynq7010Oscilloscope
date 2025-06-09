@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Mon Jun  9 20:35:31 2025
+//Date        : Mon Jun  9 22:55:39 2025
 //Host        : myhym running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -104,7 +104,7 @@ module design_1
   wire [7:0]adc_data_acquisition_0_adc_data_buffered;
   wire adc_data_acquisition_0_fifo_reset_signal;
   wire [7:0]adc_data_input_0;
-  wire clk_wiz_0_ila;
+  wire clk_wiz_0_key;
   wire crystal_clk_50mhz;
   wire dac_clk_0;
   wire [7:0]dac_data_out_0;
@@ -129,8 +129,8 @@ module design_1
   wire trigger_controller_0_fifo_write_enable;
   wire trigger_controller_0_fifo_write_ready;
   wire [0:0]xlconstant_0_dout;
-  wire [7:0]xlconstant_1_dout;
-  wire [2:0]xlconstant_2_dout;
+  wire [2:0]xlconstant_1_dout;
+  wire [7:0]xlconstant_3_dout;
 
   assign LED2 = key_freq_sel_0;
   design_1_adc_data_acquisition_0_0 adc_data_acquisition_0
@@ -143,7 +143,7 @@ module design_1
        (.adc_clk25(adc_clk_0),
         .clk_in1(crystal_clk_50mhz),
         .dac_clk50(dac_clk_0),
-        .ila(clk_wiz_0_ila));
+        .key(clk_wiz_0_key));
   design_1_data_extract_0_0 data_extract_0
        (.adc_clk_25mhz(adc_clk_0),
         .data_extract_pulse(data_extract_0_data_extract_pulse),
@@ -165,8 +165,8 @@ module design_1
         .adc_data_in(adc_data_acquisition_0_adc_data_buffered),
         .digital_trigger_out(digital_trigger_dete_0_digital_trigger_out),
         .trigger_enable(xlconstant_0_dout),
-        .trigger_hysteresis(xlconstant_2_dout),
-        .trigger_level(xlconstant_1_dout));
+        .trigger_hysteresis(xlconstant_1_dout),
+        .trigger_level(xlconstant_3_dout));
   design_1_fifo_generator_0_0 fifo_generator_0
        (.clk(adc_clk_0),
         .din(adc_data_acquisition_0_adc_data_buffered),
@@ -176,7 +176,7 @@ module design_1
         .srst(adc_data_acquisition_0_fifo_reset_signal),
         .wr_en(trigger_controller_0_fifo_write_enable));
   design_1_ila_0_0 ila_0
-       (.clk(clk_wiz_0_ila),
+       (.clk(dac_clk_0),
         .probe0(adc_data_input_0),
         .probe1(dac_data_out_0),
         .probe2(adc_data_acquisition_0_adc_data_buffered),
@@ -185,9 +185,10 @@ module design_1
         .probe5(key_extract_sel_0),
         .probe6(key_reset_0),
         .probe7(LED1),
-        .probe8(key_debounce_0_wave_change_pulse));
+        .probe8(key_debounce_0_wave_change_pulse),
+        .probe9(clk_wiz_0_key));
   design_1_key_debounce_0_0 key_debounce_0
-       (.clk_25mhz(adc_clk_0),
+       (.clk_25mhz(clk_wiz_0_key),
         .extract_change_pulse(key_debounce_0_extract_change_pulse),
         .freq_change_pulse(LED1),
         .key_extract_sel(key_extract_sel_0),
@@ -258,10 +259,10 @@ module design_1
         .fifo_read_enable(trigger_controller_0_fifo_read_enable),
         .fifo_write_enable(trigger_controller_0_fifo_write_enable),
         .fifo_write_ready(trigger_controller_0_fifo_write_ready));
-  design_1_xlconstant_0_0 xlconstant_0
+  design_1_xlconstant_0_1 xlconstant_0
        (.dout(xlconstant_0_dout));
-  design_1_xlconstant_1_0 xlconstant_1
+  design_1_xlconstant_1_1 xlconstant_1
        (.dout(xlconstant_1_dout));
-  design_1_xlconstant_2_0 xlconstant_2
-       (.dout(xlconstant_2_dout));
+  design_1_xlconstant_3_0 xlconstant_3
+       (.dout(xlconstant_3_dout));
 endmodule

@@ -19,14 +19,14 @@
       "key_debounce_0": "",
       "trigger_controller_0": "",
       "adc_data_acquisition_0": "",
-      "xlconstant_0": "",
-      "xlconstant_1": "",
-      "xlconstant_2": "",
       "sine": "",
       "square": "",
       "triangle": "",
       "fifo_generator_0": "",
-      "ila_0": ""
+      "ila_0": "",
+      "xlconstant_3": "",
+      "xlconstant_1": "",
+      "xlconstant_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1238,16 +1238,16 @@
             "value": "true"
           },
           "CLKOUT4_JITTER": {
-            "value": "226.402"
+            "value": "279.698"
           },
           "CLKOUT4_PHASE_ERROR": {
-            "value": "228.227"
+            "value": "150.329"
           },
           "CLKOUT4_REQUESTED_OUT_FREQ": {
-            "value": "50"
+            "value": "25"
           },
           "CLKOUT4_USED": {
-            "value": "false"
+            "value": "true"
           },
           "CLK_OUT1_PORT": {
             "value": "dac_clk50"
@@ -1259,7 +1259,7 @@
             "value": "ila"
           },
           "CLK_OUT4_PORT": {
-            "value": "dac_clk"
+            "value": "key"
           },
           "MMCM_CLKFBOUT_MULT_F": {
             "value": "12.500"
@@ -1280,13 +1280,13 @@
             "value": "125"
           },
           "MMCM_CLKOUT3_DIVIDE": {
-            "value": "1"
+            "value": "25"
           },
           "MMCM_DIVCLK_DIVIDE": {
             "value": "1"
           },
           "NUM_OUT_CLKS": {
-            "value": "3"
+            "value": "4"
           },
           "OVERRIDE_MMCM": {
             "value": "false"
@@ -1660,51 +1660,6 @@
           }
         }
       },
-      "xlconstant_0": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "ip_revision": "10",
-        "xci_name": "design_1_xlconstant_0_0",
-        "xci_path": "ip\\design_1_xlconstant_0_0\\design_1_xlconstant_0_0.xci",
-        "inst_hier_path": "xlconstant_0",
-        "has_run_ip_tcl": "true",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "1"
-          }
-        }
-      },
-      "xlconstant_1": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "ip_revision": "10",
-        "xci_name": "design_1_xlconstant_1_0",
-        "xci_path": "ip\\design_1_xlconstant_1_0\\design_1_xlconstant_1_0.xci",
-        "inst_hier_path": "xlconstant_1",
-        "has_run_ip_tcl": "true",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "120"
-          },
-          "CONST_WIDTH": {
-            "value": "8"
-          }
-        }
-      },
-      "xlconstant_2": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "ip_revision": "10",
-        "xci_name": "design_1_xlconstant_2_0",
-        "xci_path": "ip\\design_1_xlconstant_2_0\\design_1_xlconstant_2_0.xci",
-        "inst_hier_path": "xlconstant_2",
-        "has_run_ip_tcl": "true",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "3"
-          },
-          "CONST_WIDTH": {
-            "value": "3"
-          }
-        }
-      },
       "sine": {
         "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
         "ip_revision": "11",
@@ -1829,7 +1784,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "9"
+            "value": "10"
           },
           "C_PROBE0_WIDTH": {
             "value": "8"
@@ -1841,6 +1796,46 @@
             "value": "8"
           }
         }
+      },
+      "xlconstant_3": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "10",
+        "xci_name": "design_1_xlconstant_3_0",
+        "xci_path": "ip\\design_1_xlconstant_3_0\\design_1_xlconstant_3_0.xci",
+        "inst_hier_path": "xlconstant_3",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "120"
+          },
+          "CONST_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "10",
+        "xci_name": "design_1_xlconstant_1_1",
+        "xci_path": "ip\\design_1_xlconstant_1_1\\design_1_xlconstant_1_1.xci",
+        "inst_hier_path": "xlconstant_1",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "3"
+          },
+          "CONST_WIDTH": {
+            "value": "3"
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "10",
+        "xci_name": "design_1_xlconstant_0_1",
+        "xci_path": "ip\\design_1_xlconstant_0_1\\design_1_xlconstant_0_1.xci",
+        "inst_hier_path": "xlconstant_0",
+        "has_run_ip_tcl": "true"
       }
     },
     "interface_nets": {
@@ -1889,7 +1884,6 @@
         "ports": [
           "clk_wiz_0/adc_clk25",
           "trigger_controller_0/adc_clk_25mhz",
-          "key_debounce_0/clk_25mhz",
           "data_extract_0/adc_clk_25mhz",
           "digital_trigger_dete_0/adc_clk_25mhz",
           "adc_data_acquisition_0/adc_clk_25mhz",
@@ -1901,16 +1895,18 @@
         "ports": [
           "clk_wiz_0/dac_clk50",
           "dac_clk_0",
-          "dds_signal_generator_0/dac_clk_50mhz",
           "sine/clka",
           "square/clka",
-          "triangle/clka"
+          "triangle/clka",
+          "ila_0/clk",
+          "dds_signal_generator_0/dac_clk_50mhz"
         ]
       },
-      "clk_wiz_0_ila": {
+      "clk_wiz_0_key": {
         "ports": [
-          "clk_wiz_0/ila",
-          "ila_0/clk"
+          "clk_wiz_0/key",
+          "key_debounce_0/clk_25mhz",
+          "ila_0/probe9"
         ]
       },
       "data_extract_0_data_extract_pulse": {
@@ -1971,9 +1967,9 @@
       "key_debounce_0_freq_change_pulse": {
         "ports": [
           "key_debounce_0/freq_change_pulse",
-          "dds_signal_generator_0/freq_change_pulse",
           "ila_0/probe7",
-          "LED1"
+          "LED1",
+          "dds_signal_generator_0/freq_change_pulse"
         ]
       },
       "key_debounce_0_reset_pulse": {
@@ -1985,37 +1981,37 @@
       "key_debounce_0_wave_change_pulse": {
         "ports": [
           "key_debounce_0/wave_change_pulse",
-          "dds_signal_generator_0/wave_change_pulse",
-          "ila_0/probe8"
+          "ila_0/probe8",
+          "dds_signal_generator_0/wave_change_pulse"
         ]
       },
       "key_extract_sel_0_1": {
         "ports": [
           "key_extract_sel_0",
-          "key_debounce_0/key_extract_sel",
-          "ila_0/probe5"
+          "ila_0/probe5",
+          "key_debounce_0/key_extract_sel"
         ]
       },
       "key_freq_sel_0_1": {
         "ports": [
           "key_freq_sel_0",
-          "key_debounce_0/key_freq_sel",
           "ila_0/probe3",
-          "LED2"
+          "LED2",
+          "key_debounce_0/key_freq_sel"
         ]
       },
       "key_reset_0_1": {
         "ports": [
           "key_reset_0",
-          "key_debounce_0/key_reset",
-          "ila_0/probe6"
+          "ila_0/probe6",
+          "key_debounce_0/key_reset"
         ]
       },
       "key_wave_sel_0_1": {
         "ports": [
           "key_wave_sel_0",
-          "key_debounce_0/key_wave_sel",
-          "ila_0/probe4"
+          "ila_0/probe4",
+          "key_debounce_0/key_wave_sel"
         ]
       },
       "processing_system7_0_FCLK_CLK0": {
@@ -2069,13 +2065,13 @@
       "xlconstant_1_dout": {
         "ports": [
           "xlconstant_1/dout",
-          "digital_trigger_dete_0/trigger_level"
+          "digital_trigger_dete_0/trigger_hysteresis"
         ]
       },
-      "xlconstant_2_dout": {
+      "xlconstant_3_dout": {
         "ports": [
-          "xlconstant_2/dout",
-          "digital_trigger_dete_0/trigger_hysteresis"
+          "xlconstant_3/dout",
+          "digital_trigger_dete_0/trigger_level"
         ]
       }
     }

@@ -115,13 +115,13 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/CMakeFiles/pkgRedirects
 
 //No help, variable specified on the command line.
-CMAKE_INCLUDE_PATH:UNINITIALIZED=E:\FPGAproject\Zynq7010Oscilloscope\platform\zynq_fsbl\zynq_fsbl_bsp\include
+CMAKE_INCLUDE_PATH:UNINITIALIZED=E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include
 
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/bsp
 
 //No help, variable specified on the command line.
-CMAKE_LIBRARY_PATH:UNINITIALIZED=E:\FPGAproject\Zynq7010Oscilloscope\platform\zynq_fsbl\zynq_fsbl_bsp\lib
+CMAKE_LIBRARY_PATH:UNINITIALIZED=E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/lib
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/bin/arm-none-eabi-ld.exe
@@ -150,7 +150,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //No help, variable specified on the command line.
-CMAKE_MODULE_PATH:UNINITIALIZED=E:\FPGAproject\Zynq7010Oscilloscope\platform\zynq_fsbl\zynq_fsbl_bsp
+CMAKE_MODULE_PATH:UNINITIALIZED=E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp
 
 //Path to a program.
 CMAKE_NM:FILEPATH=E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/bin/arm-none-eabi-nm.exe
@@ -207,7 +207,7 @@ CMAKE_SKIP_INSTALL_RPATH:BOOL=NO
 CMAKE_SKIP_RPATH:BOOL=NO
 
 //Specs file path for using CMAKE toolchain files
-CMAKE_SPECS_FILE:STRING=E:\FPGAproject\Zynq7010Oscilloscope\platform\zynq_fsbl\zynq_fsbl_bsp\Xilinx.spec
+CMAKE_SPECS_FILE:STRING=E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/Xilinx.spec
 
 //Flags used by the linker during the creation of static libraries
 // during all build types.
@@ -233,7 +233,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_STRIP:FILEPATH=E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/bin/arm-none-eabi-strip.exe
 
 //No help, variable specified on the command line.
-CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=E:\FPGAproject\Zynq7010Oscilloscope\platform\zynq_fsbl\zynq_fsbl_bsp\cortexa9_toolchain.cmake
+CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/cortexa9_toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -272,7 +272,7 @@ TOOLCHAIN_DEP_FLAGS:STRING= -MMD -MP
 TOOLCHAIN_EXTRA_C_FLAGS:STRING= -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
 
 //0:Disable exFAT, 1:Enable exFAT(Also Enables LFN)
-XILFFS_enable_exfat:BOOL=true
+XILFFS_enable_exfat:BOOL=ON
 
 //0:Single partition, 1:Enable multiple partition
 XILFFS_enable_multi_partition:BOOL=OFF
@@ -295,7 +295,7 @@ XILFFS_ramfs_start_addr:STRING=
 
 //Enables the file system in Read_Only mode if true. ZynqMP fsbl
 // will set this to true
-XILFFS_read_only:BOOL=true
+XILFFS_read_only:BOOL=ON
 
 //Configures relative path feature (valid values 0 to 2).
 XILFFS_set_fs_rpath:STRING=0
