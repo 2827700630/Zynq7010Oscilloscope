@@ -1896,12 +1896,12 @@
       "clk_wiz_0_adc_clk": {
         "ports": [
           "clk_wiz_0/adc_clk25",
-          "trigger_controller_0/adc_clk_25mhz",
           "data_extract_0/adc_clk_25mhz",
           "digital_trigger_dete_0/adc_clk_25mhz",
           "adc_data_acquisition_0/adc_clk_25mhz",
           "fifo_generator_0/clk",
-          "adc_clk_0"
+          "adc_clk_0",
+          "trigger_controller_0/adc_clk_25mhz"
         ]
       },
       "clk_wiz_0_dac_clk50": {
