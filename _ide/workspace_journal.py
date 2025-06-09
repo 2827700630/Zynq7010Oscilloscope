@@ -41,3 +41,15 @@ status = platform.build()
 comp = client.get_component(name="xgpiops_polled_example")
 comp.build()
 
+status = platform.update_desc(desc="")
+
+status = platform.update_hw(hw_design = "$COMPONENT_LOCATION/../design_1_wrapper.xsa")
+
+status = platform.build()
+
+comp.build()
+
+status = platform.build()
+
+comp.build()
+

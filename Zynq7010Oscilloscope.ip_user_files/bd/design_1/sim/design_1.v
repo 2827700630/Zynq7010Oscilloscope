@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Mon Jun  9 22:55:39 2025
+//Date        : Mon Jun  9 23:42:33 2025
 //Host        : myhym running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -113,6 +113,7 @@ module design_1
   wire [8:0]dds_signal_generator_0_square_rom_addr;
   wire [8:0]dds_signal_generator_0_triangle_rom_addr;
   wire digital_trigger_dete_0_digital_trigger_out;
+  wire [7:0]fifo_generator_0_dout;
   wire fifo_generator_0_empty;
   wire fifo_generator_0_full;
   wire key_debounce_0_extract_change_pulse;
@@ -170,6 +171,7 @@ module design_1
   design_1_fifo_generator_0_0 fifo_generator_0
        (.clk(adc_clk_0),
         .din(adc_data_acquisition_0_adc_data_buffered),
+        .dout(fifo_generator_0_dout),
         .empty(fifo_generator_0_empty),
         .full(fifo_generator_0_full),
         .rd_en(trigger_controller_0_fifo_read_enable),
@@ -177,7 +179,7 @@ module design_1
         .wr_en(trigger_controller_0_fifo_write_enable));
   design_1_ila_0_0 ila_0
        (.clk(dac_clk_0),
-        .probe0(adc_data_input_0),
+        .probe0(fifo_generator_0_dout),
         .probe1(dac_data_out_0),
         .probe2(adc_data_acquisition_0_adc_data_buffered),
         .probe3(LED2),
@@ -186,7 +188,7 @@ module design_1
         .probe6(key_reset_0),
         .probe7(LED1),
         .probe8(key_debounce_0_wave_change_pulse),
-        .probe9(clk_wiz_0_key));
+        .probe9(trigger_controller_0_fifo_read_enable));
   design_1_key_debounce_0_0 key_debounce_0
        (.clk_25mhz(clk_wiz_0_key),
         .extract_change_pulse(key_debounce_0_extract_change_pulse),

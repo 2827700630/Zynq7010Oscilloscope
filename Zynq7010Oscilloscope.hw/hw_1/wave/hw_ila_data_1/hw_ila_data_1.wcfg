@@ -11,13 +11,13 @@
    <zoom_setting>
       <ZoomStartTime time="0"></ZoomStartTime>
       <ZoomEndTime time="32,769"></ZoomEndTime>
-      <Cursor1Time time="2,472"></Cursor1Time>
+      <Cursor1Time time="0"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="332"></NameColumnWidth>
+      <NameColumnWidth column_width="328"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="11" />
    <wave_markers>
    </wave_markers>
    <wvobject fp_name="design_1_i/dac_data_out_0" type="array">
@@ -28,21 +28,6 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
-   </wvobject>
-   <wvobject fp_name="design_1_i/adc_data_input_0" type="array">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/adc_data_input_0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">adc_data_input_0[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="design_1_i/adc_data_acquisition_0_adc_data_buffered" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -102,24 +87,19 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/clk_wiz_0_key" type="logic">
+   <wvobject fp_name="design_1_i/fifo_generator_0_dout" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/clk_wiz_0_key</obj_property>
-      <obj_property name="ObjectShortName">clk_wiz_0_key</obj_property>
+      <obj_property name="ElementShortName">design_1_i/fifo_generator_0_dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_generator_0_dout[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/clk_wiz_0_ila" type="logic">
+   <wvobject fp_name="design_1_i/trigger_controller_0_fifo_read_enable" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/clk_wiz_0_ila</obj_property>
-      <obj_property name="ObjectShortName">clk_wiz_0_ila</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="design_1_i/adc_clk_0" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/adc_clk_0</obj_property>
-      <obj_property name="ObjectShortName">adc_clk_0</obj_property>
+      <obj_property name="ElementShortName">design_1_i/trigger_controller_0_fifo_read_enable</obj_property>
+      <obj_property name="ObjectShortName">trigger_controller_0_fifo_read_enable</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

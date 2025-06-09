@@ -1205,19 +1205,19 @@
             "value": "200.0"
           },
           "CLKOUT1_JITTER": {
-            "value": "241.980"
+            "value": "192.113"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "150.329"
+            "value": "164.985"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
             "value": "50"
           },
           "CLKOUT2_JITTER": {
-            "value": "279.698"
+            "value": "236.428"
           },
           "CLKOUT2_PHASE_ERROR": {
-            "value": "150.329"
+            "value": "164.985"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
             "value": "25"
@@ -1226,13 +1226,13 @@
             "value": "true"
           },
           "CLKOUT3_JITTER": {
-            "value": "384.410"
+            "value": "236.428"
           },
           "CLKOUT3_PHASE_ERROR": {
-            "value": "150.329"
+            "value": "164.985"
           },
           "CLKOUT3_REQUESTED_OUT_FREQ": {
-            "value": "5"
+            "value": "25"
           },
           "CLKOUT3_USED": {
             "value": "true"
@@ -1247,7 +1247,7 @@
             "value": "25"
           },
           "CLKOUT4_USED": {
-            "value": "true"
+            "value": "false"
           },
           "CLK_OUT1_PORT": {
             "value": "dac_clk50"
@@ -1256,13 +1256,13 @@
             "value": "adc_clk25"
           },
           "CLK_OUT3_PORT": {
-            "value": "ila"
+            "value": "key"
           },
           "CLK_OUT4_PORT": {
             "value": "key"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "12.500"
+            "value": "20.000"
           },
           "MMCM_CLKIN1_PERIOD": {
             "value": "20.000"
@@ -1271,22 +1271,22 @@
             "value": "10.0"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "12.500"
+            "value": "20.000"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "25"
+            "value": "40"
           },
           "MMCM_CLKOUT2_DIVIDE": {
-            "value": "125"
+            "value": "40"
           },
           "MMCM_CLKOUT3_DIVIDE": {
-            "value": "25"
+            "value": "1"
           },
           "MMCM_DIVCLK_DIVIDE": {
             "value": "1"
           },
           "NUM_OUT_CLKS": {
-            "value": "4"
+            "value": "3"
           },
           "OVERRIDE_MMCM": {
             "value": "false"
@@ -1604,7 +1604,21 @@
             "direction": "O"
           },
           "fifo_read_enable": {
-            "direction": "O"
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "fifo_write_enable": {
             "direction": "O"
@@ -1765,7 +1779,7 @@
             "value": "8"
           },
           "Input_Depth": {
-            "value": "4096"
+            "value": "16384"
           }
         }
       },
@@ -1778,7 +1792,7 @@
         "has_run_ip_tcl": "true",
         "parameters": {
           "C_DATA_DEPTH": {
-            "value": "65536"
+            "value": "32768"
           },
           "C_MONITOR_TYPE": {
             "value": "Native"
@@ -1870,8 +1884,7 @@
       "adc_data_input_0_1": {
         "ports": [
           "adc_data_input_0",
-          "adc_data_acquisition_0/adc_data_input",
-          "ila_0/probe0"
+          "adc_data_acquisition_0/adc_data_input"
         ]
       },
       "clk_in1_0_1": {
@@ -1905,8 +1918,7 @@
       "clk_wiz_0_key": {
         "ports": [
           "clk_wiz_0/key",
-          "key_debounce_0/clk_25mhz",
-          "ila_0/probe9"
+          "key_debounce_0/clk_25mhz"
         ]
       },
       "data_extract_0_data_extract_pulse": {
@@ -1944,6 +1956,12 @@
         "ports": [
           "digital_trigger_dete_0/digital_trigger_out",
           "trigger_controller_0/digital_trigger_signal"
+        ]
+      },
+      "fifo_generator_0_dout": {
+        "ports": [
+          "fifo_generator_0/dout",
+          "ila_0/probe0"
         ]
       },
       "fifo_generator_0_empty": {
@@ -2041,7 +2059,8 @@
       "trigger_controller_0_fifo_read_enable": {
         "ports": [
           "trigger_controller_0/fifo_read_enable",
-          "fifo_generator_0/rd_en"
+          "fifo_generator_0/rd_en",
+          "ila_0/probe9"
         ]
       },
       "trigger_controller_0_fifo_write_enable": {
