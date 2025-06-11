@@ -98,63 +98,6 @@
 *   `IMPROVEMENT_SUMMARY.md`: (早期) 改进摘要。
 *   `block_deseign.v`: (用户提供的) Block Design 导出的 Verilog 文件，用于审查。
 
-## 6.1. 用户可配置参数
-
-为了适应不同的测试需求和硬件特性，本项目中的一些关键参数可以通过修改 Verilog 源代码中的 `localparam` 或在 Block Design 中通过连接外部信号/常量 IP 来进行配置。主要参数如下：
-
-1.  **预触发深度 (Pre-trigger Depth)**:
-    *   **描述**: 定义在触发事件发生前，FIFO 中需要存储的数据点数量。
-    *   **位置**: `trigger_controller.v` 模块内部。
-    *   **参数名**: `PRE_TRIGGER_DEPTH` (localparam)
-    *   **默认值**: `11'd500`
-    *   **设置方式**: 直接修改 `trigger_controller.v` 文件中 `localparam PRE_TRIGGER_DEPTH = 11'd500;` 这一行的值。
-    *   **注意**: 该值不应超过 FIFO 的总深度。
-
-2.  **触发电平 (Trigger Level)**:
-    *   **描述**: ADC 数据超过此电平（对于上升沿触发）或低于此电平（对于下降沿触发，如果设计支持）时，会产生触发事件。
-    *   **位置**: 此参数由 `trigger_controller.v` 模块输出，并连接到 `digital_trigger_detector.v` 模块的 `trigger_level` 输入端口。
-    *   **设置方式**:
-        *   **硬编码/顶层参数**: 在 `adda_test_top.v` (或 Block Design 的顶层 Wrapper) 中定义一个 `wire` 或 `parameter`，并将其连接到 `trigger_controller` 的相应输入（如果 `trigger_controller` 设计为接收外部设置）或直接连接到 `digital_trigger_detector` 的 `trigger_level` 输入。
-        *   **动态设置 (通过按键)**: 当前 `trigger_controller.v` 的设计意图是通过按键输入来动态调整触发电平。具体的按键逻辑在 `trigger_controller.v` 内部实现，它会更新内部寄存器，该寄存器的值最终作为 `trigger_level` 输出给 `digital_trigger_detector`。
-    *   **范围**: 通常是 ADC 的数据范围 (例如，对于8位 ADC，是 0 到 255)。
-
-3.  **触发迟滞 (Trigger Hysteresis)**:
-    *   **描述**: 用于防止在触发电平附近的噪声引起多次误触发。当信号在触发电平附近小幅波动时，迟滞定义了一个不敏感区域。
-    *   **位置**: 与触发电平类似，此参数由 `trigger_controller.v` 模块输出，并连接到 `digital_trigger_detector.v` 模块的 `trigger_hysteresis` 输入端口。
-    *   **设置方式**: 同触发电平的设置方式，通常与触发电平一起通过按键动态调整，或在顶层硬编码。
-    *   **范围**: 一个较小的值，例如 `2'b11` (十进制 3) 或 `3'b001` (十进制 1) 到 `3'b111` (十进制 7)，具体取决于噪声水平和 ADC 分辨率。
-
-4.  **触发使能 (Trigger Enable)**:
-    *   **描述**: 控制是否启用触发检测功能。
-    *   **位置**: 由 `trigger_controller.v` 模块输出，并连接到 `digital_trigger_detector.v` 模块的 `trigger_enable` 输入端口。
-    *   **设置方式**: 通常通过按键在 `trigger_controller.v` 内部进行切换，或在顶层设计中连接一个控制信号。
-
-5.  **DDS 信号频率与相位 (DDS Signal Frequency and Phase)**:
-    *   **描述**: `dds_signal_generator.v` 模块产生的波形的频率和初始相位。
-    *   **位置**: 这些参数通过 `dds_signal_generator.v` 的输入端口进行设置：
-        *   `frequency_setting_word`: 频率控制字。
-        *   `phase_offset_setting`: 相位偏移设置。
-        *   `freq_set_pulse`: 应用新频率设置的脉冲信号。
-        *   `phase_set_pulse`: 应用新相位设置的脉冲信号。
-    *   **设置方式**: 这些控制信号和参数通常由 `key_debounce.v` 模块产生的按键脉冲，经过一定的逻辑处理（可能在 `adda_test_top.v` 或专门的控制模块中，或直接在 `trigger_controller.v` 中，如果按键功能集成在那里）后，连接到 `dds_signal_generator.v` 的相应输入端口。
-    *   **注意**: 频率控制字和相位偏移值的具体计算方法取决于 DDS的设计（如相位累加器的位数、时钟频率等）。
-
-6.  **DDS 波形选择 (DDS Waveform Selection - 如果支持多种波形)**:
-    *   **描述**: 如果 `dds_signal_generator.v` 设计为可以输出多种波形 (如正弦波、方波、三角波)，则需要有选择信号。
-    *   **位置**: 通常是 `dds_signal_generator.v` 的一个或多个输入端口。
-    *   **设置方式**: 通过按键或其他控制逻辑在顶层设计中生成选择信号，并连接到 DDS 模块。
-    *   **当前设计**: 当前 `dds_signal_generator.v` 的修改主要是针对外部 ROM，具体波形选择逻辑需要查看其内部实现或顶层连接。如果使用不同的 ROM 存储不同波形，则选择逻辑可能涉及到使能不同的 ROM 或选择不同的 ROM 数据输出。
-
-**在 Block Design 中的配置方法总结**:
-
-*   对于 `localparam` 定义的参数 (如 `PRE_TRIGGER_DEPTH`)，需要直接修改对应的 `.v` 文件。
-*   对于通过模块端口输入的参数 (如触发电平、迟滞、DDS 控制字等)：
-    *   **静态配置**: 可以在 Block Design 中添加 `Constant` IP 核 (Xilinx IP Catalog -> Utility -> Constant) 并将其输出连接到模块的参数输入端口。
-    *   **动态配置**: 将来自 `key_debounce.v` 的按键信号，经过必要的控制逻辑模块 (可以是自定义的 Verilog 模块，或者是用 `Slice`, `Concat`, `Utility Vector Logic` 等 IP 组合实现) 处理后，连接到相应模块的参数输入端口。
-    *   **ZYNQ PS 控制**: 更高级的配置可以通过 ZYNQ Processing System 实现，通过 AXI 接口将参数从软件写入到 PL 侧的寄存器，这些寄存器的输出再连接到各模块的参数输入端口。本项目当前未明确包含此 PS 控制部分。
-
-建议用户在进行具体实现时，仔细检查 `adda_test_top.v` (作为概念连接的参考) 以及各子模块的端口列表和内部参数定义，以确定最佳的参数配置方式。
-
 ## 7. 注意事项与未来工作
 
 *   **ZYNQ PS 配置**: 在 Block Design 中，ZYNQ Processing System IP 的配置至关重要。确保正确配置了 DDR 控制器、MIO/EMIO 分配以及所需的 PL Fabric Clocks。

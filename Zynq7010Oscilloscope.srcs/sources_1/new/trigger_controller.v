@@ -7,7 +7,8 @@
 // 功能说明:
 //   1. 管理预触发数据采集
 //   2. 检测触发条件并进入触发状态
-//   3. 控制FIFO的读写时序
+//   3. 支持自动触发功能
+//   4. 控制FIFO的读写时序
 //
 // 输入接口:
 //   - 系统时钟 (adc_clk_25mhz)
@@ -46,13 +47,16 @@ module trigger_controller (
 
     // 预触发参数定义
     localparam [10:0] PRE_TRIGGER_DEPTH = 11'd500;     // 预触发深度
+    localparam [16:0] AUTO_TRIGGER_TIMEOUT = 17'd100000; // 自动触发超时计数 (4ms @ 25MHz)
 
     // 内部寄存器定义
     reg [10:0] pre_trigger_depth_config;   // 预触发深度配置
+    reg [16:0] auto_trigger_counter;       // 自动触发计数器
     
     // 触发状态寄存器
     reg trigger_condition_met;             // 触发条件满足标志
     reg trigger_condition_met_delay;       // 触发条件延迟
+    reg auto_trigger_flag;                 // 自动触发标志
     
     // FIFO状态延迟寄存器
     reg fifo_empty_delay;                  // FIFO空状态延迟
@@ -121,11 +125,34 @@ module trigger_controller (
     end
 
     //===========================================================================
+    // 自动触发计数逻辑
+    //===========================================================================
+    always @(posedge adc_clk_25mhz) begin
+        if (fifo_empty && ~fifo_empty_delay) begin
+            // FIFO从非空变为空时，清零自动触发计数器
+            auto_trigger_counter <= 17'h00;
+            auto_trigger_flag <= 1'b0;
+        end else if (trigger_ready) begin
+            // 在准备状态下递增自动触发计数器
+            auto_trigger_counter <= auto_trigger_counter + 17'b1;
+            
+            if (auto_trigger_counter == AUTO_TRIGGER_TIMEOUT) begin
+                auto_trigger_flag <= 1'b1;  // 超时，产生自动触发
+            end else begin
+                auto_trigger_flag <= 1'b0;
+            end
+        end else begin
+            auto_trigger_counter <= 17'h00;
+            auto_trigger_flag <= 1'b0;
+        end
+    end
+
+    //===========================================================================
     // 触发状态控制逻辑
     //===========================================================================
     always @(posedge adc_clk_25mhz) begin
-        if ((digital_trigger_signal && ~digital_trigger_signal_delay) && trigger_ready) begin
-            // 检测到触发信号上升沿，且处于准备状态时，进入触发状态
+        if (((digital_trigger_signal && ~digital_trigger_signal_delay) || auto_trigger_flag) && trigger_ready) begin
+            // 检测到触发信号上升沿或自动触发，且处于准备状态时，进入触发状态
             trigger_state <= 1'b1;
         end else if (fifo_full && !fifo_full_delay) begin
             // FIFO从非满变为满时，退出触发状态
