@@ -21,7 +21,12 @@ verilog xil_defaultlib -i "../../../../../../FPGA/2025.1/Vivado/data/rsb/busdef"
 "../../../bd/design_1/ip/design_1_xlconstant_3_0/sim/design_1_xlconstant_3_0.v" \
 "../../../bd/design_1/ip/design_1_xlconstant_1_1/sim/design_1_xlconstant_1_1.v" \
 "../../../bd/design_1/ip/design_1_xlconstant_0_1/sim/design_1_xlconstant_0_1.v" \
+"../../../bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0_selectio_wiz.v" \
+"../../../bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0.v" \
+"../../../bd/design_1/ip/design_1_ad9434_top_sdr_0_0/sim/design_1_ad9434_top_sdr_0_0.v" \
+"../../../bd/design_1/ip/design_1_xlconstant_2_0/sim/design_1_xlconstant_2_0.v" \
 "../../../bd/design_1/sim/design_1.v" \
+"../../../bd/design_1/ip/design_1_util_vector_logic_0_0/sim/design_1_util_vector_logic_0_0.v" \
 
 verilog xil_defaultlib "glbl.v"
 

@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Wed Jun 11 15:36:22 2025
+//Date        : Wed Jun 11 22:38:07 2025
 //Host        : myhym running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -11,7 +11,9 @@
 `timescale 1 ps / 1 ps
 
 module design_1_wrapper
-   (DDR_addr,
+   (CLK_OUT_D3_0_clk_n,
+    CLK_OUT_D3_0_clk_p,
+    DDR_addr,
     DDR_ba,
     DDR_cas_n,
     DDR_ck_n,
@@ -39,10 +41,16 @@ module design_1_wrapper
     crystal_clk_50mhz,
     dac_clk_0,
     dac_data_out_0,
+    data_in_from_pins_n_0,
+    data_in_from_pins_p_0,
+    diff_clk_in_0_clk_n,
+    diff_clk_in_0_clk_p,
     key_extract_sel_0,
     key_freq_sel_0,
     key_reset_0,
     key_wave_sel_0);
+  output [0:0]CLK_OUT_D3_0_clk_n;
+  output [0:0]CLK_OUT_D3_0_clk_p;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -71,11 +79,17 @@ module design_1_wrapper
   input crystal_clk_50mhz;
   output dac_clk_0;
   output [7:0]dac_data_out_0;
+  input [11:0]data_in_from_pins_n_0;
+  input [11:0]data_in_from_pins_p_0;
+  input diff_clk_in_0_clk_n;
+  input diff_clk_in_0_clk_p;
   input key_extract_sel_0;
   input key_freq_sel_0;
   input key_reset_0;
   input key_wave_sel_0;
 
+  wire [0:0]CLK_OUT_D3_0_clk_n;
+  wire [0:0]CLK_OUT_D3_0_clk_p;
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
   wire DDR_cas_n;
@@ -104,13 +118,19 @@ module design_1_wrapper
   wire crystal_clk_50mhz;
   wire dac_clk_0;
   wire [7:0]dac_data_out_0;
+  wire [11:0]data_in_from_pins_n_0;
+  wire [11:0]data_in_from_pins_p_0;
+  wire diff_clk_in_0_clk_n;
+  wire diff_clk_in_0_clk_p;
   wire key_extract_sel_0;
   wire key_freq_sel_0;
   wire key_reset_0;
   wire key_wave_sel_0;
 
   design_1 design_1_i
-       (.DDR_addr(DDR_addr),
+       (.CLK_OUT_D3_0_clk_n(CLK_OUT_D3_0_clk_n),
+        .CLK_OUT_D3_0_clk_p(CLK_OUT_D3_0_clk_p),
+        .DDR_addr(DDR_addr),
         .DDR_ba(DDR_ba),
         .DDR_cas_n(DDR_cas_n),
         .DDR_ck_n(DDR_ck_n),
@@ -138,6 +158,10 @@ module design_1_wrapper
         .crystal_clk_50mhz(crystal_clk_50mhz),
         .dac_clk_0(dac_clk_0),
         .dac_data_out_0(dac_data_out_0),
+        .data_in_from_pins_n_0(data_in_from_pins_n_0),
+        .data_in_from_pins_p_0(data_in_from_pins_p_0),
+        .diff_clk_in_0_clk_n(diff_clk_in_0_clk_n),
+        .diff_clk_in_0_clk_p(diff_clk_in_0_clk_p),
         .key_extract_sel_0(key_extract_sel_0),
         .key_freq_sel_0(key_freq_sel_0),
         .key_reset_0(key_reset_0),

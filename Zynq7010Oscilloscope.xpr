@@ -65,13 +65,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="42"/>
-    <Option Name="WTModelSimExportSim" Val="42"/>
-    <Option Name="WTQuestaExportSim" Val="42"/>
+    <Option Name="WTXSimExportSim" Val="55"/>
+    <Option Name="WTModelSimExportSim" Val="55"/>
+    <Option Name="WTQuestaExportSim" Val="55"/>
     <Option Name="WTIesExportSim" Val="0"/>
     <Option Name="WTVcsExportSim" Val="0"/>
-    <Option Name="WTRivieraExportSim" Val="42"/>
-    <Option Name="WTActivehdlExportSim" Val="42"/>
+    <Option Name="WTRivieraExportSim" Val="55"/>
+    <Option Name="WTActivehdlExportSim" Val="55"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -126,6 +126,20 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/adc_data_acquisition.v">
         <FileInfo RelPath="adc_data_acquisition.v">
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/ad9434_lvds_receiver_sdr.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/ad9434_top_sdr.v">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

@@ -10,6 +10,7 @@ vlib questa_lib/msim/xil_defaultlib
 vlib questa_lib/msim/blk_mem_gen_v8_4_11
 vlib questa_lib/msim/fifo_generator_v13_2_13
 vlib questa_lib/msim/xlconstant_v1_1_10
+vlib questa_lib/msim/util_vector_logic_v2_0_5
 
 vmap xilinx_vip questa_lib/msim/xilinx_vip
 vmap xpm questa_lib/msim/xpm
@@ -20,6 +21,7 @@ vmap xil_defaultlib questa_lib/msim/xil_defaultlib
 vmap blk_mem_gen_v8_4_11 questa_lib/msim/blk_mem_gen_v8_4_11
 vmap fifo_generator_v13_2_13 questa_lib/msim/fifo_generator_v13_2_13
 vmap xlconstant_v1_1_10 questa_lib/msim/xlconstant_v1_1_10
+vmap util_vector_logic_v2_0_5 questa_lib/msim/util_vector_logic_v2_0_5
 
 vlog -work xilinx_vip  -incr -mfcu  -sv -L axi_vip_v1_1_21 -L processing_system7_vip_v1_0_23 -L xilinx_vip "+incdir+E:/FPGA/2025.1/Vivado/data/xilinx_vip/include" \
 "E:/FPGA/2025.1/Vivado/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
@@ -87,7 +89,23 @@ vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Zynq7010Oscilloscop
 "../../../bd/design_1/ip/design_1_xlconstant_3_0/sim/design_1_xlconstant_3_0.v" \
 "../../../bd/design_1/ip/design_1_xlconstant_1_1/sim/design_1_xlconstant_1_1.v" \
 "../../../bd/design_1/ip/design_1_xlconstant_0_1/sim/design_1_xlconstant_0_1.v" \
+"../../../bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0_selectio_wiz.v" \
+"../../../bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0.v" \
+"../../../bd/design_1/ip/design_1_ad9434_top_sdr_0_0/sim/design_1_ad9434_top_sdr_0_0.v" \
+"../../../bd/design_1/ip/design_1_xlconstant_2_0/sim/design_1_xlconstant_2_0.v" \
+
+vcom -work xil_defaultlib  -93  \
+"../../../bd/design_1/ip/design_1_util_ds_buf_0_0/util_ds_buf.vhd" \
+"../../../bd/design_1/ip/design_1_util_ds_buf_0_0/sim/design_1_util_ds_buf_0_0.vhd" \
+
+vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/6cfa/hdl" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/a9be" "+incdir+../../../../../../FPGA/2025.1/Vivado/data/rsb/busdef" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/5431/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/4e08/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/537f/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/d41f/hdl/verilog" "+incdir+E:/FPGA/2025.1/Vivado/data/xilinx_vip/include" \
 "../../../bd/design_1/sim/design_1.v" \
+
+vlog -work util_vector_logic_v2_0_5  -incr -mfcu  "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/6cfa/hdl" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/a9be" "+incdir+../../../../../../FPGA/2025.1/Vivado/data/rsb/busdef" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/5431/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/4e08/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/537f/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/d41f/hdl/verilog" "+incdir+E:/FPGA/2025.1/Vivado/data/xilinx_vip/include" \
+"../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/e056/hdl/util_vector_logic_v2_0_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/6cfa/hdl" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/a9be" "+incdir+../../../../../../FPGA/2025.1/Vivado/data/rsb/busdef" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/5431/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/4e08/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/537f/hdl/verilog" "+incdir+../../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ipshared/d41f/hdl/verilog" "+incdir+E:/FPGA/2025.1/Vivado/data/xilinx_vip/include" \
+"../../../bd/design_1/ip/design_1_util_vector_logic_0_0/sim/design_1_util_vector_logic_0_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

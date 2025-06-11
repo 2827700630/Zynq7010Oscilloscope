@@ -1,9 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jun 11 15:36:22 2025" VIVADOVERSION="2025.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jun 11 22:38:07 2025" VIVADOVERSION="2025.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
+    <PORT CLKFREQUENCY="100000000" DIR="O" LEFT="0" NAME="CLK_OUT_D3_0_clk_n" RIGHT="0" SIGIS="clk" SIGNAME="util_ds_buf_0_OBUF_DS_N">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="util_ds_buf_0" PORT="OBUF_DS_N"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" LEFT="0" NAME="CLK_OUT_D3_0_clk_p" RIGHT="0" SIGIS="clk" SIGNAME="util_ds_buf_0_OBUF_DS_P">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="util_ds_buf_0" PORT="OBUF_DS_P"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="IO" LEFT="14" NAME="DDR_addr" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_DDR_Addr">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_Addr"/>
@@ -144,6 +154,26 @@
         <CONNECTION INSTANCE="dds_signal_generator_0" PORT="dac_data_out"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" LEFT="11" NAME="data_in_from_pins_n_0" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_data_in_from_pins_n_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="selectio_wiz_0" PORT="data_in_from_pins_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="11" NAME="data_in_from_pins_p_0" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_data_in_from_pins_p_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="selectio_wiz_0" PORT="data_in_from_pins_p"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="diff_clk_in_0_clk_n" SIGIS="clk" SIGNAME="selectio_wiz_0_clk_in_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="selectio_wiz_0" PORT="clk_in_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="diff_clk_in_0_clk_p" SIGIS="clk" SIGNAME="selectio_wiz_0_clk_in_p">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="selectio_wiz_0" PORT="clk_in_p"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" NAME="key_extract_sel_0" SIGIS="undef" SIGNAME="External_Ports_key_extract_sel_0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ila_0" PORT="probe5"/>
@@ -161,6 +191,8 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="ila_0" PORT="probe6"/>
         <CONNECTION INSTANCE="key_debounce_0" PORT="key_reset"/>
+        <CONNECTION INSTANCE="ad9434_top_sdr_0" PORT="sys_rst_n"/>
+        <CONNECTION INSTANCE="util_vector_logic_0" PORT="Op1"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="key_wave_sel_0" SIGIS="undef" SIGNAME="External_Ports_key_wave_sel_0">
@@ -216,9 +248,60 @@
         <PORTMAP LOGICAL="PS_SRSTB" PHYSICAL="FIXED_IO_ps_srstb"/>
       </PORTMAPS>
     </BUSINTERFACE>
+    <BUSINTERFACE BUSNAME="util_ds_buf_0_CLK_OUT_D3" NAME="CLK_OUT_D3_0" TYPE="INITIATOR">
+      <PARAMETER NAME="CAN_DEBUG" VALUE="false"/>
+      <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+      <PORTMAPS>
+        <PORTMAP LOGICAL="CLK_N" PHYSICAL="CLK_OUT_D3_0_clk_n"/>
+        <PORTMAP LOGICAL="CLK_P" PHYSICAL="CLK_OUT_D3_0_clk_p"/>
+      </PORTMAPS>
+    </BUSINTERFACE>
+    <BUSINTERFACE BUSNAME="External_Interface_diff_clk_in_0" NAME="diff_clk_in_0" TYPE="TARGET">
+      <PARAMETER NAME="CAN_DEBUG" VALUE="false"/>
+      <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+      <PORTMAPS>
+        <PORTMAP LOGICAL="CLK_N" PHYSICAL="diff_clk_in_0_clk_n"/>
+        <PORTMAP LOGICAL="CLK_P" PHYSICAL="diff_clk_in_0_clk_p"/>
+      </PORTMAPS>
+    </BUSINTERFACE>
   </EXTERNALINTERFACES>
 
   <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/ad9434_top_sdr_0" HWVERSION="1.0" INSTANCE="ad9434_top_sdr_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ad9434_top_sdr" VLNV="xilinx.com:module_ref:ad9434_top_sdr:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_ad9434_top_sdr_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="11" NAME="adc_output_data" RIGHT="0" SIGIS="undef" SIGNAME="ad9434_top_sdr_0_adc_output_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_0" PORT="probe10"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="adc_output_valid" SIGIS="undef" SIGNAME="ad9434_top_sdr_0_adc_output_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_0" PORT="probe11"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="adc_parallel_data_from_selectio" RIGHT="0" SIGIS="undef" SIGNAME="selectio_wiz_0_data_in_to_device">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="selectio_wiz_0" PORT="data_in_to_device"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_parallel_data" SIGIS="undef" SIGNAME="selectio_wiz_0_clk_div_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="selectio_wiz_0" PORT="clk_div_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sys_rst_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_key_reset_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="key_reset_0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/adc_data_acquisition_0" HWVERSION="1.0" INSTANCE="adc_data_acquisition_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="adc_data_acquisition" VLNV="xilinx.com:module_ref:adc_data_acquisition:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -306,7 +389,7 @@
         <PARAMETER NAME="C_CLKOUT2_USED" VALUE="1"/>
         <PARAMETER NAME="C_CLKOUT3_1" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT3_2" VALUE="0000"/>
-        <PARAMETER NAME="C_CLKOUT3_ACTUAL_FREQ" VALUE="25.00000"/>
+        <PARAMETER NAME="C_CLKOUT3_ACTUAL_FREQ" VALUE="100.00000"/>
         <PARAMETER NAME="C_CLKOUT3_DRIVES" VALUE="BUFG"/>
         <PARAMETER NAME="C_CLKOUT3_DUTY_CYCLE" VALUE="50.0"/>
         <PARAMETER NAME="C_CLKOUT3_MATCHED_ROUTING" VALUE="false"/>
@@ -323,13 +406,13 @@
         <PARAMETER NAME="C_CLKOUT4_DRIVES" VALUE="BUFG"/>
         <PARAMETER NAME="C_CLKOUT4_DUTY_CYCLE" VALUE="50.0"/>
         <PARAMETER NAME="C_CLKOUT4_MATCHED_ROUTING" VALUE="false"/>
-        <PARAMETER NAME="C_CLKOUT4_OUT_FREQ" VALUE="25.00000"/>
+        <PARAMETER NAME="C_CLKOUT4_OUT_FREQ" VALUE="100.00000"/>
         <PARAMETER NAME="C_CLKOUT4_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_CLKOUT4_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
-        <PARAMETER NAME="C_CLKOUT4_REQUESTED_OUT_FREQ" VALUE="25"/>
+        <PARAMETER NAME="C_CLKOUT4_REQUESTED_OUT_FREQ" VALUE="100"/>
         <PARAMETER NAME="C_CLKOUT4_REQUESTED_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_CLKOUT4_SEQUENCE_NUMBER" VALUE="1"/>
-        <PARAMETER NAME="C_CLKOUT4_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT4_USED" VALUE="1"/>
         <PARAMETER NAME="C_CLKOUT5_1" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT5_2" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT5_ACTUAL_FREQ" VALUE="100.000"/>
@@ -371,7 +454,7 @@
         <PARAMETER NAME="C_CLK_OUT1_PORT" VALUE="dac_clk50"/>
         <PARAMETER NAME="C_CLK_OUT2_PORT" VALUE="adc_clk25"/>
         <PARAMETER NAME="C_CLK_OUT3_PORT" VALUE="key"/>
-        <PARAMETER NAME="C_CLK_OUT4_PORT" VALUE="key"/>
+        <PARAMETER NAME="C_CLK_OUT4_PORT" VALUE="AD9434"/>
         <PARAMETER NAME="C_CLK_OUT5_PORT" VALUE="clk_out5"/>
         <PARAMETER NAME="C_CLK_OUT6_PORT" VALUE="clk_out6"/>
         <PARAMETER NAME="C_CLK_OUT7_PORT" VALUE="clk_out7"/>
@@ -385,7 +468,7 @@
         <PARAMETER NAME="C_DIVIDE1_AUTO" VALUE="1"/>
         <PARAMETER NAME="C_DIVIDE2_AUTO" VALUE="2.0"/>
         <PARAMETER NAME="C_DIVIDE3_AUTO" VALUE="2.0"/>
-        <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="0.05"/>
+        <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="0.5"/>
         <PARAMETER NAME="C_DIVIDE5_AUTO" VALUE="0.05"/>
         <PARAMETER NAME="C_DIVIDE6_AUTO" VALUE="0.05"/>
         <PARAMETER NAME="C_DIVIDE7_AUTO" VALUE="0.05"/>
@@ -443,7 +526,7 @@
         <PARAMETER NAME="C_MMCM_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="C_MMCM_CLKOUT2_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_MMCM_CLKOUT2_USE_FINE_PS" VALUE="FALSE"/>
-        <PARAMETER NAME="C_MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_DIVIDE" VALUE="10"/>
         <PARAMETER NAME="C_MMCM_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="C_MMCM_CLKOUT3_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_MMCM_CLKOUT3_USE_FINE_PS" VALUE="FALSE"/>
@@ -469,14 +552,14 @@
         <PARAMETER NAME="C_MMCM_STARTUP_WAIT" VALUE="FALSE"/>
         <PARAMETER NAME="C_M_MAX" VALUE="64.000"/>
         <PARAMETER NAME="C_M_MIN" VALUE="2.000"/>
-        <PARAMETER NAME="C_NUM_OUT_CLKS" VALUE="3"/>
+        <PARAMETER NAME="C_NUM_OUT_CLKS" VALUE="4"/>
         <PARAMETER NAME="C_OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="0"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0A" VALUE="Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0B" VALUE="Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="dac_clk50__50.00000______0.000______50.0______192.113____164.985"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="adc_clk25__25.00000______0.000______50.0______236.428____164.985"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW3" VALUE="_____key__25.00000______0.000______50.0______236.428____164.985"/>
-        <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="no_CLK_OUT4_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="__AD9434__100.00000______0.000______50.0______162.035____164.985"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW6" VALUE="no_CLK_OUT6_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW7" VALUE="no_CLK_OUT7_output"/>
@@ -622,14 +705,14 @@
         <PARAMETER NAME="CLKOUT3_SEQUENCE_NUMBER" VALUE="1"/>
         <PARAMETER NAME="CLKOUT3_USED" VALUE="true"/>
         <PARAMETER NAME="CLKOUT4_DRIVES" VALUE="BUFG"/>
-        <PARAMETER NAME="CLKOUT4_JITTER" VALUE="279.698"/>
+        <PARAMETER NAME="CLKOUT4_JITTER" VALUE="162.035"/>
         <PARAMETER NAME="CLKOUT4_MATCHED_ROUTING" VALUE="false"/>
-        <PARAMETER NAME="CLKOUT4_PHASE_ERROR" VALUE="150.329"/>
+        <PARAMETER NAME="CLKOUT4_PHASE_ERROR" VALUE="164.985"/>
         <PARAMETER NAME="CLKOUT4_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
-        <PARAMETER NAME="CLKOUT4_REQUESTED_OUT_FREQ" VALUE="25"/>
+        <PARAMETER NAME="CLKOUT4_REQUESTED_OUT_FREQ" VALUE="100"/>
         <PARAMETER NAME="CLKOUT4_REQUESTED_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="CLKOUT4_SEQUENCE_NUMBER" VALUE="1"/>
-        <PARAMETER NAME="CLKOUT4_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT4_USED" VALUE="true"/>
         <PARAMETER NAME="CLKOUT5_DRIVES" VALUE="BUFG"/>
         <PARAMETER NAME="CLKOUT5_JITTER" VALUE="0.0"/>
         <PARAMETER NAME="CLKOUT5_MATCHED_ROUTING" VALUE="false"/>
@@ -667,7 +750,7 @@
         <PARAMETER NAME="CLK_OUT2_USE_FINE_PS_GUI" VALUE="false"/>
         <PARAMETER NAME="CLK_OUT3_PORT" VALUE="key"/>
         <PARAMETER NAME="CLK_OUT3_USE_FINE_PS_GUI" VALUE="false"/>
-        <PARAMETER NAME="CLK_OUT4_PORT" VALUE="key"/>
+        <PARAMETER NAME="CLK_OUT4_PORT" VALUE="AD9434"/>
         <PARAMETER NAME="CLK_OUT4_USE_FINE_PS_GUI" VALUE="false"/>
         <PARAMETER NAME="CLK_OUT5_PORT" VALUE="clk_out5"/>
         <PARAMETER NAME="CLK_OUT5_USE_FINE_PS_GUI" VALUE="false"/>
@@ -723,7 +806,7 @@
         <PARAMETER NAME="MMCM_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="MMCM_CLKOUT2_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="MMCM_CLKOUT2_USE_FINE_PS" VALUE="false"/>
-        <PARAMETER NAME="MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_DIVIDE" VALUE="10"/>
         <PARAMETER NAME="MMCM_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="MMCM_CLKOUT3_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="MMCM_CLKOUT3_USE_FINE_PS" VALUE="false"/>
@@ -747,7 +830,7 @@
         <PARAMETER NAME="MMCM_REF_JITTER1" VALUE="0.010"/>
         <PARAMETER NAME="MMCM_REF_JITTER2" VALUE="0.010"/>
         <PARAMETER NAME="MMCM_STARTUP_WAIT" VALUE="false"/>
-        <PARAMETER NAME="NUM_OUT_CLKS" VALUE="3"/>
+        <PARAMETER NAME="NUM_OUT_CLKS" VALUE="4"/>
         <PARAMETER NAME="OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="false"/>
         <PARAMETER NAME="OVERRIDE_MMCM" VALUE="false"/>
         <PARAMETER NAME="OVERRIDE_PLL" VALUE="false"/>
@@ -836,6 +919,11 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="AD9434" SIGIS="clk" SIGNAME="clk_wiz_0_AD9434">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="util_ds_buf_0" PORT="OBUF_IN"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT CLKFREQUENCY="25000000" DIR="O" NAME="adc_clk25" SIGIS="clk" SIGNAME="clk_wiz_0_adc_clk25">
           <CONNECTIONS>
             <CONNECTION INSTANCE="data_extract_0" PORT="adc_clk_25mhz"/>
@@ -1471,7 +1559,7 @@
         <PARAMETER NAME="C_MU_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="10"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="12"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_TYPE" VALUE="0"/>
@@ -1580,7 +1668,7 @@
         <PARAMETER NAME="C_PROBE109_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE10_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE10_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE10_WIDTH" VALUE="12"/>
         <PARAMETER NAME="C_PROBE110_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE110_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE110_WIDTH" VALUE="1"/>
@@ -4634,6 +4722,16 @@
             <CONNECTION INSTANCE="trigger_controller_0" PORT="fifo_read_enable"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="11" NAME="probe10" RIGHT="0" SIGIS="undef" SIGNAME="ad9434_top_sdr_0_adc_output_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ad9434_top_sdr_0" PORT="adc_output_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe11" RIGHT="0" SIGIS="undef" SIGNAME="ad9434_top_sdr_0_adc_output_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ad9434_top_sdr_0" PORT="adc_output_valid"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -5948,6 +6046,175 @@
       <MEMORYMAP/>
       <PERIPHERALS/>
     </MODULE>
+    <MODULE COREREVISION="19" FULLNAME="/selectio_wiz_0" HWVERSION="5.1" INSTANCE="selectio_wiz_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="selectio_wiz" VLNV="xilinx.com:ip:selectio_wiz:5.1">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=selectio_wiz;v=v5_1;d=pg070-selectio-wiz.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_ACTIVE_EDGE" VALUE="RISING"/>
+        <PARAMETER NAME="C_BUS_DIR" VALUE="INPUTS"/>
+        <PARAMETER NAME="C_BUS_IN_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="C_BUS_IN_TAP" VALUE="0"/>
+        <PARAMETER NAME="C_BUS_IO_STD" VALUE="LVDS_25"/>
+        <PARAMETER NAME="C_BUS_OUT_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="C_BUS_OUT_TAP" VALUE="0"/>
+        <PARAMETER NAME="C_BUS_SIG_TYPE" VALUE="DIFF"/>
+        <PARAMETER NAME="C_BUS_TAP_RESET" VALUE="FROM_ZERO"/>
+        <PARAMETER NAME="C_BUS_TAP_WRAP" VALUE="STAY_AT_LIMIT"/>
+        <PARAMETER NAME="C_CLK_BUF" VALUE="BUFIO2"/>
+        <PARAMETER NAME="C_CLK_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="C_CLK_EN" VALUE="false"/>
+        <PARAMETER NAME="C_CLK_FWD" VALUE="false"/>
+        <PARAMETER NAME="C_CLK_FWD_IO_STD" VALUE="LVDS_25"/>
+        <PARAMETER NAME="C_CLK_FWD_SIG_TYPE" VALUE="DIFF"/>
+        <PARAMETER NAME="C_CLK_IO_STD" VALUE="LVCMOS18"/>
+        <PARAMETER NAME="C_CLK_SIG_TYPE" VALUE="SINGLE"/>
+        <PARAMETER NAME="C_CLK_TAP" VALUE="0"/>
+        <PARAMETER NAME="C_CLK_TAP_reset" VALUE="FROM_ZERO"/>
+        <PARAMETER NAME="C_CLK_TAP_wrap" VALUE="STAY_AT_LIMIT"/>
+        <PARAMETER NAME="C_CONFIG_CLK_FWD" VALUE="false"/>
+        <PARAMETER NAME="C_DATA_RATE_STRING" VALUE="2"/>
+        <PARAMETER NAME="C_DDR_ALIGNMENT" VALUE="C0"/>
+        <PARAMETER NAME="C_DDR_CLK_BUF" VALUE="BUFR"/>
+        <PARAMETER NAME="C_DEVICE" VALUE="2"/>
+        <PARAMETER NAME="C_DEVICE_FAMILY" VALUE="zynq"/>
+        <PARAMETER NAME="C_ENABLE_BITSLIP" VALUE="false"/>
+        <PARAMETER NAME="C_ENABLE_TRAIN" VALUE="false"/>
+        <PARAMETER NAME="C_IDDR_RST_TYPE" VALUE="ASYNC"/>
+        <PARAMETER NAME="C_IDELAY_HIGH_PERF_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_INCLUDE_IDELAYCTRL" VALUE="1"/>
+        <PARAMETER NAME="C_INCLUDE_IDELAYCTRL_BUFG" VALUE="1"/>
+        <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="NETWORKING"/>
+        <PARAMETER NAME="C_NOTES" VALUE="None"/>
+        <PARAMETER NAME="C_SELIO_ACTIVE_EDGE" VALUE="SDR"/>
+        <PARAMETER NAME="C_SELIO_BUS_IN_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="C_SELIO_BUS_IN_TAP" VALUE="0"/>
+        <PARAMETER NAME="C_SELIO_BUS_OUT_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="C_SELIO_BUS_OUT_TAP" VALUE="0"/>
+        <PARAMETER NAME="C_SELIO_CLK_BUF" VALUE="BUFIO"/>
+        <PARAMETER NAME="C_SELIO_CLK_IO_STD" VALUE="LVDS_25"/>
+        <PARAMETER NAME="C_SELIO_CLK_SIG_TYPE" VALUE="DIFF"/>
+        <PARAMETER NAME="C_SELIO_DDR_ALIGNMENT" VALUE="SAME_EDGE_PIPELINED"/>
+        <PARAMETER NAME="C_SELIO_IDDR_RST_TYPE" VALUE="ASYNC"/>
+        <PARAMETER NAME="C_SELIO_INTERFACE_TYPE" VALUE="NETWORKING"/>
+        <PARAMETER NAME="C_SELIO_ODDR_ALIGNMENT" VALUE="SAME_EDGE"/>
+        <PARAMETER NAME="C_SERIALIZATION_FACTOR" VALUE="2"/>
+        <PARAMETER NAME="C_SYSTEM_DATA_WIDTH" VALUE="12"/>
+        <PARAMETER NAME="C_TRAIN_CONSTANT" VALUE="0"/>
+        <PARAMETER NAME="C_USE_PHASE_DETECTOR" VALUE="false"/>
+        <PARAMETER NAME="C_USE_SERIALIZATION" VALUE="true"/>
+        <PARAMETER NAME="C_USE_TEMPLATE" VALUE="Custom"/>
+        <PARAMETER NAME="c_component_name" VALUE="design_1_selectio_wiz_0_0"/>
+        <PARAMETER NAME="ACTIVE_EDGE" VALUE="RISING"/>
+        <PARAMETER NAME="BUS_DIR" VALUE="INPUTS"/>
+        <PARAMETER NAME="BUS_IN_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="BUS_IN_TAP" VALUE="0"/>
+        <PARAMETER NAME="BUS_IO_STD" VALUE="LVDS_25"/>
+        <PARAMETER NAME="BUS_OUT_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="BUS_OUT_TAP" VALUE="0"/>
+        <PARAMETER NAME="BUS_SIG_TYPE" VALUE="DIFF"/>
+        <PARAMETER NAME="BUS_TAP_RESET" VALUE="NOT_APP"/>
+        <PARAMETER NAME="BUS_TAP_WRAP" VALUE="NOT_APP"/>
+        <PARAMETER NAME="CLK_BUF" VALUE="BUFIO2"/>
+        <PARAMETER NAME="CLK_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="CLK_EN" VALUE="false"/>
+        <PARAMETER NAME="CLK_FWD" VALUE="false"/>
+        <PARAMETER NAME="CLK_FWD_IO_STD" VALUE="LVDS_25"/>
+        <PARAMETER NAME="CLK_FWD_SER" VALUE="false"/>
+        <PARAMETER NAME="CLK_FWD_SIG_TYPE" VALUE="DIFF"/>
+        <PARAMETER NAME="CLK_IO_STD" VALUE="LVCMOS18"/>
+        <PARAMETER NAME="CLK_SIG_TYPE" VALUE="SINGLE"/>
+        <PARAMETER NAME="CLK_TAP" VALUE="0"/>
+        <PARAMETER NAME="CONFIG_CLK_FWD" VALUE="false"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_selectio_wiz_0_0"/>
+        <PARAMETER NAME="DDR_ALIGNMENT" VALUE="C0"/>
+        <PARAMETER NAME="DDR_CLK_BUF" VALUE="BUFR"/>
+        <PARAMETER NAME="ENABLE_BITSLIP" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_TRAIN" VALUE="false"/>
+        <PARAMETER NAME="IDDR_RST_TYPE" VALUE="ASYNC"/>
+        <PARAMETER NAME="IDELAY_HIGH_PERF_MODE" VALUE="false"/>
+        <PARAMETER NAME="INCLUDE_IDELAYCTRL" VALUE="true"/>
+        <PARAMETER NAME="INCLUDE_IDELAYCTRL_BUFG" VALUE="true"/>
+        <PARAMETER NAME="INTERFACE_TYPE" VALUE="NETWORKING"/>
+        <PARAMETER NAME="NOTES" VALUE="None"/>
+        <PARAMETER NAME="SELIO_ACTIVE_EDGE" VALUE="SDR"/>
+        <PARAMETER NAME="SELIO_BUS_IN_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="SELIO_BUS_IN_TAP" VALUE="0"/>
+        <PARAMETER NAME="SELIO_BUS_OUT_DELAY" VALUE="NONE"/>
+        <PARAMETER NAME="SELIO_BUS_OUT_TAP" VALUE="0"/>
+        <PARAMETER NAME="SELIO_CLK_BUF" VALUE="BUFIO"/>
+        <PARAMETER NAME="SELIO_CLK_IO_STD" VALUE="LVDS_25"/>
+        <PARAMETER NAME="SELIO_CLK_SIG_TYPE" VALUE="DIFF"/>
+        <PARAMETER NAME="SELIO_DDR_ALIGNMENT" VALUE="SAME_EDGE_PIPELINED"/>
+        <PARAMETER NAME="SELIO_IDDR_RST_TYPE" VALUE="ASYNC"/>
+        <PARAMETER NAME="SELIO_INTERFACE_TYPE" VALUE="NETWORKING"/>
+        <PARAMETER NAME="SELIO_ODDR_ALIGNMENT" VALUE="SAME_EDGE"/>
+        <PARAMETER NAME="SERIALIZATION_FACTOR" VALUE="2"/>
+        <PARAMETER NAME="SYSTEM_DATA_WIDTH" VALUE="12"/>
+        <PARAMETER NAME="TRAIN_CONSTANT" VALUE="0"/>
+        <PARAMETER NAME="USE_PHASE_DETECTOR" VALUE="false"/>
+        <PARAMETER NAME="USE_SERIALIZATION" VALUE="true"/>
+        <PARAMETER NAME="USE_TEMPLATE" VALUE="Custom"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="11" NAME="bitslip" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_2_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_2" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="50000000" DIR="O" NAME="clk_div_out" SIGIS="clk" SIGNAME="selectio_wiz_0_clk_div_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ad9434_top_sdr_0" PORT="clk_parallel_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_in_n" SIGIS="clk" SIGNAME="selectio_wiz_0_clk_in_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="diff_clk_in_0_clk_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_in_p" SIGIS="clk" SIGNAME="selectio_wiz_0_clk_in_p">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="diff_clk_in_0_clk_p"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="util_vector_logic_0_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="util_vector_logic_0" PORT="Res"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="data_in_from_pins_n" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_data_in_from_pins_n_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="data_in_from_pins_n_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="data_in_from_pins_p" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_data_in_from_pins_p_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="data_in_from_pins_p_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="data_in_to_device" RIGHT="0" SIGIS="data" SIGNAME="selectio_wiz_0_data_in_to_device">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ad9434_top_sdr_0" PORT="adc_parallel_data_from_selectio"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="io_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="util_vector_logic_0_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="util_vector_logic_0" PORT="Res"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="External_Interface_diff_clk_in_0" NAME="diff_clk_in" TYPE="TARGET" VLNV="xilinx.com:interface:diff_clock:1.0">
+          <PARAMETER NAME="CAN_DEBUG" VALUE="false"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="CLK_N" PHYSICAL="clk_in_n"/>
+            <PORTMAP LOGICAL="CLK_P" PHYSICAL="clk_in_p"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
     <MODULE COREREVISION="11" FULLNAME="/sine" HWVERSION="8.4" INSTANCE="sine" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="MEMORY" MODTYPE="blk_mem_gen" VLNV="xilinx.com:ip:blk_mem_gen:8.4">
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=blk_mem_gen;v=v8_4;d=pg058-blk-mem-gen.pdf"/>
@@ -6566,6 +6833,75 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="8" FULLNAME="/util_ds_buf_0" HWVERSION="2.2" INSTANCE="util_ds_buf_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="util_ds_buf" VLNV="xilinx.com:ip:util_ds_buf:2.2">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_BUFGCE_DIV" VALUE="1"/>
+        <PARAMETER NAME="C_BUFG_GT_SYNC" VALUE="0"/>
+        <PARAMETER NAME="C_BUF_TYPE" VALUE="OBUFDS"/>
+        <PARAMETER NAME="C_OBUFDS_GTE5_ADV" VALUE="&quot;00&quot;"/>
+        <PARAMETER NAME="C_REFCLK_ICNTL_TX" VALUE="&quot;00000&quot;"/>
+        <PARAMETER NAME="C_SIM_DEVICE" VALUE="VERSAL_AI_CORE_ES1"/>
+        <PARAMETER NAME="C_SIZE" VALUE="1"/>
+        <PARAMETER NAME="BOARD_PARAMETER"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_util_ds_buf_0_0"/>
+        <PARAMETER NAME="DIFF_CLK_IN_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="FREQ_HZ" VALUE="156250000"/>
+        <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="O" LEFT="0" NAME="OBUF_DS_N" RIGHT="0" SIGIS="clk" SIGNAME="util_ds_buf_0_OBUF_DS_N">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="CLK_OUT_D3_0_clk_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" LEFT="0" NAME="OBUF_DS_P" RIGHT="0" SIGIS="clk" SIGNAME="util_ds_buf_0_OBUF_DS_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="design_1_imp" PORT="CLK_OUT_D3_0_clk_p"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" LEFT="0" NAME="OBUF_IN" RIGHT="0" SIGIS="clk" SIGNAME="clk_wiz_0_AD9434">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="AD9434"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="util_ds_buf_0_CLK_OUT_D3" NAME="CLK_OUT_D3" TYPE="INITIATOR" VLNV="xilinx.com:interface:diff_clock:1.0">
+          <PARAMETER NAME="CAN_DEBUG" VALUE="false"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="CLK_N" PHYSICAL="OBUF_DS_N"/>
+            <PORTMAP LOGICAL="CLK_P" PHYSICAL="OBUF_DS_P"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="5" FULLNAME="/util_vector_logic_0" HWVERSION="2.0" INSTANCE="util_vector_logic_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="util_vector_logic" VLNV="xilinx.com:ip:util_vector_logic:2.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_OPERATION" VALUE="not"/>
+        <PARAMETER NAME="C_SIZE" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_util_vector_logic_0_0"/>
+        <PARAMETER NAME="LOGO_FILE" VALUE="data/sym_notgate.png"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="Op1" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_key_reset_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="key_reset_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Res" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_0_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="selectio_wiz_0" PORT="clk_reset"/>
+            <CONNECTION INSTANCE="selectio_wiz_0" PORT="io_reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="10" FULLNAME="/xlconstant_0" HWVERSION="1.1" INSTANCE="xlconstant_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -6595,6 +6931,23 @@
         <PORT DIR="O" LEFT="2" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="digital_trigger_dete_0" PORT="trigger_hysteresis"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="10" FULLNAME="/xlconstant_2" HWVERSION="1.1" INSTANCE="xlconstant_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x000"/>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="12"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_2_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="11" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_2_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="selectio_wiz_0" PORT="bitslip"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

@@ -1,3 +1,6 @@
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ip/design_1_util_ds_buf_0_0/util_ds_buf.vhd" \
+"../../../bd/design_1/ip/design_1_util_ds_buf_0_0/sim/design_1_util_ds_buf_0_0.vhd" \
 
 # Do not sort compile order
 nosort

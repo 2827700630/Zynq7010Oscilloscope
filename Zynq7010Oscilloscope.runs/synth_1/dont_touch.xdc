@@ -54,6 +54,21 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xl
 # IP: bd/design_1/ip/design_1_xlconstant_0_1/design_1_xlconstant_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xlconstant_0_1 || ORIG_REF_NAME==design_1_xlconstant_0_1} -quiet] -quiet
 
+# IP: bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_selectio_wiz_0_0 || ORIG_REF_NAME==design_1_selectio_wiz_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_ad9434_top_sdr_0_0/design_1_ad9434_top_sdr_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_ad9434_top_sdr_0_0 || ORIG_REF_NAME==design_1_ad9434_top_sdr_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_xlconstant_2_0/design_1_xlconstant_2_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xlconstant_2_0 || ORIG_REF_NAME==design_1_xlconstant_2_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_util_ds_buf_0_0/design_1_util_ds_buf_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_util_ds_buf_0_0 || ORIG_REF_NAME==design_1_util_ds_buf_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_util_vector_logic_0_0 || ORIG_REF_NAME==design_1_util_vector_logic_0_0} -quiet] -quiet
+
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_processing_system7_0_0 || ORIG_REF_NAME==design_1_processing_system7_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
@@ -81,5 +96,15 @@ set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filte
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_ila_0_0 || ORIG_REF_NAME==design_1_ila_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/design_1_ila_0_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_selectio_wiz_0_0 || ORIG_REF_NAME==design_1_selectio_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_util_ds_buf_0_0/design_1_util_ds_buf_0_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_util_ds_buf_0_0/design_1_util_ds_buf_0_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_util_ds_buf_0_0 || ORIG_REF_NAME==design_1_util_ds_buf_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/design_1_ooc.xdc

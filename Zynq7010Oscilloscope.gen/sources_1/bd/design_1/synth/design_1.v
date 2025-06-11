@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Wed Jun 11 15:36:22 2025
+//Date        : Wed Jun 11 22:38:07 2025
 //Host        : myhym running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -10,9 +10,11 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=16,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_board_cnt=1,da_ps7_cnt=2,synth_mode=None}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=21,numReposBlks=21,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_board_cnt=1,da_ps7_cnt=2,synth_mode=None}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
-   (DDR_addr,
+   (CLK_OUT_D3_0_clk_n,
+    CLK_OUT_D3_0_clk_p,
+    DDR_addr,
     DDR_ba,
     DDR_cas_n,
     DDR_ck_n,
@@ -40,10 +42,16 @@ module design_1
     crystal_clk_50mhz,
     dac_clk_0,
     dac_data_out_0,
+    data_in_from_pins_n_0,
+    data_in_from_pins_p_0,
+    diff_clk_in_0_clk_n,
+    diff_clk_in_0_clk_p,
     key_extract_sel_0,
     key_freq_sel_0,
     key_reset_0,
     key_wave_sel_0);
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 CLK_OUT_D3_0 CLK_N" *) (* X_INTERFACE_MODE = "Master" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK_OUT_D3_0, CAN_DEBUG false, FREQ_HZ 100000000" *) output [0:0]CLK_OUT_D3_0_clk_n;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 CLK_OUT_D3_0 CLK_P" *) output [0:0]CLK_OUT_D3_0_clk_p;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_MODE = "Master" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_cas_n;
@@ -72,11 +80,17 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CRYSTAL_CLK_50MHZ CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CRYSTAL_CLK_50MHZ, CLK_DOMAIN design_1_clk_in1_0, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input crystal_clk_50mhz;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.DAC_CLK_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.DAC_CLK_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output dac_clk_0;
   output [7:0]dac_data_out_0;
+  input [11:0]data_in_from_pins_n_0;
+  input [11:0]data_in_from_pins_p_0;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 diff_clk_in_0 CLK_N" *) (* X_INTERFACE_MODE = "Slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME diff_clk_in_0, CAN_DEBUG false, FREQ_HZ 100000000" *) input diff_clk_in_0_clk_n;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 diff_clk_in_0 CLK_P" *) input diff_clk_in_0_clk_p;
   input key_extract_sel_0;
   input key_freq_sel_0;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.KEY_RESET_0 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.KEY_RESET_0, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input key_reset_0;
   input key_wave_sel_0;
 
+  wire [0:0]CLK_OUT_D3_0_clk_n;
+  wire [0:0]CLK_OUT_D3_0_clk_p;
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
   wire DDR_cas_n;
@@ -100,18 +114,25 @@ module design_1
   wire FIXED_IO_ps_srstb;
   wire LED1;
   wire LED2;
+  wire [11:0]ad9434_top_sdr_0_adc_output_data;
+  wire ad9434_top_sdr_0_adc_output_valid;
   wire adc_clk_0;
   wire [7:0]adc_data_acquisition_0_adc_data_buffered;
   wire adc_data_acquisition_0_fifo_reset_signal;
   wire [7:0]adc_data_input_0;
+  wire clk_wiz_0_AD9434;
   wire clk_wiz_0_key;
   wire crystal_clk_50mhz;
   wire dac_clk_0;
   wire [7:0]dac_data_out_0;
   wire data_extract_0_data_extract_pulse;
+  wire [11:0]data_in_from_pins_n_0;
+  wire [11:0]data_in_from_pins_p_0;
   wire [8:0]dds_signal_generator_0_sine_rom_addr;
   wire [8:0]dds_signal_generator_0_square_rom_addr;
   wire [8:0]dds_signal_generator_0_triangle_rom_addr;
+  wire diff_clk_in_0_clk_n;
+  wire diff_clk_in_0_clk_p;
   wire digital_trigger_dete_0_digital_trigger_out;
   wire [7:0]fifo_generator_0_dout;
   wire fifo_generator_0_empty;
@@ -123,17 +144,27 @@ module design_1
   wire key_reset_0;
   wire key_wave_sel_0;
   wire processing_system7_0_FCLK_CLK0;
+  wire selectio_wiz_0_clk_div_out;
+  wire [23:0]selectio_wiz_0_data_in_to_device;
   wire [7:0]sin_douta;
   wire [7:0]square_douta;
   wire [7:0]triangle_douta;
   wire trigger_controller_0_fifo_read_enable;
   wire trigger_controller_0_fifo_write_enable;
   wire trigger_controller_0_fifo_write_ready;
+  wire [0:0]util_vector_logic_0_Res;
   wire [0:0]xlconstant_0_dout;
   wire [2:0]xlconstant_1_dout;
+  wire [11:0]xlconstant_2_dout;
   wire [7:0]xlconstant_3_dout;
 
   assign LED2 = key_freq_sel_0;
+  design_1_ad9434_top_sdr_0_0 ad9434_top_sdr_0
+       (.adc_output_data(ad9434_top_sdr_0_adc_output_data),
+        .adc_output_valid(ad9434_top_sdr_0_adc_output_valid),
+        .adc_parallel_data_from_selectio(selectio_wiz_0_data_in_to_device),
+        .clk_parallel_data(selectio_wiz_0_clk_div_out),
+        .sys_rst_n(key_reset_0));
   design_1_adc_data_acquisition_0_0 adc_data_acquisition_0
        (.adc_clk_25mhz(adc_clk_0),
         .adc_data_buffered(adc_data_acquisition_0_adc_data_buffered),
@@ -141,7 +172,8 @@ module design_1
         .fifo_reset_signal(adc_data_acquisition_0_fifo_reset_signal),
         .reset_pulse(key_debounce_0_reset_pulse));
   design_1_clk_wiz_0_0 clk_wiz_0
-       (.adc_clk25(adc_clk_0),
+       (.AD9434(clk_wiz_0_AD9434),
+        .adc_clk25(adc_clk_0),
         .clk_in1(crystal_clk_50mhz),
         .dac_clk50(dac_clk_0),
         .key(clk_wiz_0_key));
@@ -181,6 +213,8 @@ module design_1
        (.clk(dac_clk_0),
         .probe0(fifo_generator_0_dout),
         .probe1(dac_data_out_0),
+        .probe10(ad9434_top_sdr_0_adc_output_data),
+        .probe11(ad9434_top_sdr_0_adc_output_valid),
         .probe2(adc_data_acquisition_0_adc_data_buffered),
         .probe3(LED2),
         .probe4(key_wave_sel_0),
@@ -240,6 +274,16 @@ module design_1
         .UART1_DSRN(1'b0),
         .UART1_RIN(1'b0),
         .USB0_VBUS_PWRFAULT(1'b0));
+  design_1_selectio_wiz_0_0 selectio_wiz_0
+       (.bitslip(xlconstant_2_dout),
+        .clk_div_out(selectio_wiz_0_clk_div_out),
+        .clk_in_n(diff_clk_in_0_clk_n),
+        .clk_in_p(diff_clk_in_0_clk_p),
+        .clk_reset(util_vector_logic_0_Res),
+        .data_in_from_pins_n(data_in_from_pins_n_0),
+        .data_in_from_pins_p(data_in_from_pins_p_0),
+        .data_in_to_device(selectio_wiz_0_data_in_to_device),
+        .io_reset(util_vector_logic_0_Res));
   design_1_blk_mem_gen_2_0 sine
        (.addra(dds_signal_generator_0_sine_rom_addr),
         .clka(dac_clk_0),
@@ -261,10 +305,19 @@ module design_1
         .fifo_read_enable(trigger_controller_0_fifo_read_enable),
         .fifo_write_enable(trigger_controller_0_fifo_write_enable),
         .fifo_write_ready(trigger_controller_0_fifo_write_ready));
+  design_1_util_ds_buf_0_0 util_ds_buf_0
+       (.OBUF_DS_N(CLK_OUT_D3_0_clk_n),
+        .OBUF_DS_P(CLK_OUT_D3_0_clk_p),
+        .OBUF_IN(clk_wiz_0_AD9434));
+  design_1_util_vector_logic_0_0 util_vector_logic_0
+       (.Op1(key_reset_0),
+        .Res(util_vector_logic_0_Res));
   design_1_xlconstant_0_1 xlconstant_0
        (.dout(xlconstant_0_dout));
   design_1_xlconstant_1_1 xlconstant_1
        (.dout(xlconstant_1_dout));
+  design_1_xlconstant_2_0 xlconstant_2
+       (.dout(xlconstant_2_dout));
   design_1_xlconstant_3_0 xlconstant_3
        (.dout(xlconstant_3_dout));
 endmodule
