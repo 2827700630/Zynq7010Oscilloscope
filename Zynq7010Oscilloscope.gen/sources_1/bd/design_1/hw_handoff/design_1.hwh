@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jun  9 23:42:33 2025" VIVADOVERSION="2025.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jun 10 00:20:46 2025" VIVADOVERSION="2025.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -838,12 +838,12 @@
       <PORTS>
         <PORT CLKFREQUENCY="25000000" DIR="O" NAME="adc_clk25" SIGIS="clk" SIGNAME="clk_wiz_0_adc_clk25">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="trigger_controller_0" PORT="adc_clk_25mhz"/>
             <CONNECTION INSTANCE="data_extract_0" PORT="adc_clk_25mhz"/>
             <CONNECTION INSTANCE="digital_trigger_dete_0" PORT="adc_clk_25mhz"/>
             <CONNECTION INSTANCE="adc_data_acquisition_0" PORT="adc_clk_25mhz"/>
             <CONNECTION INSTANCE="fifo_generator_0" PORT="clk"/>
             <CONNECTION INSTANCE="External_Ports" PORT="adc_clk_0"/>
+            <CONNECTION INSTANCE="trigger_controller_0" PORT="adc_clk_25mhz"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="50000000" DIR="I" NAME="clk_in1" SIGIS="clk" SIGNAME="External_Ports_crystal_clk_50mhz">
