@@ -1853,13 +1853,16 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "12"
+            "value": "15"
           },
           "C_PROBE0_WIDTH": {
             "value": "8"
           },
           "C_PROBE10_WIDTH": {
             "value": "12"
+          },
+          "C_PROBE12_WIDTH": {
+            "value": "1"
           },
           "C_PROBE1_WIDTH": {
             "value": "8"
@@ -2136,7 +2139,8 @@
       "clk_wiz_0_AD9434": {
         "ports": [
           "clk_wiz_0/AD9434",
-          "util_ds_buf_0/OBUF_IN"
+          "util_ds_buf_0/OBUF_IN",
+          "ila_0/probe14"
         ]
       },
       "clk_wiz_0_adc_clk": {
@@ -2147,7 +2151,8 @@
           "adc_data_acquisition_0/adc_clk_25mhz",
           "fifo_generator_0/clk",
           "adc_clk_0",
-          "trigger_controller_0/adc_clk_25mhz"
+          "trigger_controller_0/adc_clk_25mhz",
+          "ila_0/probe4"
         ]
       },
       "clk_wiz_0_dac_clk50": {
@@ -2288,7 +2293,6 @@
       "key_wave_sel_0_1": {
         "ports": [
           "key_wave_sel_0",
-          "ila_0/probe4",
           "key_debounce_0/key_wave_sel"
         ]
       },
@@ -2301,7 +2305,8 @@
       "selectio_wiz_0_clk_div_out": {
         "ports": [
           "selectio_wiz_0/clk_div_out",
-          "ad9434_top_sdr_0/clk_parallel_data"
+          "ad9434_top_sdr_0/clk_parallel_data",
+          "ila_0/probe12"
         ]
       },
       "selectio_wiz_0_data_in_to_device": {
@@ -2351,7 +2356,8 @@
         "ports": [
           "util_vector_logic_0/Res",
           "selectio_wiz_0/clk_reset",
-          "selectio_wiz_0/io_reset"
+          "selectio_wiz_0/io_reset",
+          "ila_0/probe13"
         ]
       },
       "xlconstant_0_dout": {

@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Wed Jun 11 22:38:07 2025
+//Date        : Thu Jun 12 00:38:44 2025
 //Host        : myhym running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -215,9 +215,12 @@ module design_1
         .probe1(dac_data_out_0),
         .probe10(ad9434_top_sdr_0_adc_output_data),
         .probe11(ad9434_top_sdr_0_adc_output_valid),
+        .probe12(selectio_wiz_0_clk_div_out),
+        .probe13(util_vector_logic_0_Res),
+        .probe14(clk_wiz_0_AD9434),
         .probe2(adc_data_acquisition_0_adc_data_buffered),
         .probe3(LED2),
-        .probe4(key_wave_sel_0),
+        .probe4(adc_clk_0),
         .probe5(key_extract_sel_0),
         .probe6(key_reset_0),
         .probe7(LED1),

@@ -4,8 +4,8 @@
    "Color Coded_TopLeft":"-294,2",
    "Default View_Layers":"/clk_wiz_0_adc_clk:true|/key_reset_0_1:true|/clk_in1_0_1:true|/key_debounce_0_reset_pulse:true|/processing_system7_0_FCLK_CLK0:true|/clk_wiz_0_dac_clk:true|",
    "Default View_Layout":"",
-   "Default View_ScaleFactor":"0.288876",
-   "Default View_TopLeft":"-983,3",
+   "Default View_ScaleFactor":"0.704119",
+   "Default View_TopLeft":"812,1169",
    "Display-PortTypeClock":"true",
    "Display-PortTypeOthers":"true",
    "Display-PortTypeReset":"true",
@@ -15,93 +15,93 @@
    "Interfaces View_TopLeft":"-2060,-332",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 threadsafe
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 6 -x 2330 -y 570 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 6 -x 2330 -y 590 -defaultsOSRD
-preplace port CLK_OUT_D3_0 -pg 1 -lvl 6 -x 2330 -y 830 -defaultsOSRD
-preplace port diff_clk_in_0 -pg 1 -lvl 0 -x 0 -y 1300 -defaultsOSRD
-preplace port port-id_crystal_clk_50mhz -pg 1 -lvl 0 -x 0 -y 780 -defaultsOSRD
-preplace port port-id_key_freq_sel_0 -pg 1 -lvl 0 -x 0 -y 1360 -defaultsOSRD
-preplace port port-id_key_wave_sel_0 -pg 1 -lvl 0 -x 0 -y 1430 -defaultsOSRD
-preplace port port-id_key_extract_sel_0 -pg 1 -lvl 0 -x 0 -y 1450 -defaultsOSRD
-preplace port port-id_key_reset_0 -pg 1 -lvl 0 -x 0 -y 1470 -defaultsOSRD
-preplace port port-id_adc_clk_0 -pg 1 -lvl 6 -x 2330 -y 1320 -defaultsOSRD
-preplace port port-id_dac_clk_0 -pg 1 -lvl 6 -x 2330 -y 490 -defaultsOSRD
-preplace port port-id_LED1 -pg 1 -lvl 6 -x 2330 -y 1700 -defaultsOSRD
-preplace port port-id_LED2 -pg 1 -lvl 6 -x 2330 -y 1340 -defaultsOSRD
-preplace portBus dac_data_out_0 -pg 1 -lvl 6 -x 2330 -y 510 -defaultsOSRD
-preplace portBus adc_data_input_0 -pg 1 -lvl 0 -x 0 -y 860 -defaultsOSRD
-preplace portBus data_in_from_pins_p_0 -pg 1 -lvl 0 -x 0 -y 1320 -defaultsOSRD
-preplace portBus data_in_from_pins_n_0 -pg 1 -lvl 0 -x 0 -y 1340 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 5 -x 2100 -y 640 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 4 -x 1560 -y 800 -defaultsOSRD
-preplace inst data_extract_0 -pg 1 -lvl 5 -x 2100 -y 970 -defaultsOSRD
-preplace inst dds_signal_generator_0 -pg 1 -lvl 4 -x 1560 -y 390 -defaultsOSRD
-preplace inst digital_trigger_dete_0 -pg 1 -lvl 3 -x 1040 -y 1040 -defaultsOSRD
-preplace inst key_debounce_0 -pg 1 -lvl 1 -x 220 -y 1430 -defaultsOSRD
-preplace inst trigger_controller_0 -pg 1 -lvl 4 -x 1560 -y 1000 -defaultsOSRD
-preplace inst adc_data_acquisition_0 -pg 1 -lvl 2 -x 620 -y 860 -defaultsOSRD
-preplace inst sine -pg 1 -lvl 5 -x 2100 -y 90 -defaultsOSRD
-preplace inst square -pg 1 -lvl 5 -x 2100 -y 250 -defaultsOSRD
-preplace inst triangle -pg 1 -lvl 5 -x 2100 -y 410 -defaultsOSRD
-preplace inst fifo_generator_0 -pg 1 -lvl 5 -x 2100 -y 1180 -defaultsOSRD
-preplace inst ila_0 -pg 1 -lvl 5 -x 2100 -y 1520 -defaultsOSRD
-preplace inst xlconstant_3 -pg 1 -lvl 2 -x 620 -y 1100 -defaultsOSRD
-preplace inst xlconstant_1 -pg 1 -lvl 2 -x 620 -y 1200 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 2 -x 620 -y 1000 -defaultsOSRD
-preplace inst selectio_wiz_0 -pg 1 -lvl 3 -x 1040 -y 1350 -defaultsOSRD
-preplace inst ad9434_top_sdr_0 -pg 1 -lvl 4 -x 1560 -y 1630 -defaultsOSRD
-preplace inst xlconstant_2 -pg 1 -lvl 2 -x 620 -y 1480 -defaultsOSRD
-preplace inst util_ds_buf_0 -pg 1 -lvl 5 -x 2100 -y 830 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 2 -x 620 -y 1380 -defaultsOSRD
-preplace netloc adc_data_acquisition_0_adc_data_buffered 1 2 3 840 1140 NJ 1140 1880
-preplace netloc adc_data_acquisition_0_fifo_reset_signal 1 2 3 820 1200 NJ 1200 1830J
-preplace netloc adc_data_input_0_1 1 0 2 NJ 860 NJ
-preplace netloc clk_in1_0_1 1 0 4 NJ 780 NJ 780 NJ 780 1310J
-preplace netloc clk_wiz_0_adc_clk 1 1 5 440 940 850 940 1300 890 1840 1330 2310J
-preplace netloc clk_wiz_0_dac_clk50 1 3 3 1310 270 1870 500 2310J
-preplace netloc clk_wiz_0_key 1 0 5 50 1330 420J 1540 NJ 1540 1260J 1510 1790
-preplace netloc data_extract_0_data_extract_pulse 1 3 3 1330 710 1860J 890 2310
-preplace netloc dds_signal_generator_0_dac_data_out 1 4 2 1850 510 NJ
+preplace port DDR -pg 1 -lvl 6 -x 2350 -y 570 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 6 -x 2350 -y 590 -defaultsOSRD
+preplace port CLK_OUT_D3_0 -pg 1 -lvl 6 -x 2350 -y 1290 -defaultsOSRD
+preplace port diff_clk_in_0 -pg 1 -lvl 0 -x 0 -y 1590 -defaultsOSRD
+preplace port port-id_crystal_clk_50mhz -pg 1 -lvl 0 -x 0 -y 1310 -defaultsOSRD
+preplace port port-id_key_freq_sel_0 -pg 1 -lvl 0 -x 0 -y 1160 -defaultsOSRD
+preplace port port-id_key_wave_sel_0 -pg 1 -lvl 0 -x 0 -y 1180 -defaultsOSRD
+preplace port port-id_key_extract_sel_0 -pg 1 -lvl 0 -x 0 -y 1200 -defaultsOSRD
+preplace port port-id_key_reset_0 -pg 1 -lvl 0 -x 0 -y 1220 -defaultsOSRD
+preplace port port-id_adc_clk_0 -pg 1 -lvl 6 -x 2350 -y 780 -defaultsOSRD
+preplace port port-id_dac_clk_0 -pg 1 -lvl 6 -x 2350 -y 490 -defaultsOSRD
+preplace port port-id_LED1 -pg 1 -lvl 6 -x 2350 -y 1750 -defaultsOSRD
+preplace port port-id_LED2 -pg 1 -lvl 6 -x 2350 -y 1230 -defaultsOSRD
+preplace portBus dac_data_out_0 -pg 1 -lvl 6 -x 2350 -y 510 -defaultsOSRD
+preplace portBus adc_data_input_0 -pg 1 -lvl 0 -x 0 -y 1290 -defaultsOSRD
+preplace portBus data_in_from_pins_p_0 -pg 1 -lvl 0 -x 0 -y 1610 -defaultsOSRD
+preplace portBus data_in_from_pins_n_0 -pg 1 -lvl 0 -x 0 -y 1630 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 5 -x 2110 -y 640 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 4 -x 1510 -y 1190 -defaultsOSRD
+preplace inst data_extract_0 -pg 1 -lvl 5 -x 2110 -y 870 -defaultsOSRD
+preplace inst dds_signal_generator_0 -pg 1 -lvl 4 -x 1510 -y 390 -defaultsOSRD
+preplace inst digital_trigger_dete_0 -pg 1 -lvl 3 -x 1020 -y 900 -defaultsOSRD
+preplace inst key_debounce_0 -pg 1 -lvl 1 -x 230 -y 1180 -defaultsOSRD
+preplace inst trigger_controller_0 -pg 1 -lvl 4 -x 1510 -y 880 -defaultsOSRD
+preplace inst adc_data_acquisition_0 -pg 1 -lvl 2 -x 630 -y 1170 -defaultsOSRD
+preplace inst sine -pg 1 -lvl 5 -x 2110 -y 90 -defaultsOSRD
+preplace inst square -pg 1 -lvl 5 -x 2110 -y 250 -defaultsOSRD
+preplace inst triangle -pg 1 -lvl 5 -x 2110 -y 410 -defaultsOSRD
+preplace inst fifo_generator_0 -pg 1 -lvl 5 -x 2110 -y 1080 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 5 -x 2110 -y 1540 -defaultsOSRD
+preplace inst xlconstant_3 -pg 1 -lvl 2 -x 630 -y 920 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 2 -x 630 -y 1020 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -x 630 -y 820 -defaultsOSRD
+preplace inst selectio_wiz_0 -pg 1 -lvl 3 -x 1020 -y 1640 -defaultsOSRD
+preplace inst ad9434_top_sdr_0 -pg 1 -lvl 4 -x 1510 -y 1620 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 2 -x 630 -y 1790 -defaultsOSRD
+preplace inst util_ds_buf_0 -pg 1 -lvl 5 -x 2110 -y 1290 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 2 -x 630 -y 1690 -defaultsOSRD
+preplace netloc adc_data_acquisition_0_adc_data_buffered 1 2 3 810 1040 NJ 1040 1890
+preplace netloc adc_data_acquisition_0_fifo_reset_signal 1 2 3 810 1230 1220J 1280 1840J
+preplace netloc adc_data_input_0_1 1 0 2 50J 1280 420J
+preplace netloc clk_in1_0_1 1 0 4 NJ 1310 430J 1260 830J 1240 1210J
+preplace netloc clk_wiz_0_adc_clk 1 1 5 450 760 830 760 1220 760 1830 780 NJ
+preplace netloc clk_wiz_0_dac_clk50 1 3 3 1250 260 1870 500 2320J
+preplace netloc clk_wiz_0_key 1 0 5 60 1080 NJ 1080 NJ 1080 NJ 1080 1740
+preplace netloc data_extract_0_data_extract_pulse 1 3 3 1280 770 1780J 790 2320
+preplace netloc dds_signal_generator_0_dac_data_out 1 4 2 1850 770 2330J
 preplace netloc dds_signal_generator_0_sine_rom_addr 1 4 1 1790 80n
-preplace netloc dds_signal_generator_0_square_rom_addr 1 4 1 1850 240n
+preplace netloc dds_signal_generator_0_square_rom_addr 1 4 1 1810 240n
 preplace netloc dds_signal_generator_0_triangle_rom_addr 1 4 1 1880 380n
-preplace netloc digital_trigger_dete_0_digital_trigger_out 1 3 1 1240 1020n
-preplace netloc fifo_generator_0_dout 1 4 1 1890 1210n
-preplace netloc fifo_generator_0_empty 1 3 2 1310 1190 NJ
-preplace netloc fifo_generator_0_full 1 3 2 1320 1110 NJ
-preplace netloc key_debounce_0_extract_change_pulse 1 1 4 410J 1260 800J 1210 NJ 1210 1820
-preplace netloc key_debounce_0_freq_change_pulse 1 1 5 390J 1280 830J 1230 1280 1540 1790 1700 NJ
-preplace netloc key_debounce_0_reset_pulse 1 1 1 400 880n
-preplace netloc key_debounce_0_wave_change_pulse 1 1 4 430J 1290 850J 1240 1290 1550 1800J
-preplace netloc key_extract_sel_0_1 1 0 5 20 1560 NJ 1560 NJ 1560 1320J 1530 1890J
-preplace netloc key_freq_sel_0_1 1 0 6 40 1270 NJ 1270 810J 1220 NJ 1220 1800 1340 NJ
-preplace netloc key_reset_0_1 1 0 5 40 1530 440 1580 NJ 1580 1230 1710 1890J
-preplace netloc key_wave_sel_0_1 1 0 5 50 1550 NJ 1550 NJ 1550 1270J 1520 1860J
-preplace netloc processing_system7_0_FCLK_CLK0 1 4 2 1880 770 2310
-preplace netloc sin_douta 1 3 2 1300 120 NJ
-preplace netloc square_douta 1 3 2 1330 280 NJ
-preplace netloc triangle_douta 1 3 2 1330 500 1790
-preplace netloc trigger_controller_0_fifo_read_enable 1 4 1 1810 1030n
-preplace netloc trigger_controller_0_fifo_write_enable 1 4 1 1830 1050n
-preplace netloc trigger_controller_0_fifo_write_ready 1 4 1 1830 990n
-preplace netloc xlconstant_0_dout 1 2 1 830J 1000n
-preplace netloc xlconstant_1_dout 1 2 1 810J 1080n
-preplace netloc xlconstant_3_dout 1 2 1 800J 1060n
-preplace netloc data_in_from_pins_p_0_1 1 0 3 20J 1310 NJ 1310 850J
-preplace netloc data_in_from_pins_n_0_1 1 0 3 30J 1320 NJ 1320 800J
-preplace netloc selectio_wiz_0_data_in_to_device 1 3 1 1240 1360n
-preplace netloc ad9434_top_sdr_0_adc_output_data 1 4 1 N 1620
-preplace netloc ad9434_top_sdr_0_adc_output_valid 1 4 1 N 1640
-preplace netloc selectio_wiz_0_clk_div_out 1 3 1 1250 1340n
-preplace netloc xlconstant_2_dout 1 2 1 800J 1400n
-preplace netloc clk_wiz_0_AD9434 1 4 1 NJ 830
-preplace netloc util_vector_logic_0_Res 1 2 1 850 1360n
+preplace netloc digital_trigger_dete_0_digital_trigger_out 1 3 1 N 900
+preplace netloc fifo_generator_0_dout 1 4 1 1900 1110n
+preplace netloc fifo_generator_0_empty 1 3 2 1260 1070 1840
+preplace netloc fifo_generator_0_full 1 3 2 1270 1010 N
+preplace netloc key_debounce_0_extract_change_pulse 1 1 4 400J 750 NJ 750 NJ 750 1860
+preplace netloc key_debounce_0_freq_change_pulse 1 1 5 410J 1090 NJ 1090 1210 1090 1800 1750 NJ
+preplace netloc key_debounce_0_reset_pulse 1 1 1 430 1190n
+preplace netloc key_debounce_0_wave_change_pulse 1 1 4 410J 1250 NJ 1250 1230 1520 1740J
+preplace netloc key_extract_sel_0_1 1 0 5 40 1300 NJ 1300 NJ 1300 NJ 1300 1810J
+preplace netloc key_freq_sel_0_1 1 0 6 60 1290 NJ 1290 NJ 1290 NJ 1290 1780 1230 NJ
+preplace netloc key_reset_0_1 1 0 5 30 1320 420 1530 NJ 1530 1210 1530 NJ
+preplace netloc key_wave_sel_0_1 1 0 1 N 1180
+preplace netloc processing_system7_0_FCLK_CLK0 1 4 2 1900 510 2320
+preplace netloc sin_douta 1 3 2 1240 120 NJ
+preplace netloc square_douta 1 3 2 1260 270 1900J
+preplace netloc triangle_douta 1 3 2 1280 280 1890
+preplace netloc trigger_controller_0_fifo_read_enable 1 4 1 1820 910n
+preplace netloc trigger_controller_0_fifo_write_enable 1 4 1 1840 930n
+preplace netloc trigger_controller_0_fifo_write_ready 1 4 1 N 890
+preplace netloc xlconstant_0_dout 1 2 1 820J 820n
+preplace netloc xlconstant_1_dout 1 2 1 830J 940n
+preplace netloc xlconstant_3_dout 1 2 1 NJ 920
+preplace netloc data_in_from_pins_p_0_1 1 0 3 NJ 1610 NJ 1610 N
+preplace netloc data_in_from_pins_n_0_1 1 0 3 NJ 1630 NJ 1630 NJ
+preplace netloc selectio_wiz_0_data_in_to_device 1 3 1 1230 1600n
+preplace netloc ad9434_top_sdr_0_adc_output_data 1 4 1 N 1610
+preplace netloc ad9434_top_sdr_0_adc_output_valid 1 4 1 N 1630
+preplace netloc selectio_wiz_0_clk_div_out 1 3 2 1270 1700 1900
+preplace netloc xlconstant_2_dout 1 2 1 830J 1690n
+preplace netloc clk_wiz_0_AD9434 1 4 1 1790 1220n
+preplace netloc util_vector_logic_0_Res 1 2 3 810 1750 NJ 1750 1740
 preplace netloc processing_system7_0_DDR 1 5 1 NJ 570
 preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ 590
-preplace netloc util_ds_buf_0_CLK_OUT_D3 1 5 1 NJ 830
-preplace netloc diff_clk_in_0_1 1 0 3 NJ 1300 NJ 1300 NJ
-levelinfo -pg 1 0 220 620 1040 1560 2100 2330
-pagesize -pg 1 -db -bbox -sgen -240 0 2510 1720
+preplace netloc util_ds_buf_0_CLK_OUT_D3 1 5 1 NJ 1290
+preplace netloc diff_clk_in_0_1 1 0 3 NJ 1590 NJ 1590 NJ
+levelinfo -pg 1 0 230 630 1020 1510 2110 2350
+pagesize -pg 1 -db -bbox -sgen -240 0 2530 1850
 "
 }
 {

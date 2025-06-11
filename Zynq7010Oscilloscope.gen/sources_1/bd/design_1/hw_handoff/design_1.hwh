@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jun 11 22:38:07 2025" VIVADOVERSION="2025.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jun 12 00:38:45 2025" VIVADOVERSION="2025.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -197,7 +197,6 @@
     </PORT>
     <PORT DIR="I" NAME="key_wave_sel_0" SIGIS="undef" SIGNAME="External_Ports_key_wave_sel_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="ila_0" PORT="probe4"/>
         <CONNECTION INSTANCE="key_debounce_0" PORT="key_wave_sel"/>
       </CONNECTIONS>
     </PORT>
@@ -922,6 +921,7 @@
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="AD9434" SIGIS="clk" SIGNAME="clk_wiz_0_AD9434">
           <CONNECTIONS>
             <CONNECTION INSTANCE="util_ds_buf_0" PORT="OBUF_IN"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe14"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="25000000" DIR="O" NAME="adc_clk25" SIGIS="clk" SIGNAME="clk_wiz_0_adc_clk25">
@@ -932,6 +932,7 @@
             <CONNECTION INSTANCE="fifo_generator_0" PORT="clk"/>
             <CONNECTION INSTANCE="External_Ports" PORT="adc_clk_0"/>
             <CONNECTION INSTANCE="trigger_controller_0" PORT="adc_clk_25mhz"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe4"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="50000000" DIR="I" NAME="clk_in1" SIGIS="clk" SIGNAME="External_Ports_crystal_clk_50mhz">
@@ -1559,7 +1560,7 @@
         <PARAMETER NAME="C_MU_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="12"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="15"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_TYPE" VALUE="0"/>
@@ -4692,9 +4693,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="key_freq_sel_0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe4" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_key_wave_sel_0">
+        <PORT DIR="I" LEFT="0" NAME="probe4" RIGHT="0" SIGIS="undef" SIGNAME="clk_wiz_0_adc_clk25">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="key_wave_sel_0"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="adc_clk25"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="probe5" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_key_extract_sel_0">
@@ -4730,6 +4731,21 @@
         <PORT DIR="I" LEFT="0" NAME="probe11" RIGHT="0" SIGIS="undef" SIGNAME="ad9434_top_sdr_0_adc_output_valid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ad9434_top_sdr_0" PORT="adc_output_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe12" RIGHT="0" SIGIS="undef" SIGNAME="selectio_wiz_0_clk_div_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="selectio_wiz_0" PORT="clk_div_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe13" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_0_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="util_vector_logic_0" PORT="Res"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe14" RIGHT="0" SIGIS="undef" SIGNAME="clk_wiz_0_AD9434">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="AD9434"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6166,6 +6182,7 @@
         <PORT CLKFREQUENCY="50000000" DIR="O" NAME="clk_div_out" SIGIS="clk" SIGNAME="selectio_wiz_0_clk_div_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ad9434_top_sdr_0" PORT="clk_parallel_data"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe12"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_in_n" SIGIS="clk" SIGNAME="selectio_wiz_0_clk_in_n">
@@ -6897,6 +6914,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="selectio_wiz_0" PORT="clk_reset"/>
             <CONNECTION INSTANCE="selectio_wiz_0" PORT="io_reset"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe13"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
