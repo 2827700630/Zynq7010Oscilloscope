@@ -1604,21 +1604,7 @@
             "direction": "O"
           },
           "fifo_read_enable": {
-            "direction": "O",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "25000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
+            "direction": "O"
           },
           "fifo_write_enable": {
             "direction": "O"
@@ -1896,12 +1882,12 @@
       "clk_wiz_0_adc_clk": {
         "ports": [
           "clk_wiz_0/adc_clk25",
-          "trigger_controller_0/adc_clk_25mhz",
           "data_extract_0/adc_clk_25mhz",
           "digital_trigger_dete_0/adc_clk_25mhz",
           "adc_data_acquisition_0/adc_clk_25mhz",
           "fifo_generator_0/clk",
-          "adc_clk_0"
+          "adc_clk_0",
+          "trigger_controller_0/adc_clk_25mhz"
         ]
       },
       "clk_wiz_0_dac_clk50": {

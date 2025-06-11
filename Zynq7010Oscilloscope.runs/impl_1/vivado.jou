@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Mon Jun  9 23:44:57 2025
-# Process ID         : 30120
+# Start of session at: Wed Jun 11 15:30:49 2025
+# Process ID         : 13740
 # Current directory  : E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.runs/impl_1
 # Command line       : vivado.exe -log design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
 # Log file           : E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.runs/impl_1/design_1_wrapper.vdi
@@ -17,8 +17,8 @@
 # CPU Physical cores : 14
 # CPU Logical cores  : 20
 # Host memory        : 16886 MB
-# Swap memory        : 16088 MB
-# Total Virtual      : 32974 MB
-# Available Virtual  : 6670 MB
+# Swap memory        : 15569 MB
+# Total Virtual      : 32455 MB
+# Available Virtual  : 15277 MB
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
