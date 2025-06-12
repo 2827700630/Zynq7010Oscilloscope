@@ -11,6 +11,13 @@ E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/buil
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/CMakeFiles/install.dir
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/CMakeFiles/install/local.dir
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/CMakeFiles/install/strip.dir
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/axidma/src/CMakeFiles/axidma.dir
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/axidma/src/CMakeFiles/edit_cache.dir
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/axidma/src/CMakeFiles/rebuild_cache.dir
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/axidma/src/CMakeFiles/list_install_components.dir
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/axidma/src/CMakeFiles/install.dir
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/axidma/src/CMakeFiles/install/local.dir
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/axidma/src/CMakeFiles/install/strip.dir
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/common/src/CMakeFiles/edit_cache.dir
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/common/src/CMakeFiles/rebuild_cache.dir
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/common/src/CMakeFiles/list_install_components.dir

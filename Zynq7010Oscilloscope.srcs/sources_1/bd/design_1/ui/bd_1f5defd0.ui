@@ -4,107 +4,117 @@
    "Color Coded_TopLeft":"-294,2",
    "Default View_Layers":"/clk_wiz_0_adc_clk:true|/key_reset_0_1:true|/clk_in1_0_1:true|/key_debounce_0_reset_pulse:true|/processing_system7_0_FCLK_CLK0:true|/clk_wiz_0_dac_clk:true|",
    "Default View_Layout":"",
-   "Default View_ScaleFactor":"0.704119",
-   "Default View_TopLeft":"812,1169",
+   "Default View_ScaleFactor":"0.717936",
+   "Default View_TopLeft":"1564,666",
    "Display-PortTypeClock":"true",
    "Display-PortTypeOthers":"true",
    "Display-PortTypeReset":"true",
    "ExpandedHierarchyInLayout":"",
+   "HierExpandStatus_comment_0":"false",
    "Interfaces View_Layers":"/clk_wiz_0_adc_clk:false|/key_reset_0_1:false|/clk_in1_0_1:false|/key_debounce_0_reset_pulse:false|/processing_system7_0_FCLK_CLK0:false|/clk_wiz_0_dac_clk:false|",
    "Interfaces View_ScaleFactor":"0.25",
    "Interfaces View_TopLeft":"-2060,-332",
-   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 threadsafe
+   "commentid":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 6 -x 2350 -y 570 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 6 -x 2350 -y 590 -defaultsOSRD
-preplace port CLK_OUT_D3_0 -pg 1 -lvl 6 -x 2350 -y 1290 -defaultsOSRD
-preplace port diff_clk_in_0 -pg 1 -lvl 0 -x 0 -y 1590 -defaultsOSRD
-preplace port port-id_crystal_clk_50mhz -pg 1 -lvl 0 -x 0 -y 1310 -defaultsOSRD
-preplace port port-id_key_freq_sel_0 -pg 1 -lvl 0 -x 0 -y 1160 -defaultsOSRD
-preplace port port-id_key_wave_sel_0 -pg 1 -lvl 0 -x 0 -y 1180 -defaultsOSRD
-preplace port port-id_key_extract_sel_0 -pg 1 -lvl 0 -x 0 -y 1200 -defaultsOSRD
-preplace port port-id_key_reset_0 -pg 1 -lvl 0 -x 0 -y 1220 -defaultsOSRD
-preplace port port-id_adc_clk_0 -pg 1 -lvl 6 -x 2350 -y 780 -defaultsOSRD
-preplace port port-id_dac_clk_0 -pg 1 -lvl 6 -x 2350 -y 490 -defaultsOSRD
-preplace port port-id_LED1 -pg 1 -lvl 6 -x 2350 -y 1750 -defaultsOSRD
-preplace port port-id_LED2 -pg 1 -lvl 6 -x 2350 -y 1230 -defaultsOSRD
-preplace portBus dac_data_out_0 -pg 1 -lvl 6 -x 2350 -y 510 -defaultsOSRD
-preplace portBus adc_data_input_0 -pg 1 -lvl 0 -x 0 -y 1290 -defaultsOSRD
-preplace portBus data_in_from_pins_p_0 -pg 1 -lvl 0 -x 0 -y 1610 -defaultsOSRD
-preplace portBus data_in_from_pins_n_0 -pg 1 -lvl 0 -x 0 -y 1630 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 5 -x 2110 -y 640 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 4 -x 1510 -y 1190 -defaultsOSRD
-preplace inst data_extract_0 -pg 1 -lvl 5 -x 2110 -y 870 -defaultsOSRD
-preplace inst dds_signal_generator_0 -pg 1 -lvl 4 -x 1510 -y 390 -defaultsOSRD
-preplace inst digital_trigger_dete_0 -pg 1 -lvl 3 -x 1020 -y 900 -defaultsOSRD
-preplace inst key_debounce_0 -pg 1 -lvl 1 -x 230 -y 1180 -defaultsOSRD
-preplace inst trigger_controller_0 -pg 1 -lvl 4 -x 1510 -y 880 -defaultsOSRD
-preplace inst adc_data_acquisition_0 -pg 1 -lvl 2 -x 630 -y 1170 -defaultsOSRD
-preplace inst sine -pg 1 -lvl 5 -x 2110 -y 90 -defaultsOSRD
-preplace inst square -pg 1 -lvl 5 -x 2110 -y 250 -defaultsOSRD
-preplace inst triangle -pg 1 -lvl 5 -x 2110 -y 410 -defaultsOSRD
-preplace inst fifo_generator_0 -pg 1 -lvl 5 -x 2110 -y 1080 -defaultsOSRD
-preplace inst ila_0 -pg 1 -lvl 5 -x 2110 -y 1540 -defaultsOSRD
-preplace inst xlconstant_3 -pg 1 -lvl 2 -x 630 -y 920 -defaultsOSRD
-preplace inst xlconstant_1 -pg 1 -lvl 2 -x 630 -y 1020 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 2 -x 630 -y 820 -defaultsOSRD
-preplace inst selectio_wiz_0 -pg 1 -lvl 3 -x 1020 -y 1640 -defaultsOSRD
-preplace inst ad9434_top_sdr_0 -pg 1 -lvl 4 -x 1510 -y 1620 -defaultsOSRD
-preplace inst xlconstant_2 -pg 1 -lvl 2 -x 630 -y 1790 -defaultsOSRD
-preplace inst util_ds_buf_0 -pg 1 -lvl 5 -x 2110 -y 1290 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 2 -x 630 -y 1690 -defaultsOSRD
-preplace netloc adc_data_acquisition_0_adc_data_buffered 1 2 3 810 1040 NJ 1040 1890
-preplace netloc adc_data_acquisition_0_fifo_reset_signal 1 2 3 810 1230 1220J 1280 1840J
-preplace netloc adc_data_input_0_1 1 0 2 50J 1280 420J
-preplace netloc clk_in1_0_1 1 0 4 NJ 1310 430J 1260 830J 1240 1210J
-preplace netloc clk_wiz_0_adc_clk 1 1 5 450 760 830 760 1220 760 1830 780 NJ
-preplace netloc clk_wiz_0_dac_clk50 1 3 3 1250 260 1870 500 2320J
-preplace netloc clk_wiz_0_key 1 0 5 60 1080 NJ 1080 NJ 1080 NJ 1080 1740
-preplace netloc data_extract_0_data_extract_pulse 1 3 3 1280 770 1780J 790 2320
-preplace netloc dds_signal_generator_0_dac_data_out 1 4 2 1850 770 2330J
-preplace netloc dds_signal_generator_0_sine_rom_addr 1 4 1 1790 80n
-preplace netloc dds_signal_generator_0_square_rom_addr 1 4 1 1810 240n
-preplace netloc dds_signal_generator_0_triangle_rom_addr 1 4 1 1880 380n
-preplace netloc digital_trigger_dete_0_digital_trigger_out 1 3 1 N 900
-preplace netloc fifo_generator_0_dout 1 4 1 1900 1110n
-preplace netloc fifo_generator_0_empty 1 3 2 1260 1070 1840
-preplace netloc fifo_generator_0_full 1 3 2 1270 1010 N
-preplace netloc key_debounce_0_extract_change_pulse 1 1 4 400J 750 NJ 750 NJ 750 1860
-preplace netloc key_debounce_0_freq_change_pulse 1 1 5 410J 1090 NJ 1090 1210 1090 1800 1750 NJ
-preplace netloc key_debounce_0_reset_pulse 1 1 1 430 1190n
-preplace netloc key_debounce_0_wave_change_pulse 1 1 4 410J 1250 NJ 1250 1230 1520 1740J
-preplace netloc key_extract_sel_0_1 1 0 5 40 1300 NJ 1300 NJ 1300 NJ 1300 1810J
-preplace netloc key_freq_sel_0_1 1 0 6 60 1290 NJ 1290 NJ 1290 NJ 1290 1780 1230 NJ
-preplace netloc key_reset_0_1 1 0 5 30 1320 420 1530 NJ 1530 1210 1530 NJ
-preplace netloc key_wave_sel_0_1 1 0 1 N 1180
-preplace netloc processing_system7_0_FCLK_CLK0 1 4 2 1900 510 2320
-preplace netloc sin_douta 1 3 2 1240 120 NJ
-preplace netloc square_douta 1 3 2 1260 270 1900J
-preplace netloc triangle_douta 1 3 2 1280 280 1890
-preplace netloc trigger_controller_0_fifo_read_enable 1 4 1 1820 910n
-preplace netloc trigger_controller_0_fifo_write_enable 1 4 1 1840 930n
-preplace netloc trigger_controller_0_fifo_write_ready 1 4 1 N 890
-preplace netloc xlconstant_0_dout 1 2 1 820J 820n
-preplace netloc xlconstant_1_dout 1 2 1 830J 940n
-preplace netloc xlconstant_3_dout 1 2 1 NJ 920
-preplace netloc data_in_from_pins_p_0_1 1 0 3 NJ 1610 NJ 1610 N
-preplace netloc data_in_from_pins_n_0_1 1 0 3 NJ 1630 NJ 1630 NJ
-preplace netloc selectio_wiz_0_data_in_to_device 1 3 1 1230 1600n
-preplace netloc ad9434_top_sdr_0_adc_output_data 1 4 1 N 1610
-preplace netloc ad9434_top_sdr_0_adc_output_valid 1 4 1 N 1630
-preplace netloc selectio_wiz_0_clk_div_out 1 3 2 1270 1700 1900
-preplace netloc xlconstant_2_dout 1 2 1 830J 1690n
-preplace netloc clk_wiz_0_AD9434 1 4 1 1790 1220n
-preplace netloc util_vector_logic_0_Res 1 2 3 810 1750 NJ 1750 1740
-preplace netloc processing_system7_0_DDR 1 5 1 NJ 570
-preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ 590
-preplace netloc util_ds_buf_0_CLK_OUT_D3 1 5 1 NJ 1290
-preplace netloc diff_clk_in_0_1 1 0 3 NJ 1590 NJ 1590 NJ
-levelinfo -pg 1 0 230 630 1020 1510 2110 2350
-pagesize -pg 1 -db -bbox -sgen -240 0 2530 1850
+preplace port DDR -pg 1 -lvl 10 -x 3920 -y 640 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 10 -x 3920 -y 660 -defaultsOSRD
+preplace port CLK_OUT_D3_0 -pg 1 -lvl 10 -x 3920 -y 900 -defaultsOSRD
+preplace port diff_clk_in_0 -pg 1 -lvl 0 -x 0 -y 840 -defaultsOSRD
+preplace port port-id_crystal_clk_50mhz -pg 1 -lvl 0 -x 0 -y 1090 -defaultsOSRD
+preplace port port-id_key_freq_sel_0 -pg 1 -lvl 0 -x 0 -y 530 -defaultsOSRD
+preplace port port-id_key_wave_sel_0 -pg 1 -lvl 0 -x 0 -y 700 -defaultsOSRD
+preplace port port-id_key_extract_sel_0 -pg 1 -lvl 0 -x 0 -y 720 -defaultsOSRD
+preplace port port-id_key_reset_0 -pg 1 -lvl 0 -x 0 -y 900 -defaultsOSRD
+preplace port port-id_adc_clk_0 -pg 1 -lvl 10 -x 3920 -y 1240 -defaultsOSRD
+preplace port port-id_dac_clk_0 -pg 1 -lvl 10 -x 3920 -y 530 -defaultsOSRD
+preplace port port-id_LED1 -pg 1 -lvl 10 -x 3920 -y 510 -defaultsOSRD
+preplace port port-id_LED2 -pg 1 -lvl 10 -x 3920 -y 550 -defaultsOSRD
+preplace portBus dac_data_out_0 -pg 1 -lvl 10 -x 3920 -y 340 -defaultsOSRD
+preplace portBus adc_data_input_0 -pg 1 -lvl 0 -x 0 -y 1430 -defaultsOSRD
+preplace portBus data_in_from_pins_p_0 -pg 1 -lvl 0 -x 0 -y 860 -defaultsOSRD
+preplace portBus data_in_from_pins_n_0 -pg 1 -lvl 0 -x 0 -y 880 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 9 -x 3650 -y 710 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 8 -x 3160 -y 870 -defaultsOSRD
+preplace inst data_extract_0 -pg 1 -lvl 4 -x 1510 -y 1060 -defaultsOSRD
+preplace inst dds_signal_generator_0 -pg 1 -lvl 8 -x 3160 -y 390 -defaultsOSRD
+preplace inst digital_trigger_dete_0 -pg 1 -lvl 4 -x 1510 -y 1250 -defaultsOSRD
+preplace inst key_debounce_0 -pg 1 -lvl 2 -x 550 -y 700 -defaultsOSRD
+preplace inst adc_data_acquisition_0 -pg 1 -lvl 3 -x 1010 -y 1430 -defaultsOSRD
+preplace inst sine -pg 1 -lvl 9 -x 3650 -y 90 -defaultsOSRD
+preplace inst square -pg 1 -lvl 9 -x 3650 -y 250 -defaultsOSRD
+preplace inst triangle -pg 1 -lvl 9 -x 3650 -y 430 -defaultsOSRD
+preplace inst xlconstant_3 -pg 1 -lvl 3 -x 1010 -y 1550 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 3 -x 1010 -y 1290 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 3 -x 1010 -y 1190 -defaultsOSRD
+preplace inst selectio_wiz_0 -pg 1 -lvl 2 -x 550 -y 890 -defaultsOSRD
+preplace inst ad9434_top_sdr_0 -pg 1 -lvl 3 -x 1010 -y 880 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 1 -x 180 -y 1030 -defaultsOSRD
+preplace inst util_ds_buf_0 -pg 1 -lvl 9 -x 3650 -y 900 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -x 180 -y 930 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 5 -x 2000 -y 850 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 7 -x 2750 -y 870 -defaultsOSRD
+preplace inst fifo_generator_1 -pg 1 -lvl 6 -x 2390 -y 1060 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 6 -x 2390 -y 840 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 8 -x 3160 -y 650 -defaultsOSRD
+preplace inst trigger_controller_a_0 -pg 1 -lvl 5 -x 2000 -y 1050 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 9 -x 3650 -y 1150 -defaultsOSRD
+preplace netloc adc_data_acquisition_0_adc_data_buffered 1 3 6 1290 1150 1800 1180 NJ 1180 2580J 1160 NJ 1160 3420J
+preplace netloc adc_data_input_0_1 1 0 3 NJ 1430 NJ 1430 NJ
+preplace netloc clk_in1_0_1 1 0 8 NJ 1090 NJ 1090 NJ 1090 1240J 950 NJ 950 NJ 950 2550J 970 2970J
+preplace netloc clk_wiz_0_adc_clk 1 2 8 780 1350 1280 1140 1790 1160 2220J 1150 NJ 1150 NJ 1150 3380 1050 3900J
+preplace netloc clk_wiz_0_dac_clk50 1 7 3 2970 260 3380 530 NJ
+preplace netloc clk_wiz_0_key 1 1 8 360 270 NJ 270 NJ 270 NJ 270 NJ 270 NJ 270 NJ 270 3350
+preplace netloc data_extract_0_data_extract_pulse 1 4 1 1780 1070n
+preplace netloc data_in_from_pins_n_0_1 1 0 2 30J 870 330J
+preplace netloc data_in_from_pins_p_0_1 1 0 2 NJ 860 NJ
+preplace netloc dds_signal_generator_0_dac_data_out 1 8 2 3410 340 NJ
+preplace netloc dds_signal_generator_0_sine_rom_addr 1 8 1 3360 80n
+preplace netloc dds_signal_generator_0_square_rom_addr 1 8 1 3370 240n
+preplace netloc dds_signal_generator_0_triangle_rom_addr 1 8 1 3420 380n
+preplace netloc digital_trigger_dete_0_digital_trigger_out 1 4 1 1770 1050n
+preplace netloc key_debounce_0_extract_change_pulse 1 2 2 760 800 1290J
+preplace netloc key_debounce_0_freq_change_pulse 1 2 8 NJ 670 NJ 670 NJ 670 NJ 670 NJ 670 2940 770 3400J 540 3900J
+preplace netloc key_debounce_0_reset_pulse 1 2 1 740 730n
+preplace netloc key_debounce_0_wave_change_pulse 1 2 6 740J 500 NJ 500 NJ 500 NJ 500 NJ 500 2920
+preplace netloc key_extract_sel_0_1 1 0 2 NJ 720 NJ
+preplace netloc key_freq_sel_0_1 1 0 10 NJ 530 340 530 NJ 530 NJ 530 NJ 530 NJ 530 NJ 530 NJ 530 3360J 550 NJ
+preplace netloc key_reset_0_1 1 0 9 20 830 350 1000 780 970 N 970 1750 1190 2230 1190 N 1190 N 1190 N
+preplace netloc key_wave_sel_0_1 1 0 2 NJ 700 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 4 6 1820 1150 2200 930 2570 770 2930 780 3420 580 3880
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 4 6 1810 510 NJ 510 NJ 510 NJ 510 3390J 560 3900
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 5 3 2230 920 2550 710 2950
+preplace netloc selectio_wiz_0_clk_div_out 1 2 1 N 880
+preplace netloc selectio_wiz_0_data_in_to_device 1 2 1 750 860n
+preplace netloc sin_douta 1 7 2 2960 120 NJ
+preplace netloc square_douta 1 7 2 2950 280 NJ
+preplace netloc triangle_douta 1 7 2 2970 500 3400J
+preplace netloc trigger_controller_a_0_trigger_active_status 1 5 4 2210 1170 NJ 1170 NJ 1170 NJ
+preplace netloc trigger_controller_a_0_trigger_ready_status 1 3 3 1300 980 1760J 1170 2180
+preplace netloc util_vector_logic_0_Res 1 1 1 340 900n
+preplace netloc xlconstant_0_dout 1 3 1 1240J 1190n
+preplace netloc xlconstant_1_dout 1 3 1 NJ 1290
+preplace netloc xlconstant_2_dout 1 1 1 360J 940n
+preplace netloc xlconstant_3_dout 1 3 1 1300 1270n
+preplace netloc axi_dma_0_M_AXI_S2MM 1 7 1 2920 590n
+preplace netloc axi_mem_intercon_M00_AXI 1 8 1 3360 650n
+preplace netloc axi_smc_M00_AXI 1 6 1 2560 830n
+preplace netloc diff_clk_in_0_1 1 0 2 NJ 840 NJ
+preplace netloc fifo_generator_1_M_AXIS 1 6 1 2580 850n
+preplace netloc processing_system7_0_DDR 1 9 1 NJ 640
+preplace netloc processing_system7_0_FIXED_IO 1 9 1 NJ 660
+preplace netloc processing_system7_0_M_AXI_GP0 1 5 5 2230 520 NJ 520 NJ 520 NJ 520 3890
+preplace netloc trigger_controller_a_0_m_axis 1 5 1 N 1030
+preplace netloc util_ds_buf_0_CLK_OUT_D3 1 9 1 NJ 900
+levelinfo -pg 1 0 180 550 1010 1510 2000 2390 2750 3160 3650 3920
+pagesize -pg 1 -db -bbox -sgen -250 0 4100 1610
 "
 }
 {
-   "da_board_cnt":"1",
+   "da_axi4_cnt":"15",
+   "da_axi4_s2mm_cnt":"1",
+   "da_board_cnt":"2",
+   "da_bram_cntlr_cnt":"4",
+   "da_clkrst_cnt":"7",
    "da_ps7_cnt":"2"
 }

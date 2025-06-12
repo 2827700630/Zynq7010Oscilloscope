@@ -24,9 +24,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_di
 # IP: bd/design_1/ip/design_1_key_debounce_0_0/design_1_key_debounce_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_key_debounce_0_0 || ORIG_REF_NAME==design_1_key_debounce_0_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_trigger_controller_0_1/design_1_trigger_controller_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_trigger_controller_0_1 || ORIG_REF_NAME==design_1_trigger_controller_0_1} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_adc_data_acquisition_0_0/design_1_adc_data_acquisition_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_adc_data_acquisition_0_0 || ORIG_REF_NAME==design_1_adc_data_acquisition_0_0} -quiet] -quiet
 
@@ -38,12 +35,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_si
 
 # IP: bd/design_1/ip/design_1_square_0/design_1_square_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_square_0 || ORIG_REF_NAME==design_1_square_0} -quiet] -quiet
-
-# IP: bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_fifo_generator_0_0 || ORIG_REF_NAME==design_1_fifo_generator_0_0} -quiet] -quiet
-
-# IP: bd/design_1/ip/design_1_ila_0_0/design_1_ila_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_ila_0_0 || ORIG_REF_NAME==design_1_ila_0_0} -quiet] -quiet
 
 # IP: bd/design_1/ip/design_1_xlconstant_3_0/design_1_xlconstant_3_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xlconstant_3_0 || ORIG_REF_NAME==design_1_xlconstant_3_0} -quiet] -quiet
@@ -69,6 +60,75 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_ut
 # IP: bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_util_vector_logic_0_0 || ORIG_REF_NAME==design_1_util_vector_logic_0_0} -quiet] -quiet
 
+# IP: bd/design_1/ip/design_1_rst_ps7_0_50M_1/design_1_rst_ps7_0_50M_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_rst_ps7_0_50M_1 || ORIG_REF_NAME==design_1_rst_ps7_0_50M_1} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_dma_0_0 || ORIG_REF_NAME==design_1_axi_dma_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_fifo_generator_1_1/design_1_fifo_generator_1_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_fifo_generator_1_1 || ORIG_REF_NAME==design_1_fifo_generator_1_1} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_smc_2/design_1_axi_smc_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_smc_2 || ORIG_REF_NAME==design_1_axi_smc_2} -quiet] -quiet
+
+# Block Designs: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/bd_6e42.bd
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_0/bd_6e42_one_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_1/bd_6e42_psr_aclk_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_2/bd_6e42_s00mmu_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_3/bd_6e42_s00tr_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_4/bd_6e42_s00sic_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_5/bd_6e42_s00a2s_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_6/bd_6e42_sarn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_7/bd_6e42_srn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_8/bd_6e42_sawn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_9/bd_6e42_swn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_10/bd_6e42_sbn_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_11/bd_6e42_m00s2a_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_12/bd_6e42_m00e_0.xci
+# DONT_TOUCH constraint suppressed by (parent) sub-design file.
+
+# IP: bd/design_1/ip/design_1_axi_mem_intercon_1/design_1_axi_mem_intercon_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_mem_intercon_1 || ORIG_REF_NAME==design_1_axi_mem_intercon_1} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_trigger_controller_a_0_0/design_1_trigger_controller_a_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_trigger_controller_a_0_0 || ORIG_REF_NAME==design_1_trigger_controller_a_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_ila_0_1/design_1_ila_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_ila_0_1 || ORIG_REF_NAME==design_1_ila_0_1} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_pc_0/design_1_axi_mem_intercon_imp_auto_pc_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_mem_intercon_imp_auto_pc_0 || ORIG_REF_NAME==design_1_axi_mem_intercon_imp_auto_pc_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_us_0/design_1_axi_mem_intercon_imp_auto_us_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_mem_intercon_imp_auto_us_0 || ORIG_REF_NAME==design_1_axi_mem_intercon_imp_auto_us_0} -quiet] -quiet
+
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_processing_system7_0_0 || ORIG_REF_NAME==design_1_processing_system7_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
@@ -86,17 +146,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filte
 
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_square_0/design_1_square_0_ooc.xdc
 
-# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0.xdc
-set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_fifo_generator_0_0 || ORIG_REF_NAME==design_1_fifo_generator_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
-
-# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/ila_v6_2/constraints/ila_impl.xdc
-set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_ila_0_0 || ORIG_REF_NAME==design_1_ila_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
-
-# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/ila_v6_2/constraints/ila.xdc
-#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_ila_0_0 || ORIG_REF_NAME==design_1_ila_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
-
-# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/design_1_ila_0_0_ooc.xdc
-
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0_ooc.xdc
 
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0.xdc
@@ -106,5 +155,57 @@ set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filte
 
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_util_ds_buf_0_0/design_1_util_ds_buf_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_util_ds_buf_0_0 || ORIG_REF_NAME==design_1_util_ds_buf_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_1/design_1_rst_ps7_0_50M_1_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_rst_ps7_0_50M_1 || ORIG_REF_NAME==design_1_rst_ps7_0_50M_1} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_axi_dma_0_0 || ORIG_REF_NAME==design_1_axi_dma_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0_clocks.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_axi_dma_0_0 || ORIG_REF_NAME==design_1_axi_dma_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_fifo_generator_1_1/design_1_fifo_generator_1_1.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_fifo_generator_1_1 || ORIG_REF_NAME==design_1_fifo_generator_1_1} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_fifo_generator_1_1/design_1_fifo_generator_1_1_clocks.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_fifo_generator_1_1 || ORIG_REF_NAME==design_1_fifo_generator_1_1} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_1/bd_6e42_psr_aclk_0_board.xdc
+# DONT_TOUCH constraint suppressed by parent sub-design file.
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_5/bd_6e42_s00a2s_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_6/bd_6e42_sarn_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_7/bd_6e42_srn_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_8/bd_6e42_sawn_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_9/bd_6e42_swn_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_10/bd_6e42_sbn_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_11/bd_6e42_m00s2a_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/smartconnect.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_axi_smc_2 || ORIG_REF_NAME==design_1_axi_smc_2} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/ila_v6_2/constraints/ila_impl.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_ila_0_1 || ORIG_REF_NAME==design_1_ila_0_1} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/ila_v6_2/constraints/ila.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_ila_0_1 || ORIG_REF_NAME==design_1_ila_0_1} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/design_1_ila_0_1_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_pc_0/design_1_axi_mem_intercon_imp_auto_pc_0_ooc.xdc
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_us_0/design_1_axi_mem_intercon_imp_auto_us_0_clocks.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==design_1_axi_mem_intercon_imp_auto_us_0 || ORIG_REF_NAME==design_1_axi_mem_intercon_imp_auto_us_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_us_0/design_1_axi_mem_intercon_imp_auto_us_0_ooc.xdc
 
 # XDC: e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/design_1_ooc.xdc

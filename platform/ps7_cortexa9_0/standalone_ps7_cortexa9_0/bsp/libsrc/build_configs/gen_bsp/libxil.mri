@@ -11,5 +11,6 @@ addlib E:/FPGAproject/Zynq7010Oscilloscope/platform/ps7_cortexa9_0/standalone_ps
 addlib E:/FPGAproject/Zynq7010Oscilloscope/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc/dmaps/src/libdmaps.a
 addlib E:/FPGAproject/Zynq7010Oscilloscope/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc/devcfg/src/libdevcfg.a
 addlib E:/FPGAproject/Zynq7010Oscilloscope/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc/coresightps_dcc/src/libcoresightps_dcc.a
+addlib E:/FPGAproject/Zynq7010Oscilloscope/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc/axidma/src/libaxidma.a
 save
 end

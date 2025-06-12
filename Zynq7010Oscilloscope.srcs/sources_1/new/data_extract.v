@@ -7,11 +7,12 @@
 // 功能说明:
 //   根据抽取比例设置，对输入数据进行抽取处理
 //   支持10种抽取模式：不抽取、2抽1、5抽1、10抽1...50000抽1
+//   已更新以适配32位AXI总线架构和新的trigger_controller数据打包逻辑
 //
 // 输入接口:
 //   - 系统时钟 (adc_clk_25mhz)
 //   - 抽取比例选择信号 (extract_ratio_change_pulse)
-//   - FIFO写准备信号 (fifo_write_ready)
+//   - FIFO写准备信号 (fifo_write_ready) - 应连接到trigger_controller的ready状态
 //
 // 输出接口:
 //   - 当前抽取比例 (current_extract_ratio)
@@ -35,6 +36,8 @@ module data_extract (
 );
 
     // 抽取比例定义
+    // 注意：由于trigger_controller现在将4个8位ADC样本打包成1个32位字，
+    // 实际的抽取比例需要考虑这个4:1的打包比例
     localparam [15:0] EXTRACT_RATIO_NO_EXTRACT = 16'd0;      // 不抽取 (每个样本都保留)
     localparam [15:0] EXTRACT_RATIO_2_TO_1     = 16'd1;      // 2抽1
     localparam [15:0] EXTRACT_RATIO_5_TO_1     = 16'd4;      // 5抽1  
@@ -78,6 +81,8 @@ module data_extract (
     //===========================================================================
     // 抽取计数器逻辑
     // 当FIFO写准备信号有效时，计数器递增；达到抽取比例时清零并产生脉冲
+    // 注意：fifo_write_ready应连接到trigger_controller的ready状态，
+    // 确保只有在trigger系统准备好接收数据时才进行抽取计数
     //===========================================================================
     always @(posedge adc_clk_25mhz) begin
         if (fifo_write_ready == 1'b1) begin
@@ -94,6 +99,7 @@ module data_extract (
     //===========================================================================
     // 数据抽取脉冲生成逻辑
     // 当FIFO写准备好且计数器达到抽取比例时产生脉冲
+    // 该脉冲将驱动trigger_controller的数据打包和AXI传输逻辑
     //===========================================================================
     always @(posedge adc_clk_25mhz) begin
         if (fifo_write_ready == 1'b1 && extract_counter == current_extract_ratio) begin

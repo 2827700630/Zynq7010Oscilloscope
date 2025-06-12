@@ -1,80 +1,10 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="27428" HostCore="20" HostMemory="016886128640">
+    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="27636" HostCore="20" HostMemory="016886128640">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="28600" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="30592" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="31500" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="32004" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="21644" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="17052" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="14192" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="32176" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="33680" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="34012" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="23768" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="2724" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="34644" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="6420" HostCore="20" HostMemory="016886128640">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="34028" HostCore="20" HostMemory="016886128640">
+    <Process Command="vivado.bat" Owner="28277" Host="MYHYM" Pid="12948" HostCore="20" HostMemory="016886128640">
     </Process>
 </ProcessHandle>

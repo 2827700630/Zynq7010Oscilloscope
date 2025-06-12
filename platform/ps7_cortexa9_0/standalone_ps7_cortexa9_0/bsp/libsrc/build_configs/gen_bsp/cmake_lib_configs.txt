@@ -132,10 +132,10 @@ standalone_profile_timer:STRING=None
 standalone_sleep_timer:STRING=None
 
 // stdin peripheral
-standalone_stdin:STRING=ps7_uart_1
+standalone_stdin:STRING=ps7_uart_0
 
 // stdout peripheral
-standalone_stdout:STRING=ps7_uart_1
+standalone_stdout:STRING=ps7_uart_0
 
 // Deprecated in favor of xiltimer
 standalone_ttc_select_cntr:STRING=None

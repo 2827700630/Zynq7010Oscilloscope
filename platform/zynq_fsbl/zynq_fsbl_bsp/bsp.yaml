@@ -60,7 +60,7 @@ os_config:
       permission: read_write
       type: string
       value: ps7_uart_1
-      default: ps7_uart_1
+      default: ps7_uart_0
       options:
       - None
       - ps7_uart_0
@@ -72,7 +72,7 @@ os_config:
       permission: read_write
       type: string
       value: ps7_uart_1
-      default: ps7_uart_1
+      default: ps7_uart_0
       options:
       - None
       - ps7_uart_0
@@ -154,6 +154,10 @@ include_folder: include
 lib_folder: lib
 libsrc_folder: libsrc
 drv_info:
+  axi_dma_0:
+    driver: axidma
+    ip_name: axi_dma
+    path: E:\FPGA\2025.1\Vitis\data\embeddedsw\XilinxProcessorIPLib\drivers\axidma_v9_19
   ps7_afi_0: None
   ps7_afi_1: None
   ps7_afi_2: None

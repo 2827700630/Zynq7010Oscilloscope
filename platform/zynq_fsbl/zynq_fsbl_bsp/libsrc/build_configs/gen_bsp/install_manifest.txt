@@ -7,6 +7,11 @@ E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/vectors.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xadcps.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xadcps_hw.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_bd.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_bdring.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_hw.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_porting_guide.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xbasic_types.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xcommon_drv_config.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xcoresightpsdcc.h
@@ -84,6 +89,11 @@ E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/vectors.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xadcps.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xadcps_hw.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_bd.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_bdring.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_hw.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_porting_guide.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xbasic_types.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xcommon_drv_config.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xcoresightpsdcc.h
@@ -161,6 +171,11 @@ E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/vectors.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xadcps.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xadcps_hw.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_bd.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_bdring.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_hw.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_porting_guide.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xbasic_types.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xcommon_drv_config.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xcoresightpsdcc.h
@@ -238,6 +253,11 @@ E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/vectors.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xadcps.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xadcps_hw.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_bd.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_bdring.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_hw.h
+E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xaxidma_porting_guide.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xbasic_types.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xcommon_drv_config.h
 E:/FPGAproject/Zynq7010Oscilloscope/platform/zynq_fsbl/zynq_fsbl_bsp/include/../include/xcoresightpsdcc.h

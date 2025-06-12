@@ -22,6 +22,25 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling C files.
 
+rule C_COMPILER__axidma_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = E:\FPGA\2025.1\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__axidma_
+  command = cmd.exe /C "$PRE_LINK && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -E rm -f $TARGET_FILE && arm-none-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && E:\FPGA\2025.1\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-ranlib.exe $TARGET_FILE && $POST_BUILD"
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
 rule C_COMPILER__coresightps_dcc_
   depfile = $DEP_FILE
   deps = gcc

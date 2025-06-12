@@ -1,7 +1,9 @@
 set_property SRC_FILE_INFO {cfile:e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc rfile:../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc id:1 order:EARLY scoped_inst:design_1_i/processing_system7_0/inst} [current_design]
 set_property SRC_FILE_INFO {cfile:e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xdc rfile:../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xdc id:2 order:EARLY scoped_inst:design_1_i/clk_wiz_0/inst} [current_design]
-set_property SRC_FILE_INFO {cfile:e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/ila_v6_2/constraints/ila.xdc rfile:../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/ila_v6_2/constraints/ila.xdc id:3 order:EARLY scoped_inst:design_1_i/ila_0/inst} [current_design]
+set_property SRC_FILE_INFO {cfile:e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/ila_v6_2/constraints/ila.xdc rfile:../../../Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/ila_v6_2/constraints/ila.xdc id:3 order:EARLY scoped_inst:design_1_i/ila_0/inst} [current_design]
 set_property SRC_FILE_INFO {cfile:E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/constrs_1/new/pinlayout.xdc rfile:../../../Zynq7010Oscilloscope.srcs/constrs_1/new/pinlayout.xdc id:4} [current_design]
+set_property SRC_FILE_INFO {cfile:E:/FPGA/2025.1/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl rfile:../../../../../FPGA/2025.1/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl id:5 order:LATE scoped_inst:design_1_i/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst unmanaged:yes} [current_design]
+set_property SRC_FILE_INFO {cfile:E:/FPGA/2025.1/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl rfile:../../../../../FPGA/2025.1/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl id:6 order:LATE scoped_inst:design_1_i/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst unmanaged:yes} [current_design]
 current_instance design_1_i/processing_system7_0/inst
 set_property src_info {type:SCOPED_XDC file:1 line:21 export:INPUT save:INPUT read:READ} [current_design]
 set_input_jitter clk_fpga_0 0.6
@@ -360,3 +362,10 @@ set_property src_info {type:XDC file:4 line:80 export:INPUT save:INPUT read:READ
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
 set_property src_info {type:XDC file:4 line:81 export:INPUT save:INPUT read:READ} [current_design]
 connect_debug_port dbg_hub/clk [get_nets dac_clk_0_OBUF]
+current_instance design_1_i/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst
+set_property src_info {type:SCOPED_XDC file:5 line:23 export:INPUT save:NONE read:READ} [current_design]
+create_waiver -internal -scoped -type CDC -id {CDC-6} -user "xpm_cdc" -tags "1009444" -desc "The CDC-6 warning is waived as it is safe in the context of XPM_CDC_GRAY." -from [get_pins -quiet {src_gray_ff_reg*/C}] -to [get_pins -quiet {dest_graysync_ff_reg*/D}]
+current_instance
+current_instance design_1_i/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst
+set_property src_info {type:SCOPED_XDC file:6 line:23 export:INPUT save:NONE read:READ} [current_design]
+create_waiver -internal -scoped -type CDC -id {CDC-6} -user "xpm_cdc" -tags "1009444" -desc "The CDC-6 warning is waived as it is safe in the context of XPM_CDC_GRAY." -from [get_pins -quiet {src_gray_ff_reg*/C}] -to [get_pins -quiet {dest_graysync_ff_reg*/D}]

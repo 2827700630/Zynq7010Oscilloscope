@@ -146,6 +146,14 @@ class processing_system7_v5_5_tlm : public sc_core::sc_module   {
     sc_core::sc_out<bool> USB0_VBUS_PWRSELECT;
     sc_core::sc_in<bool> USB0_VBUS_PWRFAULT;
     sc_core::sc_in<bool> M_AXI_GP0_ACLK;
+    sc_core::sc_out<sc_dt::sc_bv<8> >  S_AXI_HP0_RCOUNT;
+    sc_core::sc_out<sc_dt::sc_bv<8> >  S_AXI_HP0_WCOUNT;
+    sc_core::sc_out<sc_dt::sc_bv<3> >  S_AXI_HP0_RACOUNT;
+    sc_core::sc_out<sc_dt::sc_bv<6> >  S_AXI_HP0_WACOUNT;
+    sc_core::sc_in<bool> S_AXI_HP0_ACLK;
+    sc_core::sc_in<bool> S_AXI_HP0_RDISSUECAP1_EN;
+    sc_core::sc_in<bool> S_AXI_HP0_WRISSUECAP1_EN;
+    sc_core::sc_in<sc_dt::sc_bv<1> >  IRQ_F2P;
     sc_core::sc_out<bool> FCLK_CLK0;
     sc_core::sc_out<bool> FCLK_RESET0_N;
     sc_core::sc_inout<sc_dt::sc_bv<54> >  MIO;
@@ -172,6 +180,8 @@ class processing_system7_v5_5_tlm : public sc_core::sc_module   {
 
     xtlm::xtlm_aximm_initiator_socket*      M_AXI_GP0_wr_socket;
     xtlm::xtlm_aximm_initiator_socket*      M_AXI_GP0_rd_socket;
+    xtlm::xtlm_aximm_target_socket*         S_AXI_HP0_wr_socket;
+    xtlm::xtlm_aximm_target_socket*         S_AXI_HP0_rd_socket;
 
     //constructor having three paramters
     // 1. module name in sc_module_name objec, 
@@ -197,6 +207,8 @@ processing_system7_v5_5_tlm(sc_core::sc_module_name name,
     // Bridge's Xtlm wr/rd target sockets binds with 
     // xtlm initiator sockets of processing_system7_tlm and tlm simple initiator 
     // socket with xilinx_zynq's target socket
+    xtlm::xaximm_xtlm2tlm_t<64,32> S_AXI_HP0_xtlm_brdg;
+    xtlm::xtlm_aximm_fifo *S_AXI_HP0_buff;
 
     // This Bridges converts b_transport to nb_transports and also
     // Converts tlm transactions to xtlm transactions.
@@ -214,6 +226,7 @@ processing_system7_v5_5_tlm(sc_core::sc_module_name name,
     //FCLK_CLK0 pin written based on FCLK_CLK0_clk clock value 
     void trigger_FCLK_CLK0_pin();
     
+    void IRQ_F2P_method();
     //FCLK_RESET0 output reset pin get toggle when emio bank 2's 31th signal gets toggled
     //EMIO[2] bank 31th(GPIO[95] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
     void FCLK_RESET0_N_trigger();

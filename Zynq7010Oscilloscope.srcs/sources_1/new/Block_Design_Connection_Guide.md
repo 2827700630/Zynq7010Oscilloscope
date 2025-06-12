@@ -1,49 +1,72 @@
-# Vivado Block Design 连接指南
+# Vivado Block Design 连接指南 (Zynq PL-PS 数据通路更新)
 
-本文档旨在指导用户如何在Vivado Block Design (BD) 中连接重构后的Verilog模块，以实现ADC/DAC测试系统的功能。
+本文档旨在指导用户如何在Vivado Block Design (BD) 中连接模块，实现ADC数据通过触发控制、FIFO缓存，最终由AXI DMA传输到PS端的功能。
 
-## 1. 添加模块到Block Design
+## 1. 添加模块和IP到Block Design
 
-首先，需要将以下Verilog模块作为源文件添加到Vivado工程中，或者将它们打包成IP核后添加到IP Catalog，然后从Catalog中拖拽到Block Design画布上：
+确保以下模块和IP已添加到您的Block Design中：
 
-*   `key_debounce.v`
-*   `dds_signal_generator.v`
-*   `adc_data_acquisition.v`
-*   `digital_trigger_detector.v`
-*   `data_extract.v`
-*   `trigger_controller.v`
-*   `adc_fifo` (您需要一个FIFO IP核，例如Vivado自带的 FIFO Generator IP)
-*   `PLL` (您需要一个PLL/Clocking Wizard IP核，例如Vivado自带的 Clocking Wizard IP)
-*   三个独立的ROM IP核 (例如Vivado自带的 Block Memory Generator IP)，分别用于存储正弦波、方波和三角波的采样数据。
+*   `key_debounce.v` (按键消抖)
+*   `dds_signal_generator.v` (DDS信号发生器，用于DAC测试，如果当前主要关注ADC通路可暂时简化)
+*   `adc_data_acquisition.v` (ADC数据采集)
+*   `digital_trigger_detector.v` (数字触发检测)
+*   `data_extract.v` (数据抽取，产生采样脉冲)
+*   `trigger_controller_axi_stream.v` (带AXI4-Stream输出的触发控制器 - **这是更新后的模块**)
+*   **ZYNQ7 Processing System IP** (PS端核心)
+*   **AXI4-Stream Data FIFO IP** (用于PL端数据缓存)
+*   **AXI Direct Memory Access (DMA) IP** (用于PL到PS的数据传输)
+*   **Clocking Wizard IP** (PLL，用于生成PL端时钟)
+*   **Processor System Reset IP** (用于生成AXI总线和外设的复位信号)
+*   ROM IP核 (用于DDS，如果使用)
+*   Constant IP, Utility Vector Logic IP (用于生成常数和简单逻辑门，如反相器)
 
-## 2. 创建外部端口
+## 2. 创建外部端口 (示例)
 
-在Block Design的画布上，右键选择 "Create Port" 来创建以下外部输入和输出端口，这些端口将对应FPGA的物理引脚或与其他系统模块的接口。
+根据您的硬件设计创建必要的外部端口，例如：
 
 ### 输入端口:
-
-*   `crystal_clk_50mhz`: `clk` 类型, 单比特，外部50MHz晶振时钟输入。
-*   `key_freq_sel`: `data` 类型, 单比特，频率选择按键输入 (低电平有效)。
-*   `key_wave_sel`: `data` 类型, 单比特，波形选择按键输入 (低电平有效)。
-*   `key_extract_sel`: `data` 类型, 单比特，抽取比例选择按键输入 (低电平有效)。
-*   `key_reset`: `data` 类型, 单比特，系统复位按键输入 (低电平有效)。
-*   `adc_data_input`: `data` 类型, 8比特 (`[7:0]`)，ADC原始数据输入。
+*   `crystal_clk_50mhz`: `clk` 类型, 外部晶振。
+*   `key_...`: 按键输入。
+*   `sys_rst_n_external`: `rst` 类型, 单比特，外部复位按键输入 (低电平有效)。
+*   `adc_data_input_external`: `data` 类型, 8比特 (`[7:0]`)，ADC芯片数据输入。
 
 ### 输出端口:
+*   `led_...`: LED指示灯。
+*   (其他DAC或调试相关端口)
 
-*   `dac_data_output`: `data` 类型, 8比特 (`[7:0]`)，DAC数据输出。
-*   `dac_clock_output`: `clk` 类型, 单比特，DAC工作时钟输出。
-*   `adc_clock_output`: `clk` 类型, 单比特，ADC工作时钟输出。
-*   `led_pll_locked`: `data` 类型, 单比特，PLL锁定指示LED (低电平有效)。
-*   `led_fifo_full`: `data` 类型, 单比特，FIFO满状态指示LED (低电平有效)。
-*   `led_trigger_signal`: `data` 类型, 单比特，触发信号指示LED (低电平有效)。
-*   `led_trigger_enable`: `data` 类型, 单比特，触发使能指示LED (低电平有效)。
+## 3. ZYNQ7 Processing System (PS) 配置
 
-## 3. 模块间连接
+双击ZYNQ7 IP进行配置：
+*   **MIO Configuration**: 根据硬件配置管脚。
+*   **Clock Configuration**: 配置 `FCLK_CLK0` (例如100MHz或150MHz)，这将作为AXI总线的主要时钟。
+*   **PS-PL Configuration**: 使能至少一个AXI GP主接口 (如 `M_AXI_GP0`) 用于控制DMA，以及至少一个AXI HP从接口 (如 `S_AXI_HP0`) 用于DMA写入PS DDR。
+*   **Interrupts**: 使能PL到PS的中断 (`IRQ_F2P[0:0]` 或更多)。
 
-以下是各模块主要端口的连接建议：
+## 4. 时钟和复位系统
 
-### 3.1. 时钟生成 (PLL/Clocking Wizard IP)
+### 4.1. Clocking Wizard (PLL)
+*   **输入**:
+    *   `clk_in1`: 连接到外部端口 `crystal_clk_50mhz`。
+*   **输出**:
+    *   `clk_out1` (例如配置为25MHz): 命名为 `adc_clk_25mhz`，用于驱动ADC采样相关逻辑 (`adc_data_acquisition`, `digital_trigger_detector`, `data_extract`, `trigger_controller` 的核心逻辑部分, `AXI4-Stream Data FIFO` 的从端写时钟)。
+    *   `clk_out2` (例如配置为100MHz或与 `FCLK_CLK0` 一致): 如果需要，可用于其他PL逻辑，或作为AXI组件的备用时钟源 (但通常AXI组件直接使用 `FCLK_CLK0`)。
+    *   `locked`: 可连接到LED或用于复位逻辑。
+
+### 4.2. Processor System Reset
+*   添加一个 `Processor System Reset` IP。
+*   **输入**:
+    *   `slowest_sync_clk`: 连接到 `FCLK_CLK0` (来自PS)。
+    *   `ext_reset_in`: 连接到外部复位信号 `sys_rst_n_external` (确保极性正确，此IP通常期望高有效复位，如果外部是低有效，则需要反相器)。
+    *   `mb_debug_sys_rst`: 通常不使用，可悬空或接地。
+    *   `dcm_locked`: 连接到 `Clocking Wizard` 的 `locked` 输出。
+*   **输出**:
+    *   `peripheral_aresetn`: **低有效复位**，连接到所有AXI外设 (AXI DMA, AXI4-Stream FIFO的AXI接口等) 的复位输入端。确保连接到与 `FCLK_CLK0` 同步的AXI接口的复位。
+    *   `interconnect_aresetn`: 连接到AXI Interconnect (如果使用SmartConnect或AXI Interconnect IP) 的复位。
+    *   `bus_struct_reset`, `peripheral_reset`: 高有效复位，按需使用。
+
+## 5. 模块间连接
+
+### 5.1. 时钟生成 (PLL/Clocking Wizard IP)
 
 *   **输入**:
     *   `clk_in1`: 连接到外部端口 `crystal_clk_50mhz`。
@@ -53,7 +76,7 @@
     *   `clk_out2` (配置为25MHz): 命名为 `adc_clk_25mhz`。
     *   `locked`: 连接到 `led_pll_locked` 外部端口 (注意：LED为低电平有效，可能需要在BD中添加一个反相器，或者在约束文件中处理)。
 
-### 3.2. 按键消抖 (`key_debounce`)
+### 5.2. 按键消抖 (`key_debounce`)
 
 *   **输入**:
     *   `clk_25mhz`: 连接到 `adc_clk_25mhz` (来自PLL)。
@@ -67,7 +90,7 @@
     *   `extract_change_pulse`: 连接到 `data_extract.extract_ratio_change_pulse`。
     *   `reset_pulse`: 连接到 `adc_data_acquisition.reset_pulse`。
 
-### 3.3. DDS信号发生器 (`dds_signal_generator`)
+### 5.3. DDS信号发生器 (`dds_signal_generator`)
 
 *   **输入**:
     *   `dac_clk_50mhz`: 连接到 `dac_clk_50mhz` (来自PLL)。
@@ -83,7 +106,7 @@
     *   `triangle_rom_addr`: 连接到 三角波ROM IP的 `addra`。
     *   `current_freq_index`, `current_wave_type`: 这些是状态输出，可以悬空，或者如果需要在BD中其他地方监控，可以连接到ILA等调试核。
 
-### 3.4. ROM IP核 (三个独立的Block Memory Generator)
+### 5.4. ROM IP核 (三个独立的Block Memory Generator)
 
 *   **正弦波ROM**:
     *   `clka`: 连接到 `dac_clk_50mhz` (或根据ROM配置选择合适的时钟)。
@@ -101,86 +124,139 @@
 
     *注意: ROM的深度应为512 (因为地址是9位)，宽度为8位。确保在生成ROM IP时加载正确的波形数据文件 (.coe)。*
 
-### 3.5. ADC数据采集 (`adc_data_acquisition`)
+### 5.5. ADC数据采集 (`adc_data_acquisition`)
 
 *   **输入**:
-    *   `adc_clk_25mhz`: 连接到 `adc_clk_25mhz` (来自PLL)。
-    *   `adc_data_input`: 连接到外部端口 `adc_data_input`。
-    *   `reset_pulse`: 来自 `key_debounce.reset_pulse`。
+    *   `adc_clk_25mhz`: 来自 `Clocking Wizard`。
+    *   `adc_data_input`: 连接到外部端口 `adc_data_input_external`。
+    *   `reset_pulse`: 来自 `key_debounce.reset_pulse` (或连接到 `Processor System Reset` 的某个高有效复位输出，确保同步)。
 *   **输出**:
-    *   `adc_data_buffered`: 连接到 `digital_trigger_detector.adc_data_in` 和 `adc_fifo.din`。
-    *   `fifo_reset_signal`: 连接到 `adc_fifo.srst` (或 `rst`，取决于FIFO IP的复位端口名称和类型)。
+    *   `adc_data_buffered [7:0]`: 连接到 `trigger_controller_axi_stream.adc_data_input` 和 `digital_trigger_detector.adc_data_in`。
 
-### 3.6. 数字触发检测 (`digital_trigger_detector`)
+### 5.6. 数字触发检测 (`digital_trigger_detector`)
 
 *   **输入**:
-    *   `adc_clk_25mhz`: 连接到 `adc_clk_25mhz` (来自PLL)。
+    *   `adc_clk_25mhz`: 来自 `Clocking Wizard`。
     *   `adc_data_in`: 来自 `adc_data_acquisition.adc_data_buffered`。
-    *   `trigger_enable`: 在BD中创建一个Constant IP核，值为 `1'b1` (或者如果希望通过按键控制，则需要更复杂的逻辑从按键输入生成此信号)，连接到此端口。或者，直接在BD中将此端口连接到 `trigger_enable_setting` (如果已将其设为BD的输入端口或由其他逻辑生成)。简单起见，先用常数。
-    *   `trigger_level`: 在BD中创建一个Constant IP核，值为 `8'd120`，连接到此端口。
-    *   `trigger_hysteresis`: 在BD中创建一个Constant IP核，值为 `3'd3`，连接到此端口。
+    *   `trigger_enable`, `trigger_level`, `trigger_hysteresis`: 可由Constant IP提供，或连接到PS通过AXI GPIO控制的寄存器。
 *   **输出**:
-    *   `digital_trigger_out`: 连接到 `trigger_controller.digital_trigger_signal` 和外部端口 `led_trigger_signal` (注意LED低有效，可能需要反相器)。
+    *   `digital_trigger_out`: 连接到 `trigger_controller_axi_stream.digital_trigger_signal`。
 
-### 3.7. 数据抽取 (`data_extract`)
+### 5.7. 数据抽取 (`data_extract`)
 
 *   **输入**:
-    *   `adc_clk_25mhz`: 连接到 `adc_clk_25mhz` (来自PLL)。
-    *   `extract_ratio_change_pulse`: 来自 `key_debounce.extract_change_pulse`。
-    *   `fifo_write_ready`: 来自 `trigger_controller.fifo_write_ready`。
+    *   `adc_clk_25mhz`: 来自 `Clocking Wizard`。
+    *   `extract_ratio_change_pulse`: 来自 `key_debounce`。
+    *   `fifo_write_ready`: **重要修改** - 应连接到 `trigger_controller_axi_stream.trigger_ready_status`，而不是硬编码为 `1'b0`。这确保只有在触发系统准备好时才进行数据抽取。
 *   **输出**:
-    *   `data_extract_pulse`: 连接到 `trigger_controller.data_extract_pulse`。
-    *   `current_extract_ratio`, `extract_counter`: 状态输出，可悬空或连接到ILA。
+    *   `data_extract_pulse`: 连接到 `trigger_controller_axi_stream.data_extract_pulse`。
 
-### 3.8. 触发控制器 (`trigger_controller`)
+### 5.8. 触发控制器 (`trigger_controller_axi_stream`) - **32位AXI架构**
 
+*   **参数设置** (在BD中选中IP，查看Block Properties -> Config):
+    *   `TDATA_WIDTH`: **修改为 32** (AXI总线宽度)。
+    *   `ADC_DATA_WIDTH`: 保持为 8 (ADC数据宽度)。
+    *   `TRIGGER_PACKET_WORD_COUNT`: **修改为 512** (之前2048个8位字现在变成512个32位字，保持相同的总字节数)。
 *   **输入**:
-    *   `adc_clk_25mhz`: 连接到 `adc_clk_25mhz` (来自PLL)。
-    *   `fifo_empty`: 来自 `adc_fifo.empty`。
-    *   `fifo_full`: 来自 `adc_fifo.full`。
-    *   `digital_trigger_signal`: 来自 `digital_trigger_detector.digital_trigger_out`。
-    *   `data_extract_pulse`: 来自 `data_extract.data_extract_pulse`。
+    *   `adc_clk_25mhz`: 来自 `Clocking Wizard` (驱动模块核心逻辑和数据打包逻辑)。
+    *   `sys_rst_n`: 连接到一个与 `adc_clk_25mhz` 同步的**低有效复位**。可以由 `Processor System Reset` IP针对PL逻辑生成，或者简单地将 `sys_rst_n_external` 通过反相器后，再经过同步逻辑处理得到。
+    *   `digital_trigger_signal`: 来自 `digital_trigger_detector.digital_trigger_out`。    *   `data_extract_pulse`: 来自 `data_extract.data_extract_pulse`。
+    *   `adc_data_input [7:0]`: 来自 `adc_data_acquisition.adc_data_buffered`。
+    *   `m_axis_tready`: 来自 `AXI4-Stream Data FIFO` 的 `S_AXIS_TREADY`。
 *   **输出**:
-    *   `fifo_write_ready`: 连接到 `data_extract.fifo_write_ready`。
-    *   `fifo_write_enable`: 连接到 `adc_fifo.wr_en`。
-    *   `fifo_read_enable`: 连接到 `adc_fifo.rd_en`。
-    *   `pre_trigger_count`, `trigger_ready`, `trigger_state`: 状态输出，可悬空或连接到ILA。
+    *   `m_axis_tdata [31:0]`: **32位输出** - 连接到 `AXI4-Stream Data FIFO` 的 `S_AXIS_TDATA`。
+    *   `m_axis_tvalid`: 连接到 `AXI4-Stream Data FIFO` 的 `S_AXIS_TVALID`。
+    *   `m_axis_tlast`: 连接到 `AXI4-Stream Data FIFO` 的 `S_AXIS_TLAST`。
+    *   `trigger_ready_status`: **应连接到 `data_extract.fifo_write_ready`** 以实现正确的数据抽取控制。
+    *   `trigger_active_status`: 可连接到LED或ILA进行调试。
 
-### 3.9. ADC FIFO (FIFO Generator IP)
-
+### 5.9. AXI4-Stream Data FIFO - **32位数据宽度**
 *   **配置**:
-    *   接口类型: Native
-    *   FIFO实现: 根据资源和性能需求选择 (e.g., Block RAM)
-    *   读写时钟: `adc_clk_25mhz` (同步FIFO)
-    *   数据宽度: 8位
-    *   数据深度: 例如1024或2048 (根据需求调整，例如 `PRE_TRIGGER_DEPTH` 是500，总深度应大于此)
-    *   复位类型: 同步复位 (Synchronous Reset)
-*   **输入**:
-    *   `clk`: 连接到 `adc_clk_25mhz` (来自PLL)。
-    *   `srst` (或 `rst`): 连接到 `adc_data_acquisition.fifo_reset_signal`。
-    *   `din`: 连接到 `adc_data_acquisition.adc_data_buffered`。
-    *   `wr_en`: 连接到 `trigger_controller.fifo_write_enable`。
-    *   `rd_en`: 连接到 `trigger_controller.fifo_read_enable`。
-*   **输出**:
-    *   `dout`: 此端口的数据通常用于后续处理或通过JTAG/UART等接口传输出去。在当前设计中，如果只是为了板级测试DAC和ADC的配合，`dout` 可能不直接连接到外部DAC，因为DAC输出的是DDS生成的波形。如果需要观察采集到的ADC数据，可以将 `dout` 连接到ILA，或者引出到外部接口。目前可以暂时悬空或连接到ILA。
-    *   `full`: 连接到 `trigger_controller.fifo_full` 和外部端口 `led_fifo_full` (注意LED低有效，可能需要反相器)。
-    *   `empty`: 连接到 `trigger_controller.fifo_empty`。
+    *   FIFO Interface Type: AXI4-Stream.
+    *   FIFO Implementation: Block RAM.
+    *   **Clocking Mode: Independent Clocks** (因为读写在不同时钟域)。
+    *   **Slave AXI-Stream Interface (Write Port - PL side)**:
+        *   **Data Width: 32 bits** (匹配trigger_controller的输出)。
+        *   (根据需要配置深度，例如 `TRIGGER_PACKET_WORD_COUNT` 或更大)。
+    *   **Master AXI-Stream Interface (Read Port - AXI/DMA side)**:
+        *   **Data Width: 32 bits** (与DMA的S2MM接口数据宽度匹配)。
+*   **连接**:
+    *   **Slave Interface (Write - `trigger_controller` side)**:
+        *   `s_axis_aclk`: 连接到 `adc_clk_25mhz`。
+        *   `s_axis_aresetn`: 连接到与 `adc_clk_25mhz` 同步的**高有效复位** (注意：FIFO通常使用高有效复位)。
+        *   `S_AXIS_TDATA [31:0]`: **直接连接到 `trigger_controller.m_axis_tdata`** (移除之前的位拼接)。
+        *   `S_AXIS_TVALID`: 来自 `trigger_controller.m_axis_tvalid`。
+        *   `S_AXIS_TLAST`: 来自 `trigger_controller.m_axis_tlast`。
+        *   `S_AXIS_TREADY`: 连接到 `trigger_controller.m_axis_tready`。
+    *   **Master Interface (Read - DMA side)**:
+        *   `m_axis_aclk`: 连接到 `FCLK_CLK0` (来自PS)。
+        *   `m_axis_aresetn`: 连接到 `Processor System Reset` 的 `peripheral_aresetn`。
+        *   `M_AXIS_TDATA [31:0]`: 连接到 `AXI DMA` 的 `S_AXIS_S2MM_TDATA`。
+        *   `M_AXIS_TVALID`: 连接到 `AXI DMA` 的 `S_AXIS_S2MM_TVALID`。
+        *   `M_AXIS_TLAST`: 连接到 `AXI DMA` 的 `S_AXIS_S2MM_TLAST`。
+        *   `M_AXIS_TREADY`: 来自 `AXI DMA` 的 `S_AXIS_S2MM_TREADY`。
+    *   `s_axis_data_count`, `m_axis_data_count`: 可用于调试。
 
-### 3.10. 连接到外部输出端口
+### 5.A. AXI Direct Memory Access (DMA) - **32位数据宽度**
+*   **配置** (双击IP):
+    *   取消选中 "Enable Write Channel" (MM2S)。
+    *   **选中 "Enable Read Channel" (S2MM)**。
+    *   Buffer Length Register Width: 例如 16位 (支持最大64KB传输) 或更大 (如23位支持8MB)。根据 `TRIGGER_PACKET_WORD_COUNT` 计算所需字节数：512个32位字 = 512 × 4 = 2048字节，确保此宽度足够。
+    *   **S2MM Data Width**: **配置为32位** (与 `AXI4-Stream Data FIFO` 的 `M_AXIS_TDATA` 宽度一致)。
+    *   Max Burst Size: 根据性能需求选择 (例如16, 32, 64, 128, 256)。
+*   **连接**:
+    *   **S_AXI_LITE (Control Interface)**:
+        *   `s_axi_lite_aclk`: 连接到 `FCLK_CLK0`。
+        *   `s_axi_lite_aresetn`: 连接到 `Processor System Reset` 的 `peripheral_aresetn`。
+        *   将此接口通过AXI SmartConnect或AXI Interconnect连接到ZYNQ PS的 `M_AXI_GP0` (或 `M_AXI_GP1`) 接口，以便PS配置DMA。
+    *   **S_AXIS_S2MM (Stream Data Input from PL)**:
+        *   `s_axis_s2mm_aclk`: 连接到 `FCLK_CLK0`。
+        *   `S_AXIS_S2MM_TDATA [31:0]`: **32位数据** - 来自 `AXI4-Stream Data FIFO` 的 `M_AXIS_TDATA`。
+        *   `S_AXIS_S2MM_TVALID`: 来自 `AXI4-Stream Data FIFO` 的 `M_AXIS_TVALID`。
+        *   `S_AXIS_S2MM_TLAST`: 来自 `AXI4-Stream Data FIFO` 的 `M_AXIS_TLAST`。
+        *   `S_AXIS_S2MM_TREADY`: 连接到 `AXI4-Stream Data FIFO` 的 `M_AXIS_TREADY`。
+    *   **M_AXI_S2MM (Memory Mapped Data Output to PS DDR)**:
+        *   `m_axi_s2mm_aclk`: 连接到 `FCLK_CLK0`。
+        *   将此接口通过AXI SmartConnect或AXI Interconnect连接到ZYNQ PS的 `S_AXI_HP0` (或 `S_AXI_HP1`, `S_AXI_HP2`, `S_AXI_HP3`) 接口。
+    *   **Interrupts**:
+        *   `s2mm_introut`: 连接到ZYNQ PS的 `IRQ_F2P[0:0]` (或选择一个可用的中断输入)。
 
-*   `dac_clock_output`: 连接到 `dac_clk_50mhz` (来自PLL)。
-*   `adc_clock_output`: 连接到 `adc_clk_25mhz` (来自PLL)。
-*   `led_trigger_enable`:
-    *   如果 `digital_trigger_detector.trigger_enable` 是由BD内的常数 `1'b1` 提供，则此LED将常亮（表示使能）。将此端口连接到该常数（可能需要反相器）。
-    *   或者，更灵活地，将 `digital_trigger_detector` 的 `trigger_enable` 输入端口也作为BD的一个外部输入端口（例如 `ext_trigger_enable_input`），然后 `led_trigger_enable` 连接到这个 `ext_trigger_enable_input` (经过反相器)。
+## 6. 地址分配
 
-## 4. 注意事项
+*   在Block Design验证通过后，打开 "Address Editor" 选项卡。
+*   Vivado通常会自动分配AXI外设的地址。确保 `AXI DMA` 的 `S_AXI_LITE` 控制接口在PS的 `M_AXI_GPx` 地址空间内有一个分配的地址范围。
+*   `AXI DMA` 的 `M_AXI_S2MM` 接口不需要在PL的地址编辑器中分配地址，因为它直接访问PS的DDR内存空间。
 
-*   **LED驱动**: 所有LED输出端口 (`led_pll_locked`, `led_fifo_full`, `led_trigger_signal`, `led_trigger_enable`) 都是低电平有效。如果直接将高电平有效的信号连接到这些端口，LED的行为会相反。您可以在BD中使用 "Utility Vector Logic" IP核添加反相器，或者在顶层Wrapper生成后，在约束文件中处理（不推荐，最好在逻辑层面处理）。
-*   **Constant IP**: 对于固定的触发参数 (`trigger_level`, `trigger_hysteresis`, `trigger_enable`)，可以使用Vivado提供的 "Constant" IP核来生成这些值。
-*   **ILA调试**: 强烈建议在关键信号路径上添加ILA (Integrated Logic Analyzer) IP核，以便在硬件上进行调试。例如，可以监控ADC数据、触发信号、FIFO状态、DDS输出等。
-*   **Validate BD**: 在完成所有连接后，务必运行 "Validate BD" 功能，检查是否有连接错误或警告。
-*   **Generate Output Products**: 为BD生成输出产物，包括HDL Wrapper。
-*   **约束文件**: 不要忘记为所有外部端口（特别是时钟和物理IO）在XDC约束文件中添加正确的管脚分配和时序约束。
+## 7. **32位AXI架构关键修改总结**
 
-此连接指南提供了一个基础框架。根据您的具体FPGA开发板和进一步的设计需求，可能需要进行调整。
+### 7.1 Block Design修改要点
+1. **trigger_controller IP重新配置**：
+   - `TDATA_WIDTH` = 32
+   - `TRIGGER_PACKET_WORD_COUNT` = 512
+   - 更新IP封装以正确关联时钟和接口频率
+
+2. **FIFO Generator重新配置**：
+   - 数据宽度从8位修改为32位
+   - 移除不必要的位拼接，直接连接32位数据
+
+3. **关键连接修改**：
+   - `data_extract.fifo_write_ready` 连接到 `trigger_controller.trigger_ready_status`
+   - 所有AXI接口使用32位数据宽度
+   - 确保时钟域和复位信号正确连接
+
+### 7.2 软件侧修改
+在Vitis中，需要相应修改：
+- `MAX_PKT_LEN` = 512 × 4 = 2048字节
+- DMA传输配置使用32位数据宽度
+- 数据解析逻辑需要处理32位打包的数据
+
+## 8. 注意事项
+
+*   **时钟域交叉 (CDC)**: `AXI4-Stream Data FIFO` 在独立时钟模式下内部处理CDC。确保FIFO的深度足够应对时钟差异和数据突发。
+*   **复位同步**: 确保所有复位信号对于其对应的时钟域是同步的。`Processor System Reset` IP有助于生成符合AXI规范的同步复位。
+*   **AXI Interconnects**: 当连接多个AXI主设备到从设备，或多个从设备到一个主设备时，使用 `AXI SmartConnect` IP (推荐) 或 `AXI Interconnect` IP。
+*   **Validate BD**: 完成连接后，务必运行 "Validate BD" 检查错误。
+*   **ILA调试**: 在关键AXI4-Stream接口 (如 `trigger_controller` 到FIFO, FIFO到DMA) 和DMA控制信号上添加ILA，以便硬件调试。
+*   **数据对齐**: 32位架构下，确保DMA目标地址是4字节对齐的。
+
+此连接指南提供了一个详细的32位AXI架构框架。根据您的具体设计和FPGA开发板，可能需要进行微调。

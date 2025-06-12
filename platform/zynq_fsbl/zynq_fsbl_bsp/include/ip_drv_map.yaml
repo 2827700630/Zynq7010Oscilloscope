@@ -1,3 +1,6 @@
+axi_dma_0:
+- axi_dma
+- axidma
 ps7_afi_0:
 - ps7_afi
 - None

@@ -59,8 +59,8 @@ OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param tcl.collectionResultDisplayLimit 0
 set_param chipscope.maxJobs 5
 set_param general.usePosixSpawnForFork 1
+set_param bd.open.in_stealth_mode 1
 set_param xicom.use_bs_reader 1
-set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -70,9 +70,11 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.cache/wt [current_project]
 set_property parent.project_path E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths e:/FPGAproject/ip_repo/myip_1_0 [current_project]
+update_ip_catalog
 set_property ip_output_repo e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -85,10 +87,10 @@ read_verilog -library xil_defaultlib {
   E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/new/dds_signal_generator.v
   E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/new/digital_trigger_detector.v
   E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/new/key_debounce.v
-  E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/new/trigger_controller.v
   E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/new/adc_data_acquisition.v
   E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/new/ad9434_lvds_receiver_sdr.v
   E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/new/ad9434_top_sdr.v
+  E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/new/trigger_controller.v
   E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
 }
 add_files E:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.srcs/sources_1/bd/design_1/design_1.bd
@@ -99,15 +101,33 @@ set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq701
 set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_blk_mem_gen_2_0/design_1_blk_mem_gen_2_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_sin_0/design_1_sin_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_square_0/design_1_square_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0.xdc]
-set_property used_in_synthesis false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/ila_v6_2/constraints/ila.xdc]
-set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/design_1_ila_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_selectio_wiz_0_0/design_1_selectio_wiz_0_0.xdc]
 set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_util_ds_buf_0_0/design_1_util_ds_buf_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_util_ds_buf_0_0/design_1_util_ds_buf_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_1/design_1_rst_ps7_0_50M_1_board.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_fifo_generator_1_1/design_1_fifo_generator_1_1.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_fifo_generator_1_1/design_1_fifo_generator_1_1_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_1/bd_6e42_psr_aclk_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_5/bd_6e42_s00a2s_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_6/bd_6e42_sarn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_7/bd_6e42_srn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_8/bd_6e42_sawn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_9/bd_6e42_swn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_10/bd_6e42_sbn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_11/bd_6e42_m00s2a_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/smartconnect.xdc]
+set_property used_in_synthesis false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/ila_v6_2/constraints/ila.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_ila_0_1/design_1_ila_0_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_pc_0/design_1_axi_mem_intercon_imp_auto_pc_0_ooc.xdc]
+set_property used_in_synthesis false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_us_0/design_1_axi_mem_intercon_imp_auto_us_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_us_0/design_1_axi_mem_intercon_imp_auto_us_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/ip/design_1_axi_mem_intercon_imp_auto_us_0/design_1_axi_mem_intercon_imp_auto_us_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/FPGAproject/Zynq7010Oscilloscope/Zynq7010Oscilloscope.gen/sources_1/bd/design_1/design_1_ooc.xdc]
 
 OPTRACE "Adding files" END { }
